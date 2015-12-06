@@ -129,4 +129,11 @@ sympy-plots-for-*.tex/
 
 *.jpg
 import*.bib
-lit for cha1.bib
+lit\ for\ cha\ 1.bib
+*.mdown
+*.png
+*.eps
+test*.*
+Thesis*.pdf
+lower.tex
+Titlepage.sublime*
