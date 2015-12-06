@@ -1,0 +1,806 @@
+% \begin{abstract}
+% 	In this chapter we study the connection between the solutions of kinetic equations with Fermi-Dirac statistics and the solutions of the compressible Navier-Stokes equations. We use the Chapman-Enskog expansion similarly to [C.~Bardos, F.~Golse, and D.~Levermore, in:
+% \emph{Journal of statistical physics}, {Springer}, {1991},
+% pp.~{323--344}]. We establish the analytic properties of the linearised collision operator; in particular, we prove that under certain hypothesis on the collision kernel the linearised collision operator satifies the Fredholm alternative. We describe a general approach allowing to reuse the existing results from Maxwellian case. We build approximate solutions of order two of the scaled kinetic equation by using the solution of the Navier-Stokes equations with a particular form of dissipation,  heat flow, and viscosity.
+% \end{abstract}
+
+% \begin{otherlanguage}{french}
+% 	\begin{abstract}
+% 	Dans ce chapitre on étudie la rélation entre les solutions des équations cinétiques avec la statistique de Fermi-Dirac  et les  solutions des équations de  Navier-Stokes compressibles. On utilise le developpement de Chapman-Enskog  de manière similaire au \foreignlanguage{english}{	[C.~Bardos, F.~Golse, and D.~Levermore, in:	\emph{Journal of statistical physics}, {Springer}, {1991}, pp.~{323--344}].} On établit les propriété analytiques d'opérateur de collision linéarisé; en particulier, on démontre que sous certaines hypothèses sur le noyau de collision  l'opérateur de collision linéarisé satisfait l'alternative de Fredholm. On décrit l'approche générale permettant de réutiliser des résultat existants pour le cas Maxwellien. On construit les solutions approchées d'ordre deux d'equation cinétique sur la base des solutions d'équations de Navier-Stokes avec une forme particulière de dissipation, viscosité et flot de chaleur.
+% \end{abstract}
+% \end{otherlanguage}
+ % Keywords: Kinetic model, %(74A25)
+ %   Boltzmann equation, % (35Q20)
+ %   Navier-Stokes equations, %(35Q31).
+ %   Chapman-Enskog development,
+ %   Fredholm alternative. 
+
+   \section{Introduction}
+In this chapter we establish the connection between kinetic theory for Fermi-Dirac statistics and macroscopic fluid dynamics. We derive formal limits; as in the chapter \ref{cha:i}, we introduce a scaling for standard kinetic equations (see \cite{Landau1968Course}) of the form \eqref{eq:scaled}
+\begin{equation*}%\label{eq:scaled}
+\partial_t F_\varepsilon +v\cdot \nabla_xF_\varepsilon =\frac{1}{\varepsilon }C(F_\varepsilon ).
+\end{equation*}
+Here $F_\varepsilon$ is a nonnegative function representing the density of particles with position $x$ and velocity $v$ in the single-particle phase space $\mathbb R^3_x\times\mathbb R^3_v$ at time $t$. The interaction of particles through collisions is given by the operator $C(F)$; this operator acts only on the variable $v$ and is nonlinear in the general case. In the present work we rely, in particular, on the specific form of this operator.
+
+We base the connection between kinetic and macroscopic dynamics on the following two properties of the collision operator:
+
+\begin{enumerate}[(a)]
+\item \label{item:conserv} conservation properties and entropy relations
+implying that the equilibria are Fermi-Dirac (i.e. of the form
+$1/(1+\exp(c_1+c_2|v-u|^2)$) distributions;
+\item \label{item:derivative} the derivative of $C(F)$ satisfies the Fredholm alternative with a nullspace related to the conservation properties of $C$.
+\end{enumerate}
+We obtain the macroscopic limits when the fluid is dense enough so that particles undergo many collisions per unit of time. In order to describe this situation, we introduce a small parameter $\varepsilon$, called the Knudsen number, that is the ratio of the mean free path of particles between collisions to some characteristic length of the flow. 
+
+We use the connection between the parameters of a Fermi-Dirac distribution and its moments, which was established in \ref{cha:i}.
+%Properties \eqref{item:conserv} are used to derive the compressible Euler equations from \eqref{eq:scaled}; we will do so in section \ref{section:CEE}, assuming a formally consistent convergence for fluid dynamical moments and entropy of the kinetic equation \eqref{eq:scaled} (see theorem~\ref{th:CEE}).
+
+Properties \eqref{item:derivative} are used to obtain Navier-Stokes equations, which depend on a more detailed knowledge of the collision operator. The compressible Navier-Stokes equations appear as a correction to Euler equations at the next order of the Chapman-Enskog expansion; see section \ref{section:CSNE}. We generally follow the ideas presented in \cite{Bardos1991Fluid}. We need strong assumptions on the regularity of the solutions of the compressible Navier-Stokes equations in order to make sense of these expansions (see theorem~\ref{th:CSNE}).
+
+\section{Compressible Navier-Stokes equations}
+  \label{section:CSNE}
+In the chapter \ref{cha:i} it was established that the form of the limiting Euler equations is 
+independent of the choice of the collision operator $C$ in the class of operators satisfying conservation and entropy properties. This choice appears at the macroscopic level only in the construction of the Navier-Stokes limit. We obtain the compressible Navier-Stokes equations by the classical Chapman-Enskog expansion. We give a description of this method below.
+
+Given $(\mu,u,\theta)$, define the corresponding  Fermi-Dirac distribution
+\begin{equation}\label{eq:Fgen}
+F_{(\mu,u,\theta)}(v) =
+\left(1+\exp\left(-\frac{\mu}{\theta}+\frac{|v-u|^2}{2\theta}\right)\right)^{
+-1}.\end{equation} %
+The parameter $\mu\in\mro$ is the chemical potential, $u\in\mrt$ is the bulk velocity, and $\theta>0$ is the local temperature.
+
+However, for computational reasons it is useful to write Fermi-Dirac distributions in the form
+\begin{equation}\label{eq:Fgen2}
+F_{(f,u,\theta)}(v) =
+\left(1+\exp\left(-f+\frac{|v-u|^2}{2\theta}\right)\right)^{
+-1}\end{equation}with $f= \frac{\mu}{\theta}$.
+The subscript is omitted wherever it is convenient.
+The Navier-Stokes equations act on the hydrodynamic quantities $\rho$ and $\mathcal E$ defined in \eqref{eq:rho} and \eqref{eq:E}:
+\begin{equation*}%\label{eq:rho}
+\rho = \int\limits_{\mathbb R^3} \frac{\dv}{1+\exp\left(\frac{|v-u|^2}{2\theta}-f\right)} =  \theta^{3/2}\int\limits_{\mathbb R^3} \frac{\dv}{1+\exp\left(\frac{|v|^2}{2}-f\right)}, \end{equation*}
+% and
+\begin{equation*}%\label{eq:E}
+\mathcal E = \frac 13\int\limits_{\mathbb R^3} \frac{|v-u|^2\dv}{1+\exp\left(\frac{|v-u|^2}{2\theta}-f\right)} = \frac {\theta^{5/2}}{3}\int\limits_{\mathbb R^3} \frac{|v |^2\dv}{1+\exp\left(\frac{|v |^2}{2 }-f\right)}.
+\end{equation*}
+
+Note that $\rho$ and $\mathcal E$ do not depend on $u$ and are $\mathcal C^1$ functions of $f$ and $\theta$.
+We remind the result established in theorem \ref{th:existence:new} for moments of  Fermi-Dirac distributions of the form \eqref{eq:Fgen2}:
+
+\begin{theorem*}\label{th:existence:new-d} If $\rho$ and $\mathcal E$ are given, respectively, by \eqref{eq:rho} and \eqref{eq:E}, then the following statements hold: \begin{enumerate}\item
+	the ratio $\frac{\rho}{\mathcal E^{3/5}}$ depends only on $f$, 
+ \item setting $J=\frac{(8\pi\sqrt 2)^{2/5}}{3}\left(\frac 52 \right)^{3/5} $, then the map \[f\to\frac{\rho}{\mathcal E^{3/5}}\]is  $\mathcal C^\infty (\mathbb R; (0,J))$ and strictly monotone,
+
+\item the map $(f,\theta)\to(\rho,\mathcal E)$ is a diffeomorphism,
+
+\item $f$ and $\theta$ seen as functions of $\rho$ and $\mathcal E$ satisfy
+\begin{equation}\label{eq:transp:f-d}\rho\partial_\rho f +\frac 53\mathcal E \partial_{\mathcal E}f=0, \end{equation}
+\begin{equation}\label{eq:transp:theta-d}\rho\partial_\rho \theta +\frac 53\mathcal E \partial_{\mathcal E}\theta=\frac 23\theta.\end{equation}
+\end{enumerate}
+\end{theorem*}
+
+In this work we will consider the class of collision operators given by (see \cite{Lifshitz1981Course,Dolbeault1994FD})
+\begin{equation}\label {eq:Cform}
+C(F) = \col b\left(F'F'_\ast(1-F)(1-F_\ast)-FF_\ast(1-F')(1-F'_\ast)\right) \dv_\ast \dom,
+\end{equation}
+where, for each $\omega \in\mathbb S^2$ \[v' = v- (v-v_\ast,\omega)\omega,\quad v'_\ast= v_\ast+ (v-v_\ast,\omega)\omega,\]
+\[F'=F(t,x,v'), \quad F_\ast=F(t,x,v_\ast),\quad F_\ast'=F(t,x,v_\ast')\]
+and $b=b(|v-v_\ast|,|(\omega,v-v_\ast)|)>0$ is a collision kernel.
+We will assume that the collision kernel has separated form, i.e.
+\[ b(z, \omega) = |z|^\beta \hat b \left(\omega \cdot n \right),\quad \mbox{with }n=\frac{z}{|z|}\]
+and satisfies the weak cut-off condition (see \cite{Grad:weakCO}):
+ \begin{equation}\label{eq:b1FD
+}
+ 	b_1 = \int_{\mst} \hat b(\omega\cdot n)\dom< \infty.
+ \end{equation}
+Such a collision kernel will be said to correspond to a \enquote{hard} potential for the molecular
+interaction if $\beta \in  (0, 1]$, and to a  \enquote{soft} potential if $\beta\in(-d,0)$.
+The case $\beta=0$ corresponds to an assumption made by Maxwell 
+in \cite{maxwell1867dynamical}, and is referred to as the case of  \enquote{Maxwell molecules}.
+The case of hard sphere collisions is the case where $b(z, \omega) = |z \cdot \omega|$.
+
+We denote by $L$ and $Q$ the first two Fréchet derivatives of the operator 
+$G\to (F(1-F))^{-1}C(F+F(1-F)G)$ at $G=0$ for a Fermi-Dirac distribution $F$:
+\begin{equation}\begin{aligned}
+L(g)&=\frac{DC(F)\cdot (F(1-F)g)}{F(1-F)},\\Q(g,g)&=\frac{D^2C(F): 
+(F(1-F)g\otimes F(1-F)g)}{F(1-F)}.\end{aligned}
+\end{equation}
+By Taylor's formula% then gives
+\begin{equation}\label{eq:expansion}
+\frac{C(F+F(1-F)\varepsilon g)}{F(1-F)}= \varepsilon L(g) +\frac{\varepsilon^2}{2} Q(g,g)+\mathcal O(\varepsilon^3).
+\end{equation}
+
+In general, the operator $L$ is unbounded, but it is defined as a linear operator 
+in the space $L^2(F(1-F)\mathrm dv)$. 
+
+One can show that for the collision operator \eqref{eq:Cform} the linearised collision operator writes
+   \begin{equation}\label{eq:L:form}
+   	L[h](v)=\frac{1}{ (1-F)F }\col b\mathcal N \{h \} \dv_\ast\dom 
+   \end{equation}
+with\[\mathcal N = FF_\ast(1-F')(1-F'_\ast)=F'F'_\ast(1-F)(1-F_\ast)\]
+and\[\{\phi\}=\phi'_\ast+\phi'-\phi_\ast-\phi.\]
+The latter notation is connected to the following result:
+\begin{proposition}\label{pr:cerci}
+Let a continuous function $\phi$ satisfy
+\[\phi(v)+\phi(v_\ast)=\phi(v')+\phi(v'_\ast)\]
+almost everywhere in $v\in \mrt$, $v_\ast\in \mrt$, and $\omega\in\mathbb S^2$. Then there exist
+constant $a\in \mathbb R$, $b\in \mrt$, and $c\in   \mathbb R$ such that
+\[\phi(v)=a+b\cdot v+ c|v|^2.\]
+\end{proposition}
+The proof can be found in in \cite{cercignani1988boltzmann,Glassey1987Cauchy}. Moreover, in \cite{cercignani1994mathematical} the authors prove this result just for a measurable function $\phi$.
+
+Note that $FF_\ast(1-F')(1-F'_\ast)=F'F'_\ast(1-F)(1-F_\ast)$ if and only if $F$ is a Fermi-Dirac distribution.
+Indeed, Fermi-Dirac distributions satisfy this identity. If this identity is satisfied, then by considering the logarithm of this expression, we obtain that a.e. in $v$, $v_*$, and $\omega$
+\[\left\{\ln\left( \frac{F}{1-F} \right)\right\}= \ln\left( \frac{F_*'}{1-F_*'} \right) +\ln\left( \frac{F'}{1-F'} \right)-\ln\left( \frac{F_*}{1-F_*} \right)-\ln\left( \frac{F}{1-F} \right)=0.\]
+By Proposition \ref{pr:cerci}, this implies that $\frac{F}{1-F}$ is a local Maxwellian distribution and, therefore, that $F$ is a local Fermi-Dirac distribution.
+
+We will assume that the operator $L$ is symmetric and satisfies the Fredholm alternative. In the following subsection we establish 
+that these properties hold for a wide class of collision kernels.
+
+ In order to simplify the expressions we introduce the notation \[\langle s\rangle_k = \int_\mrt s(v)k(v)\dv\] for all functions $s\in L^1(k(v)\dv)$ and \[\langle s\rangle = \int_\mrt s(v) \dv\] for $s\in L^1(\dv)$.
+\subsection{Analytical properties of the linearised collision operator}
+
+ 
+\subsubsection{Compactness of loss and gain parts of the linearised collision operator}
+\label{sssec:fred}
+\begin{theorem}\label{th:com:exa}
+Suppose that the collision kernel has separate form and satisfies the weak cut-off condition \eqref{eq:b1FD
+}. Then the following results hold:
+\begin{enumerate}
+\item in the hard sphere case $\beta=1$ the linearised collision operator $L$ given by \eqref{eq:L:form} satisfies the Fredholm alternative in $L^2( F(v)(1-F(v))\dv)$.
+\item If $\beta>-3$,  %the collision kernel $b$ satisfies the properties
+ then the linearised collision operator
+ $\frac{1}{a^F}L$ satisfies the Fredholm alternative in 
+	$L^p( a^F(v)F(v)(1-F(v))\dv)$, where $a^F$ is given by
+	\[a^F(v) = \col b (\omega,v-v_\ast )\frac{F_\ast(1-F')(1-F'_\ast )}{1-F} \dv_\ast  \dom.\]
+\end{enumerate}
+
+\end{theorem}
+\begin{proof}
+The strategy of the proof consists in representing the linearised collision operator as a sum
+\[L=a(v)I+K_1-K_2-K_3,\]
+where $a(v)$ is a positive attenuation coefficient, the operators $K_i$ are positivity preserving. The operator $K_1$ is called the loss part and $K_2+K_3$ is called the gain part.
+
+Then we establish that the operators $K_i$ are compact and the inverse of the attenuation coefficient $\frac{1}{a(v)}$ is bounded, which allows us to conclude that $L$ satisfies the Fredholm alternative.
+
+
+In order to do so, we establish that given a collision kernel, the compactness of gain and loss parts of the linearised collision operator for the Maxwellian case is equivalent to the compactness of the corresponding part of the linearised collision operator in the quantum case.
+
+
+\begin{lemma}\label{lemma:comp:equiv} Let $F(v)=\frac{1}{1+e^{|v|^2-f}}$ and $M(v) = e^{-|v|^2}$. Denote $F_\ast=F(v_\ast )$, $F' = F(v')$, $F'_\ast =F(v'_\ast )$ and similarly for $M$. The attenuation coefficients for the Fermi-Dirac and the Maxwellian  cases are given, respectively, by
+\[a^F(v) = \col b (\omega,v-v_\ast )\frac{F_1(1-F')(1-F'_\ast )}{1-F} \dv_\ast  \dom ,\]
+and
+\[a^M(v) = \col b (\omega,v-v_\ast ) M_1 \dom  \dv_\ast .\]
+The loss and gain parts of the linearised collision operators for Fermi-Dirac and Maxwellian cases are given, respectively, by
+
+\[
+K^F_1[f](v) = \col b (\omega,v-v_\ast )\frac{F_1(1-F')(1-F'_\ast )}{1-F} f(v_\ast ) \dv_\ast  \dom,
+\]
+
+\[
+K^F_2[f](v) = \col b (\omega,v-v_\ast )\frac{F_1(1-F')(1-F'_\ast )}{1-F}f(v') \dv_\ast  \dom,
+\]
+
+\[
+K^F_3[f](v) = \col b(\omega,v-v_\ast )\frac{F_1(1-F')(1-F'_\ast )}{1-F} f(v'_\ast )\dv_\ast  \dom ,
+\]
+
+\[
+K^M_1[f](v) = \col b (\omega,v-v_\ast )M(v_\ast ) f(v_\ast ) \dv_\ast  \dom ,
+\]
+
+\[
+K^M_2[f](v) = \col b (\omega,v-v_\ast )M(v_\ast )f(v') \dv_\ast  \dom ,
+\]
+
+\[
+K^M_3[f](v) = \col b(\omega,v-v_\ast )M(v_\ast ) f(v'_\ast )\dv_\ast  \dom .
+\]
+The following statements hold:
+\begin{enumerate}
+\item there exist positive constants $c_1$, $c_2$ such that
+\begin{equation}\label{eq:a-equiv}
+c_1a^M(v)\le a^F(v)\le c_2a^M(v)\quad a.e.
+\end{equation}
+\item \label{it:simple:one} For each $i=1,2,3$ the operator \[K^F_i: L^2( F(v)(1-F(v))\dv)\to L^2( F(v)(1-F(v))\dv)\] is compact if and only if the operator \[K^M_i: L^2( M(v)\dv)\to L^2( M(v)\dv)\] is compact.
+\item \label{it:simple:sum}  The operator \[(K^F_2+K^F_3): L^2( F(v)(1-F(v))\dv)\to L^2( F(v)(1-F(v))\dv)\] is compact if and only if the operator \[(K^M_2+K^M_3): L^2( M(v)\dv)\to L^2( M(v)\dv)\] is compact.
+\item \label{it:complex:one} For each $i=1,2,3$ the operator \[\frac{1}{a^F}K^F_i: L^2( a^F(v)F(v)(1-F(v))\dv)\to L^2( a^F(v)F(v)(1-F(v))\dv)\] is compact if and only if the operator \[\frac{1}{a^M}K^M_i: L^2( a^M(v)M(v)\dv)\to L^2( a^M(v)M(v)\dv)\] is compact.
+\item \label{it:complex:sum} The operator  \begin{multline*}
+	\frac{1}{a^F}(K^F_2+K^F_3): L^2( a^F(v)F(v)(1-F(v))\dv)\\\to L^2( a^F(v)F(v)(1-F(v))\dv)
+\end{multline*}  is compact if and only if the operator \[\frac{1}{a^M}(K^M_2+K^M_3): L^2( a^M(v)M(v)\dv)\to L^2( a^M(v)M(v)\dv)\] is compact.
+\end{enumerate}
+\end{lemma}
+
+
+\begin{proof}
+We recall the following compactness criterion (see \cite{pitt1979compactness}):
+\begin{theorem}\label{th:pitt} Let $(X,\mathrm d\mu_X(x))$, $(Y,\mathrm d\mu_Y(y))$ be  spaces with separable measures\footnote{A measure $m$ is called separable, if the $\sigma$-algebra of measurable sets with the distance $d(A,B)=m(A\triangle B)$ is a separable metric space. Lebesgue measure and absolutely continuous measures with smooth weights are separable measures.},  $p\in(1,\infty)$, and $q\in[1,\infty)$. Suppose also that $K_1$ and $K_2$ are linear operators from $L^p(\mathrm d\mu_X)$ to $L^q(\mathrm d\mu_Y)$.
+If $K_2$ is compact, positivity preserving, and
+\[\forall f\in L^p(\mathrm d\mu_X)\quad 0\le |K_1[f](y)|\le K_2[|f|](y),\quad \mathrm d\mu_Y-a.e.,\]
+then the operator $K_1$ is also compact.
+\end{theorem}
+
+
+The inequalities 
+\begin{equation}\label{eq:F-est}\frac{1}{1+e^{f}}\le 1-F(v)\le 1, \quad \frac 12 e^{-|v|^2+f}\le F(v)\le e^{-|v|^2+f}\end{equation}
+allow us to immediately deduce the inequality \eqref{eq:a-equiv}. The same inequalities imply that the Lebesgue norms
+%\label{prop:norms-equiv}
+\[\|\cdot, L^p(a^F(v)F(v)\dv)\|,\quad \|\cdot, L^p(a^F(v)F(v)(1-F(v))\dv)\|,\]\[ \left\|\cdot, L^p\left(a^F(v)\frac{F(v)}{1-F(v)}\dv\right)\right\|,\quad \|\cdot, L^p(a^F(v)M(v)\dv)\|\]
+\[\|\cdot, L^p(a^M(v)F(v)\dv)\|,\quad \|\cdot, L^p(  a^M(v)F(v)(1-F(v))\dv)\|,\]\[ \left\|\cdot, L^p\left( a^M(v)\frac{F(v)}{1-F(v)}\dv\right)\right\|,\quad \|\cdot, L^p(  a^M(v)M(v)\dv)\|\]
+are equivalent for $p\in[1,+\infty]$.
+
+
+Obviously, the operators $K_i^F$ and $K_i^M$ are positivity preserving, therefore  applying  theorem \ref{th:pitt} together with inequalities \eqref{eq:a-equiv}, \eqref{eq:F-est} yields statements \ref{it:simple:one} and \ref{it:simple:sum} of the lemma \ref{lemma:comp:equiv}. Since the attenuation coefficients are   positive, the same reasoning leads to   statements \ref{it:complex:one} and \ref{it:complex:sum} of the same lemma.
+
+
+
+
+As an illustration for this theorem, for the hard sphere case (see \cite{Glassey1987Cauchy}) the operators $K^M_i$ are compact in $L^2(M\dv)$; therefore, in this case $K^F_i$ are  compact operators in $L^2( F(v)(1-F(v))\dv)$. Moreover, $a^M$ is separated from zero,  and so is $a^F$. If we recall the form of the operator $L$ given in \eqref{eq:L:form}, then we see that \begin{equation}
+	L = -\left(a^F(v)I+K^F_1-K_2^F-K_3^F\right),\label{eq:L-K}
+\end{equation}
+hence we  conclude that (1) holds.
+
+ If for the Maxwellian case this can be done by showing that the operators $K_1$ and $K_2+K_3$ are compact, then for the quantum case this also can be done and, hence, the Fredholm alternative holds.
+
+ As a further example, in \cite{Levermore2010Compactness}, the authors show that operators $\frac{1}{a^M}K^M_i$ are compact in $L^p(a^M(v)M(v)\dv)$ for $p\in (1, \infty)$ for collision kernels of separate form satisfying $\beta\in (-3,0)$ and \eqref{eq:b1FD
+}. Lemma \ref{lemma:comp:equiv} allows us to conclude immediately  that for this class of collision kernels the operators $\frac{1}{a^F}K^F_i$ are compact in $L^p( a^F(v)F(v)(1-F(v))\dv)$ for $p\in (1, \infty)$ and therefore we can deduce (2).
+		
+
+The representation \eqref{eq:L-K} enables us to prove that the operator $L$ is self-adjoint. In this theorem we established that in the hard sphere case the operators $K^F_1$ and $(K^F_2+K^F_3)$ are symmetric and compact, therefore they are bounded self-adjoint everywhere defined operators in $L^2(F(1-F)\dv)$. The operator $a^F(v) I$ is obviously a symmetric densely-defined operator in the same space with natural domain $L^2\left((a^F)^2F(1-F)\dv\right)$. Moreover, in \cite{Glassey1987Cauchy} the authors find an explicit view of the function $a^M(v)$; among other things, this function belongs to the space $L^2_{loc}(\mrt)$. By lemma \ref{lemma:comp:equiv}, so does the function $a^F(v)$; by a standard argument (see, for example, \cite{gitman2012self}), this implies that the operator $a^F(v)I$ is self-adjoint and therefore the operator $L$ is self-adjoint in $L^2(F(1-F)\dv)$ with domain $L^2\left((a^F)^2F(1-F)\dv\right)$.
+
+In the same spirit, for soft potentials $\beta\in(-3,0)$ the operators $\frac{1}{a^F(v)}K^F_1$ and $\frac{1}{a^F(v)}(K^F_2 + K^F_3)$ are compact and symmetric in the space $L^2(a^F F(1-F)\dv)$, therefore they are self-adjoint in this space. It is easy to conclude that the operator $\frac{1}{a^F}L$ is self-adjoint in the same space.
+
+\end{proof}
+
+\end{proof}
+Obviously, the general case with arbitrary $\theta>0$ and $u\in\mrt$ can be reduced to the above case by translating and rescaling the variable $v$. 
+
+\subsubsection{The nullspace of \texorpdfstring{$L$}{L} and its orthogonal complement}
+\begin{theorem}\label{th:kerL}  The linearised collision operator $L$ defined in \eqref{eq:L:form} is symmetric, nonpositive, and its nullspace is $\ker L = \mbox{span}\{1,v_1,v_2,v_3,|v|^2\}$. 
+\end{theorem}
+\begin{proof}
+% 	 We will need the following proposition:
+% \begin{proposition}\label{pr:tech}
+% 	Suppose that we have measurable functions  $W:\left(\mrt\right)^4\to\mathbb C$ and $h:\mrt\to \mathbb C$ such that the integral
+% 	\[I=\coll \left| W(v,v_\ast,v-(v-v_\ast,\omega)\omega,v_\ast+(v-v_\ast,\omega)\omega)h(v)\right|\dv\dv_\ast\dom\] exists.
+% 	Then the following identity holds:
+% 	\[I= 
+% 	\coll W(v_\ast,v,v_\ast+(v-v_\ast,\omega)\omega,v-(v-v_\ast,\omega)\omega)h(v_\ast)\dv\dv_\ast\dom.\]
+% 	\[=\coll W(v',v'_\ast,v,v_\ast)h(v)\dv\dv_\ast\dom\]
+% 	\[=\coll W(v'_\ast,v' ,v_\ast,v)h(v_\ast)\dv\dv_\ast\dom.\]
+% \end{proposition}
+% \begin{proof}
+% 	First, let us apply the change of variables $(v,v_\ast)\to (v_\ast,v)$. The Jacobian of such change of variables is $1$, hence 
+% 	\[I= \coll W(v_\ast,v,v_\ast+(v-v_\ast,\omega)\omega,v-(v-v_\ast,\omega)\omega)h(v_\ast)\dv\dv_\ast\dom.\]
+% 	In the next change of variables we will express $v$ and $v_\ast$  in terms of $v '$ and $v'_\ast$:
+% 	\[v= v'-(v'-v'_\ast,\omega)\omega,\quad v_\ast= v'_\ast-(v'-v'_\ast,\omega)\omega.\]
+% 	This change of variables also has   Jacobian equal to $1$, hence 
+% 	\[I=\coll W(v'-(v'-v'_\ast,\omega)\omega,v'_\ast+(v'-v'_\ast,\omega)\omega,v',v'_\ast)h(v')\dv'\dv'_\ast\dom\]
+% 	\[=\coll W(v-(v-v_\ast,\omega)\omega,v_\ast+(v-v_\ast,\omega)\omega,v,v_\ast)h(v)\dv\dv_\ast\dom\]
+% 	\[=\coll W(v',v'_\ast,v,v_\ast)h(v)\dv\dv_\ast\dom.\]
+
+% 	Applying the first change of variables to the above expression, we obtain that
+% 	\[I=\coll W(v'_\ast,v' ,v_\ast,v)h(v_\ast)\dv\dv_\ast\dom.\]
+% \end{proof}
+
+We remind the reader of expression for the operator $L$ given in  \eqref{eq:L:form}:\[
+L[h](v)=\frac{1}{ (1-F)F }\col b\mathcal N \{h \}\mathrm dv_\ast\dom, \]
+with\[\mathcal N = FF_\ast(1-F')(1-F'_\ast)=F'F'_\ast(1-F)(1-F_\ast)\]
+and\[\{h\}=h'_\ast+h'-h_\ast-h.\]
+Consider the inner product in $L^2(F(1-F)\dv)$ \[(L[g],q)=\coll b\mathcal N \{g \}\bar q\dv\dv_\ast\dom.\]
+We apply the proposition \ref{pr:tech} with $W= b\mathcal N \{g \}$ and $h=\bar q$ to obtain that
+\[(L[g],q) =  \coll b\mathcal N \{g \}\bar q\dv\dv_\ast\dom\]
+\[=\coll b\mathcal N \{g \}\bar q_\ast\dv\dv_\ast\dom\]
+\[=-\coll b\mathcal N \{g \}\bar q'\dv\dv_\ast\dom\]
+\[=-\coll b\mathcal N \{g \}\bar q'_\ast\dv\dv_\ast\dom,\]
+which allows us to conclude that
+\[(L[g],q) =  -\frac 14 \coll b\mathcal N \{g \}\{\bar q\}\dv\dv_\ast\dom.\]
+This expression immediately gives us that $L$ is symmetric. If we take $q=g$ and take into account that the factors $b$ and $\mathcal N$ are strictly positive, then \[(L[g],g)\le 0.\]
+If in the above expression the equality sign holds, then $\{g\}$ is zero a.e., which implies that $g$ belongs to $\ker L$; on the contrary, if $g\in\ker L$, then $(L[g],g)=0$.
+
+Finally, the proposition \ref{pr:cerci} shows that $\{g\}=0$ whenever it has the form $g(v)=a+w\cdot v+c|v|^2$ for some constants $a,c\in \mro$ and $w\in \mrt$, or, in other words, that $\ker L = \mbox{span}\{1,v_1,v_2,v_3,|v|^2\}$.
+\end{proof}
+Note that the collision invariants of the collision operator coincide with $\ker L$. As was established in the chapter \ref{cha:i}, we have \[\forall   e\in \ker L\quad \langle C(F)  e\rangle=0 \]for all measurable $F$ satisfying $0\le F\le 1$ almost everywhere in $\mrt$.
+
+\begin{theorem}\label{th:ortho}
+If \[V=\frac{v-u}{\sqrt\theta}, \quad A(V)=\left(\frac{|V|^2}{2}-\frac52   \frac{\mathcal E}{\rho\theta}\right)V,\quad B(V)=V\otimes V-\frac 13 |V|^2I,\]
+where $\rho$ and $\mathcal E$ are given by \eqref{eq:rho} and \eqref{eq:E}, then $A_i$ and
+$B_{ij}$   are orthogonal to $\ker L$ in $L^2(F(1-F) \dv)$.
+\end{theorem}
+
+\begin{proof}
+Clearly, it is sufficient to prove orthogonality to $1$, $V_i$, $|V|^2$.
+By symmetry, $B_{ij}$ is orthogonal to radial and odd functions, hence $B_{ij}\bot \ker L$; in the same spirit, $A_i\bot 1$, $A_i\bot |V|^2$, and $A_i\bot V_j$, $j\ne i$, because $A_i(V)$ is odd in $V_i$. Thus, the only part requiring proof is $A_i\bot V_i$.
+
+We write
+\[\langle A_i(V)V_i\rangle_{F(1-F)}=\left\langle \left(\frac{|V|^2}{2}-\frac52   \frac{\mathcal E}{\rho\theta}\right)V_i^2\right\rangle_{F(1-F)}.\]
+In order to prove this theorem we will introduce the following integrals:
+\[p^0_0 =\int_{\mathbb
+R^3}\left(1+\exp\left(-f + \frac{|v|^2}{2}\right)\right)^{-1}dv,\]
+
+\[p^0_2=   \int_{\mathbb
+R^3}|v|^2\left(1+\exp\left(-f + \frac{|v|^2}{2}\right)\right)^{-1}dv,\]
+
+\[p^1_0 =\int_{\mathbb R^3}\frac{\exp\left(-f + \frac{|v|^2}{2}\right)dv}
+{\left(1+\exp\left(-f + \frac{|v|^2}{2}\right)\right)^2},\]
+
+\[p^1_2 =\int_{\mathbb
+R^3}\frac{|v|^2\exp\left(-f + \frac{|v|^2}{2}\right)dv}
+{\left(1+\exp\left(-f + \frac{|v|^2}{2}\right)\right)^2},\]
+
+\[p^1_4 =\int_{\mathbb
+R^3}\frac{|v|^4\exp\left(-f + \frac{|v|^2}{2}\right)dv}{\left(1+\exp\left(-f +
+\frac{|v|^2}{2}\right)\right)^2}.\]
+It is easy to see that 
+\[p^1_4 = 5p^0_2,\quad p^1_2 = 3p^0_0,\]
+\[\frac{d}{df} p^0_0 =   p^1_0,\quad \frac{d}{df} p^0_2 =   p^1_2,\]
+\[\rho = \theta^{3/2}p^0_0,\quad \mathcal E = \frac 13 \theta^{5/2} p^0_2.\]
+In addition, \[\left\langle  V_i^2\right\rangle_{F(1-F)}=\theta^{3/2}\frac{p^1_2}{3},\]
+\[\left\langle \frac{|V|^2}{2} V_i^2\right\rangle_{F(1-F)} = \left\langle \frac{|V|^4}{6}  \right\rangle_{F(1-F)}=\theta^{3/2}\frac{p^1_4}{6},\] which allows us to conclude
+\[\langle A_i(V)V_i\rangle_{F(1-F)}=\theta^{3/2}   \frac{p^1_4}{6}- \theta^{3/2}\frac56   \frac{ p^0_2}{ p^0_0}\frac{p^1_2}{3}=0. \]
+
+
+
+ 
+
+ 
+\end{proof}
+\textbf{Remark 1.} The expression for $A$ agrees perfectly with the Maxwellian case. Indeed, since the Maxwellian distribution has the form
+\[\mathcal M_{\rho^M,u,\theta^M}(v)=\frac{\rho^M}{(2\pi\theta^M)^{3/2}}e^{-\frac{|v-u|^2}{2\theta^M}},\]
+the expression for local energy $\mathcal E_M$ writes
+\[\mathcal E^M=\frac 13 \left\langle \mathcal M_{\rho^M,u,\theta^M}(v) |v-u|^2 \right\rangle = \rho^M\theta^M.\]
+Moreover, if we define 
+\[V^M=V=\frac{v-u}{\sqrt {\theta^M}},\quad A^M(V)=\left(\frac{|V|^2}{2}-\frac 52\right)V,\]\[\quad B^M(V)=B(V)=V\otimes V-\frac{|V|^2}{3}I,\]
+then $A_i(V)$ and $B_{ij}(V)$ are orthogonal to the nullspace of the linearised collision operator $L_M$ (this nullspace is generated by the basis $\{1,v_1,v_2,v_3,|v|^2\}$) in the space $L^2(M\dv)$ (see
+ \cite{Bardos1991Fluid}).
+It is easy to see that if we put $\mathcal E=\mathcal E^M$, $\rho=\rho^M$, $\theta=\theta^M$ into the expression for $A$, then we obtain $A^M$.
+
+
+With the formalism established in this theorem, we obtain an expression for $A(V)\cdot \frac{\nabla_x\theta}{\sqrt\theta}$:
+
+\textbf{Corollary.}
+\begin{equation}\label{eq:Atheta}
+A(V)\cdot \frac{\nabla_x\theta}{\sqrt\theta}=\frac{|V|^2V}{2}\cdot \frac{\nabla_x\theta}{\sqrt\theta}  -
+\sqrt\theta V\cdot\left(-\nabla_x f + \frac{\nabla_x
+\mathcal E}{\rho\theta}\right).
+\end{equation}
+ 
+\begin{proof}
+It is sufficient to examine the following term:
+\[\sqrt\theta  \left(-\nabla_x f + \frac{\nabla_x
+\mathcal E}{\rho\theta}\right)=\sqrt\theta  \left(-\nabla_x f + \frac{\nabla_x
+\left(\frac{1}{3}\theta^{5/2}p^0_2\right)}{\rho\theta}\right)\]
+\[=\sqrt\theta  \left(-\nabla_x f + \frac{\frac52\frac {\mathcal 
+E}{\theta}\nabla_x\theta+
+ \frac{1}{3}\theta^{5/2}p^1_2\nabla_x f }{\rho\theta}\right)\]
+ \[=\sqrt\theta  \left(-\nabla_x f + \frac{\frac52\frac {\mathcal 
+E}{\theta}\nabla_x\theta+
+  \theta^{5/2}p^0_0\nabla_x f }{\theta^{5/2}p^0_0 }\right)\]
+ \[=\frac52   \frac{\mathcal E}{\rho\theta} \frac{\nabla_x\theta}{\sqrt\theta}.  \]
+ \end{proof}
+
+ \begin{lemma}\label{le:invertform:main}
+There exist unique functions $A'_i$, $B'_{ij}$ in $L^2(F(1-F)\dv)$, such that $A'_i\in(\ker L)^\bot$, $B'_{ij}\in (\ker L)^\bot$ and \[L[A'_i]=A_i,\quad L[B'_{ij}]=B_{ij}.\]
+Moreover, these functions have the form
+\[A'(V)= -\alpha_L(\rho,\mathcal E,|V|)A(V),\quad B'(V)= -\beta_L(\rho,\mathcal E,|V|)B(V)\]
+for some positive functions $\alpha_L$ and $\beta_L$.
+\end{lemma}
+The existence of such functions relies upon Fredholm alternative; the detailed proof can be found in lemma \ref{le:invert}.% The exact form is shown  in lemma \ref{le:invertform:appendix}.
+
+ 
+\subsection{The limiting result}
+A function $H_\varepsilon$ is said to be an approximate solution of order $p$ to 
+the kinetic equation \eqref{eq:scaled}, if 
+\begin{equation}\label{eq:Heq}
+\partial_t H_\varepsilon +v\cdot \nabla_xH_\varepsilon =\frac{1}{\varepsilon }C(H_\varepsilon ) +\mathcal O(\varepsilon ^p),
+\end{equation}
+where $\mathcal O(\varepsilon ^p)$ denotes a term bounded by $ \varepsilon ^p $ in some convenient norm. We will construct an approximate solution of order 2 in the form
+\begin{equation}\label{eq:Hform}
+ H_\varepsilon  =F_\varepsilon+\varepsilon F_\varepsilon(1-F_\varepsilon)(g_\varepsilon+\varepsilon w_\varepsilon),
+\end{equation}
+where $(\rho_\varepsilon,u_\varepsilon,\mathcal E_\varepsilon)$ solve the compressible Navier-Stokes equations with dissipation of order $\varepsilon$:
+\begin{equation}\label{eq:CSNE}
+\begin{aligned}
+\partial_t \rho + \nabla_x\cdot (\rho u) &= 0,\\
+\rho(\partial_t +u\cdot\nabla_x)u + \nabla_x\mathcal E &=
+\varepsilon\nabla_x\cdot (\mu\sigma),\\
+\frac 32 (\partial_t\mathcal E +\nabla_x\cdot (\mathcal Eu))+\mathcal
+E(\nabla_x\cdot u) &
+= \varepsilon\frac 12 \mu\sigma:\sigma-\varepsilon\nabla_x\cdot q,
+\end{aligned}
+\end{equation}
+where $\sigma = \nabla_x u +\nabla_x u^T - \frac 23 (\nabla_x  \cdot u)I$ is the strain-rate tensor and
+ \begin{equation}\label{eq:visc}
+ \begin{aligned}
+ \mu(\rho,\mathcal E) &= \theta \left\langle \beta_L(\rho,\mathcal E,|V|)  B_{12}^2(V)\right\rangle_{F(1-F)}, \\
+  \kappa(\rho,\mathcal E) &= \theta \left\langle \alpha_L(\rho,\mathcal E,|V|)  A_{1}^2(V)\right\rangle_{F(1-F)}, \\
+ q&= -  \kappa(\rho,\mathcal E)\nabla_x\theta.
+ \end{aligned}
+ \end{equation}
+ We also impose additional constraint that 
+\begin{equation}
+ \label{cond:existenceE}\frac{\rho_\varepsilon}{\mathcal
+E_\varepsilon^{3/5}}<J=\frac{(8\pi\sqrt 2)^{2/5}}{3}\left(\frac 52 \right)^{3/5}.
+\end{equation}
+
+
+We formulate the Chapman-Enskog derivation according to the following theorem following \cite{Bardos1991Fluid}.
+\begin{theorem}\label{th:CSNE}
+Assume that $(\rho_\varepsilon,u_\varepsilon,\mathcal E_\varepsilon)$ solve the compressible Navier-Stokes equations \eqref{eq:CSNE} with   viscosity $\mu$ and thermal diffusivity $\kappa$ given by \eqref{eq:visc} and satisfy the condition \eqref{cond:existenceE}. Then there exist $g_\varepsilon$ and
+$w_\varepsilon$ in $(\ker L)^\bot$ such that $H_\varepsilon$ given by \eqref{eq:Hform} is an approximate solution of the order $2$ to the equation \eqref{eq:scaled}. Moreover, $g_\varepsilon$ is given by the formula
+\begin{equation}\label{eq:g}
+g_\varepsilon= -\alpha_L(\rho_\varepsilon,\mathcal E_\varepsilon,|V|)A(V)\cdot \frac{\nabla_x\theta_\varepsilon}{\sqrt{\theta_\varepsilon}}-\frac 12\beta_L(\rho_\varepsilon,\mathcal E_\varepsilon,|V|)B(V):\sigma(u_\varepsilon).
+\end{equation}
+\end{theorem}
+\begin{proof}
+We omit the subscript $\varepsilon$. In addition, thanks to the existence of diffeomorphism between $(\mu,\theta)$ and $(\rho,\mathcal E)$  established in lemma \ref{th:existence:new} (see chapter \ref{cha:i}), we can conduct our reasoning in the set of variables of our choice.
+
+
+
+We put the expression \eqref{eq:Heq} into the equation \eqref{eq:Hform}, this yields the formula
+
+\begin{equation}\label{eq:twoseries}
+\begin{split}
+ \frac{(\partial_t   + v\cdot \nabla_x)F}{F(1-F)}+\varepsilon\frac{(\partial_t   
++ v\cdot \nabla_x)(F(1-F)g)}{F(1-F)}\\=L(g)+\varepsilon\left(L(w)+\frac 12 
+Q(g,g)\right)+\mathcal O(\varepsilon^2).\end{split}
+\end{equation}
+First, we prove the following proposition:
+\begin{proposition}\label{pr:expansion}
+For all $g\in L^2(F(1-F)\dv)$, the functions $Q(g,g)$ and $\mathcal O$ in the above expansion belong to $(\ker L)^\bot$.  
+\end{proposition}\begin{proof}
+	Indeed, let us take $ e\in \ker L$, and $\epsilon$ -- small parameter. We can write 
+\[\frac{C(F+\epsilon F(1-F)g)}{F(1-F)}= \epsilon L(g)+\frac{\epsilon^2}{2}Q(g,g)+\mathcal O(\epsilon^3).\]
+One has 
+\[\left\langle \frac{C(F+\epsilon F(1-F)g)  e}{F(1-F)}\right\rangle_{F(1-F)}=\left\langle  C(F+\epsilon F(1-F)g)  e  \right\rangle =0\]
+by the conservation properties of the operator $C$. On the other hand, 
+\[\left\langle   L(g)  e  \right\rangle_{F(1-F)}=0, \]
+because $L=L^\ast$ and $  e\in\ker L$.
+Hence,   dividing by $\epsilon^2$, we arrive at
+\[\left\langle  \frac{\vec e}{2}Q(g,g)+\mathcal O(\epsilon)   e  \right\rangle_{F(1-F)}=0.\]
+By passing to the limit $\epsilon\to 0$ we obtain that $Q(g,g)\bot e$, or, in other words, $Q(g,g)\in(\ker L)^\bot$.
+In the same spirit, the term denoted by $\mathcal O(\epsilon)$ also belongs to $(\ker L)^\bot$.
+\end{proof}
+
+ We take $f=\frac{\mu}{\theta}$, derive \eqref{eq:Fgen}, and, with the notation $V=\frac{v-u}{\sqrt\theta}$, we obtain  formulas
+ 
+ 
+\begin{equation*}\label{eq:choicePartial}
+\begin{aligned}
+ \frac{\nabla_u F}{F(1-F)} &= \frac{V}{\sqrt\theta},\\
+\frac{\partial_{\rho} F}{F(1-F)}&= \partial_\rho
+f+\frac{|V|^2}{2\theta}\partial_\rho\theta,\\
+\frac{\partial_{\mathcal E}
+F}{F(1-F)}&= \partial_{\mathcal E}f+\frac{|V|^2}{2\theta}\partial_{\mathcal
+E}\theta.
+\end{aligned}
+\end{equation*}
+Therefore, 
+\begin{equation}
+ \label{eq:choiceTotal1st}\begin{split}
+ \frac{(\partial_t   + v\cdot \nabla_x)F}{F(1-F)} = 
+\left(
+\frac{|V|^2}{2\theta}\partial_\rho\theta+\partial_\rho f\right) (\partial_t +
+v\cdot \nabla_x)\rho \\
++\left(\frac{|V|^2}{2\theta}\partial_{\mathcal
+E}\theta+\partial_{\mathcal E}f\right) (\partial_t  + v\cdot
+\nabla_x)\mathcal
+E \\ 
++ \frac{V}{\sqrt\theta}\cdot ((\partial_t   + v\cdot \nabla_x)u).\end{split}
+\end{equation}
+
+By solving \eqref{eq:CSNE} with respect to time derivative and substituting it into
+\eqref{eq:choiceTotal1st}, we obtain 
+\begin{equation}\label{eq:choiceTotal2nd}
+ \begin{split} \frac{(\partial_t   + v\cdot \nabla_x)F}{F(1-F)} = 
+\left(
+\frac{|V|^2}{2\theta}\partial_\rho\theta+\partial_\rho f\right) (\sqrt\theta
+V\cdot\nabla_x \rho -
+\rho\nabla_x\cdot u) \\
++\left(\frac{|V|^2}{2\theta}\partial_{\mathcal
+E}\theta+\partial_{\mathcal E}f\right) \left(\sqrt\theta V\cdot\nabla_x \mathcal
+E - \frac 53 \mathcal E\nabla_x\cdot u\right) \\ 
++ \frac{V}{\sqrt\theta}\cdot \left(\left(\sqrt\theta V\cdot\nabla_x
+\right)u-\frac{\nabla_x\mathcal E}{\rho}\right)+ \varepsilon R\end{split}
+\end{equation}
+where
+\begin{equation*}\label{eq:R}
+R=\left(\frac{|V|^2}{2\theta}\partial_{\mathcal
+E}\theta-\partial_{\mathcal E}f\right) \left(\frac {1}{3} \mu\sigma:\sigma-\frac
+23 \nabla_x\cdot q\right)+\frac{V}{\sqrt\theta}\cdot\left(\frac{ \nabla_x\cdot (\mu\sigma)}{\rho}\right).
+\end{equation*}
+By using the formula
+\[ (V\otimes V):\nabla_xu = \frac 12 (V\otimes
+V):\left(\nabla_xu+\nabla_xu^T-\frac23(\nabla_x\cdot u) I \right)+\frac 13
+|V|^2(\nabla_x\cdot u) \] 
+\[=\frac 12 B(V):\sigma(u)+\frac 13
+|V|^2(\nabla_x\cdot u)\]
+together with the equations \eqref{eq:transp:f}, \eqref{eq:transp:theta}, and corollary \ref{eq:Atheta}, we can further simplify the expression \eqref{eq:choiceTotal2nd} to 
+\begin{equation}\label{eq:choiceTotal3rd}
+  \frac{(\partial_t \rho + v\cdot \nabla_x)F}{F(1-F)} =\frac 12 B(V):\sigma(u)  
++A(V)\cdot \frac{\nabla_x\theta}{\sqrt\theta}+\varepsilon R.
+\end{equation}
+From \eqref{eq:twoseries} and
+\eqref{eq:choiceTotal3rd} it immediately follows that the term of   order one with respect to $\varepsilon$ has to be given by the formula \eqref{eq:g}.
+To complete the proof, we need to show that there exists a function $w$ such that the terms of order one in \eqref{eq:twoseries} are cancelled.
+
+This is equivalent to saying that there exists a solution  $w$ of the equation
+
+\begin{equation}\label{eq:secondorder}
+L(w)=R+\frac{(\partial_t+v\cdot\nabla_x)(F(1-F)g)}{F(1-F)}-\frac{1}{2}Q(g,g)\end{equation}where $F$, $g$, and $R$ are given. By the Fredholm alternative, the solution exists if and only if the right side of \eqref{eq:secondorder} belongs to $(\ker L)^\bot$.
+As we have already seen, the term $Q(g,g)$ belongs to $(\ker L)^\bot$. The term $\frac{\partial_t(F(1-F)g)}{F(1-F)}$ is in $(\ker L)^\bot$, too. Indeed, let us again take $  e\in \ker L$, then
+\[ \left\langle   e \frac{\partial_t(F(1-F)g)}{F(1-F)}\right\rangle_{F(1-F)}\]
+\[= \left\langle   e  \partial_t(F(1-F)g)  \right\rangle_{1}=  
+\partial_t\left\langle   e  (F(1-F)g)  \right\rangle \]
+\[=   
+\partial_t\left\langle   e  g  \right\rangle_{F(1-F)}=0\]
+by the construction of $g$. 
+
+Let us study the scalar products of the terms $R$ and $\frac{  v\cdot\nabla_x 
+(F(1-F)g)}{F(1-F)}$ with the vectors $1$, $V$, $|V|^2$ in $L^2(F(1-F)dv)$. With the notations introduced in the proof of theorem \ref{th:ortho}, one has
+\[\langle R\rangle_{F(1-F)}=\left(\frac{\sqrt \theta\partial_{\mathcal
+E}\theta}{2}p^1_2-\theta^{3/2}p^1_0\partial_{\mathcal E}f\right)\left(\frac {1}{3} \mu\sigma:\sigma-\frac
+23 \nabla_x\cdot q\right).\]
+Since
+\[\frac{\sqrt \theta\partial_{\mathcal
+E}\theta}{2}p^1_2-\theta^{3/2}p^1_0\partial_{\mathcal E}f=
+\frac{3\sqrt \theta\partial_{\mathcal
+E}\theta}{2}p^0_0+\theta^{3/2}\frac{d}{df}p^0_0\partial_{\mathcal E}f
+\]
+\[=\partial_{\mathcal 
+E}(\theta^{3/2}p^0_0)=\partial_{\mathcal
+E}\rho =0
+,\]
+we conclude \[\langle R\rangle_{F(1-F)}=0.\]
+On the other hand,
+\[\left\langle \frac{  v\cdot\nabla_x (F(1-F)g)}{F(1-F)}  
+\right\rangle_{F(1-F)}\]
+\[=\nabla_x \cdot\left\langle    v(F(1-F)g)  \right\rangle_{1}=
+\nabla_x \cdot\left\langle    v g \right\rangle_{F(1-F)}=0.\]
+Then
+\[\langle \sqrt\theta V R\rangle_{F(1-F)}=\frac 13 \theta^{3/2} p^1_2  \frac{ \nabla_x\cdot (\mu\sigma)}{\rho}=
+  \nabla_x\cdot (\mu\sigma) ,\]
+and
+\[\left\langle  \sqrt\theta V\frac{  v\cdot\nabla_x (F(1-F)g)}{F(1-F)}  
+\right\rangle_{F(1-F)}\]
+\[=\nabla_x\cdot\left\langle  \sqrt\theta V\otimes v  g \right\rangle_{F(1-F)}-
+\left\langle  \sqrt\theta g ( v\cdot\nabla_x)V   \right\rangle_{F(1-F)}\]
+\[\begin{split}=\nabla_x\cdot\left\langle  \theta V\otimes V  g 
+\right\rangle_{F(1-F)}+
+\nabla_x\cdot\left(\left\langle   \sqrt\theta V  g \right\rangle_{F(1-F)}
+  \otimes u\right)
+\\+\left(\left\langle \sqrt\theta g   v    
+\right\rangle_{F(1-F)}\cdot\nabla_x\right)\left(\frac{u}{\sqrt\theta} 
+\right)\end{split}\]
+
+\[=\nabla_x\cdot\left\langle  \theta V\otimes V  g \right\rangle_{F(1-F)}\]
+
+\[=\nabla_x\cdot\left\langle  \theta B(V) g \right\rangle_{F(1-F)}+
+\nabla_x\cdot\left\langle  \theta \frac{|V|^2}{3} g \right\rangle_{F(1-F)}=
+\nabla_x\cdot\left\langle  \theta B(V) g \right\rangle_{F(1-F)}.\]
+Finally,
+
+
+\[\frac{1}{2}\langle \theta|V|^2 R\rangle_{F(1-F)}=\left(\frac {1}{3} \mu\sigma:\sigma-\frac
+23 \nabla_x\cdot q\right)\left(\frac{ \theta^{3/2}\partial_{\mathcal
+E}\theta}{2}p^1_4-\theta^{5/2}p^1_2\partial_{\mathcal E}f\right)\]
+\[= \left(\frac {1}{3} \mu\sigma:\sigma-\frac
+23 \nabla_x\cdot q\right)\left(\frac{5 \theta^{3/2}p^0_2\partial_{\mathcal
+E}\theta }{2}+\theta^{5/2}\frac{d}{df}p^0_2\partial_{\mathcal E}f\right)\]
+\[=\frac{3}{2}\left(\frac {1}{3} \mu\sigma:\sigma-\frac
+23 \nabla_x\cdot q\right)\partial_{\mathcal E}{\mathcal E}
+=  \frac {1}{2} \mu\sigma:\sigma-  \nabla_x\cdot q  \]
+and
+\[\left\langle   \frac{\theta |V|^2}{2}\frac{  v\cdot\nabla_x (F(1-F)g)}{F(1-F)} 
+ \right\rangle_{F(1-F)}\]
+\[=\nabla_x\cdot \left\langle   \frac{\theta |V|^2}{2}gv \right\rangle_{F(1-F)}
+-\left\langle   gv\cdot\nabla_x\frac{\theta |V|^2}{2}  \right\rangle_{F(1-F)}\]
+
+\[\begin{split}=\nabla_x\cdot \left\langle   \theta^{3/2}\frac{ |V|^2V}{2}g  
+\right\rangle_{F(1-F)}+
+\nabla_x\cdot \left\langle   \frac{\theta |V|^2}{2}gu \right\rangle_{F(1-F)}
+\\+\left\langle   gv\cdot ((v-u) \cdot \nabla_x u 
+\right\rangle_{F(1-F)}\end{split} \]
+
+\[=\nabla_x\cdot \left\langle   \theta^{3/2}A(V)g  \right\rangle_{F(1-F)}+
+\left\langle   g(v-u)\otimes v \right\rangle_{F(1-F)}: \nabla_x u\]
+
+\[\begin{split}=\nabla_x\cdot \left\langle   \theta^{3/2}A(V)g  
+\right\rangle_{F(1-F)}+
+\left\langle \theta  g V\otimes V \right\rangle_{F(1-F)}: \nabla_x u\\+
+\left\langle   g(v-u)\otimes u \right\rangle_{F(1-F)}: \nabla_x u\end{split}\]
+
+\[=\nabla_x\cdot \left\langle   \theta^{3/2}A(V)g  
+\right\rangle_{F(1-F)}+\frac{1}{2}
+\left\langle \theta  g B(V) \right\rangle_{F(1-F)}: \sigma(u).\]
+Since we know the expression for $g$
+\[g = -\alpha_L(\rho,\mathcal E,|V|)A(V)\cdot \frac{\nabla_x\theta}{\sqrt\theta}
+-\frac 12\beta_L(\rho,\mathcal E,|V|)B(V):\sigma(u),\]we can write explicitly
+\[\theta^{3/2} \left\langle A(V)g  \right\rangle_{F(1-F)}\cdot 
+\frac{\nabla_x\theta}{\sqrt\theta}=
+-\theta \left\langle \alpha_L(\rho,\mathcal E,|V|) A(V) \otimes A(V) 
+\right\rangle_{F(1-F)} \cdot   \nabla_x\theta 
+\]\[= -\frac{\theta}{3} \left\langle \alpha_L(\rho,\mathcal E,|V|) |A(V)|^2 
+\right\rangle_{F(1-F)}   \nabla_x\theta, \]
+
+\[ \frac12\theta\left\langle  g B(V) \right\rangle_{F(1-F)}= 
+-\frac12\theta\left\langle \beta_L(\rho,\mathcal E,|V|)  B(V)\otimes B(V) 
+\right\rangle_{F(1-F)} :\sigma(u)\]
+\[=-\theta \left\langle \beta_L(\rho,\mathcal E,|V|)  
+B_{12}^2(V)\right\rangle_{F(1-F)} \sigma(u).\]
+
+
+Thus, the existence of solutions of the equation \eqref{eq:secondorder} 
+is equivalent to the following:
+\[  \nabla_x\cdot (\mu\sigma)- \nabla_x\cdot
+ (\theta \left\langle \beta_L(\rho,\mathcal E,|V|)  
+B_{12}^2(V)\right\rangle_{F(1-F)} \sigma(u)) =0,\]
+ \[\begin{split}\left(\frac {1}{2} \mu\sigma:\sigma-  \nabla_x\cdot q\right)
+ -\nabla_x\cdot \left(\frac{\theta}{3} \left\langle \alpha_L(\rho,\mathcal 
+E,|V|) |A(V)|^2 \right\rangle_{F(1-F)} 
+ \nabla_x\theta\right)\\
+ -\theta \left\langle \beta_L(\rho,\mathcal E,|V|)  
+B_{12}^2(V)\right\rangle_{F(1-F)} \sigma(u): \sigma(u) 
+ =0.\end{split}  \]
+
+Clearly, the  viscosity and thermal conductivity given by \eqref{eq:visc} satisfies these 
+relations, and we can conclude that the function $w$ exists. Thus, the theorem is proven.
+
+\end{proof}
+
+
+
+\begin{subappendices}
+\renewcommand{\thesection}{\Alph{section}}
+% \input{\MyPathCNSE/AppendixKernel}
+\section[Inversion of the linearised collision operator% on a certain subspace
+][Inversion of the linearised collision operator]{Inversion of the linearised collision operator on a certain subspace} % (fold)
+\label{sec:invariants}
+
+\begin{lemma}\label{le:invert}
+	Consider the equations
+	 \begin{equation}\label{eq:app:A}
+	 	L[A'_i](v)=A_i(v),
+	 \end{equation}
+	 \begin{equation}\label{eq:app:Aort}
+ \forall k=0,\ldots,4\quad\int_{\mrt} A' (v)e_k(v) F(v)(1-F(v)) \dv=0,   	
+	 \end{equation}
+	 and
+	 \begin{equation}\label{eq:app:B}
+	 	L[B'_{ij}](v)=B_{ij}(v),
+	 \end{equation}	 
+	 \begin{equation}\label{eq:app:Bort}
+ \forall k=0,\ldots,4\quad\int_{\mrt} B' (v)e_k(v) F(v)(1-F(v)) \dv=0,   	
+	 \end{equation}
+where $A_i$ and $B_{ij}$ are polynomials defined for $i,j\in\{1,2,3\}$ in theorem \ref{th:ortho}: 
+\[A_i(v)=\left(\frac{|v|^2}{2}-\frac{5}{2}\frac{\rho}{\mathcal E\theta}\right)v_i,\]
+\[B_{ij}(v)=v_iv_j-\frac{|v|^2}{3}\delta_{ij},\]
+with
+\[\rho=\int_{\mrt}F(v)\dv,\quad \mathcal E=\frac 13\int_{\mrt} {|v|^2} F(v)\dv.\]
+Then there exist positive functions $\alpha_L(\rho,\mathcal E,|V|)$ and $\beta_L(\rho,\mathcal E,|V|)$ such that\begin{align}
+		A'(V)&= -\alpha_L(\rho,\mathcal E,|V|)A(V),\label{eq:A:prime}\\
+		 B'(V)&= -\beta_L(\rho,\mathcal E,|V|)B(V).\label{eq:B:prime}
+	\end{align}
+	\end{lemma}
+\begin{proof}
+Note that $A_i$ and $B_{ij}$ are orthogonal to vectors $e_k$ in the sense of $L^2(F(1-F)\dv)$ (see theorem \ref{th:ortho}), hence the lemma holds whenever the operator $L$ satisfies the Fredholm alternative. Theorem \ref{th:com:exa} states that this is the case for a collision kernel corresponding to  hard sphere collisions (see subsection \ref{sssec:fred} for further discussion).
+
+By translating and rescaling the variable $v$, we can without losing generality consider the case $u=0$, $\theta=1$. We decompose the proof into several propositions following \cite{desvillettes1994remark}.
+
+	By translating and rescaling the variable $v$, we can without losing generality consider the case $u=0$, $\theta=1$. We decompose the proof into several propositions following \cite{desvillettes1994remark}.
+\begin{proposition}\label{le:rotL} Introduce for each isometry $R\in O(\mrt)$ and for each function $h:\mrt\to \mro$ the operator $T_R$ defined by
+\[T_Rf(v)=(f\circ R)(v) = f(Rv). \]
+Then
+\[L\circ T_R=T_R\circ L.\]
+\end{proposition}
+\begin{proof}
+%	We start by establishing that 
+%	 \begin{multline}\label{eq:rot1}
+%		Rv'(v,v_\ast, \omega) = R(v-(v-v_\ast,\omega)\omega) \\= Rv - (Rv-Rv_\ast,R\omega)R\omega=v'(Rv,Rv_ast, R\omega) 
+	%\end{multline} 
+	%and
+	%\begin{equation}\label{eq:rot2}
+	% Rv'_\ast(v,v_\ast, \omega)  =v'_\ast(Rv,Rv_\ast, R\omega). 		
+	%\end{equation}
+	We write \[(L\circ T_R)[f](v)=L[T_Rf](v)\]
+	 \begin{align*}=
+	\col& \frac{F(v_\ast)(1-F(  v-(v-v_\ast,\omega)\omega)(1-F(v_\ast+(v-v_\ast,\omega)\omega )}{1-F( v)}\\&\big(f(R(v-(v-v_\ast,\omega)\omega) )+f(R(v_\ast+(v-v_\ast,\omega)\omega))\\&-f(Rv_\ast)-f(Rv)\big)b\left(|v-v_\ast|,\frac{v-v_\ast}{|v-v_\ast|}\cdot\omega\right) \dv_\ast \dom	.
+	\end{align*} 
+	We introduce the change of variables
+	\begin{equation*}
+		\nu=R\omega,\quad w_\ast=Rv_\ast.
+	\end{equation*}
+	By observing that $F(v)$ depends only on the norm of $v$, we can say that $F(w)=F(Rw)$  for all $w\in \mrt$ and rewrite $L[T_Rf](v)$ as 
+	\begin{multline*}
+	\col  \frac{F(w_\ast)(1-F(  Rv-(Rv-w_\ast,\nu)\nu)(1-F(w_\ast+(Rv-w_\ast,\nu)\nu )}{1-F( Rv)}\\ \times\big(f(Rv-(Rv-w_\ast,\nu)\nu )+f(v_\ast+(Rv-w_\ast,\nu)\nu)-f(w_\ast)-f(Rv)\big)\\
+	\times b\left(|Rv-w_\ast|,\frac{Rv-w_\ast}{|Rv-w_\ast|}\cdot\nu\right) \,\mathrm {d} w_\ast \dom	\\
+	 =(L[f])(Rv) = (T_R\circ L)[f](v).
+	\end{multline*} 	%\]
+\end{proof}
+
+\begin{proposition}\label{le:rotA}
+	For all isometries $R\in O(\mrt)$ the function $A'$ defined in \eqref{eq:app:A} and \eqref{eq:app:Aort} %ref to th 1
+satisfies
+\begin{equation}\label{eq:rotA}
+	(T_RA')(v)=RA'(v).
+\end{equation}
+Moreover, the function $B'$ defined in \eqref{eq:app:B} and \eqref{eq:app:Bort} %ref in th 1
+satisfies the following properties:
+\begin{enumerate}
+\item for all $v\in \mrt$ $B'(v)$ is a symmetric tensor with zero trace,
+\item for all isometries $R\in O(\mrt)$
+\begin{equation}\label{eq:rotB}
+	(T_RB')(v)=RB'(v)R^{-1}
+\end{equation}
+in the sense of matrix product.
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+We note that, according to proposition \ref{le:rotL},
+\begin{equation*}
+	L(T_RA')=T_R(LA')=T_RA=A\circ R = R\circ A
+\end{equation*}
+and that
+\[L(R\circ A') = L\circ R\circ A'= R\circ (L[A'])=R\circ A.\]
+Denote \[e_0(v)=1,\,e_1(v)=v_1,\, e_2(v)=v_2,\, e_3(v)=v_3,\,  e_4(v)=|v|^2,\]
+then
+\[\forall j=0,\ldots,4\quad\int_{\mrt}(T_RA')(v)e_j(v) F(v)(1-F(v)) \dv=0 \]
+if and only if 
+\[\forall j=0,\ldots,4\quad\int_{\mrt}(A'(v)e_j(v) F(v)(1-F(v)) \dv=0, \]
+which is equivalent to
+\[\forall j=0,\ldots,4\quad R\int_{\mrt}(A'(v)e_j(v) F(v)(1-F(v)) \dv=0, \]
+or
+\[\forall j=0,\ldots,4\quad R\int_{\mrt}(R\circ A'(v)e_j(v) F(v)(1-F(v)) \dv=0. \]
+Now we use the uniqueness of the solutions $p$ of the system
+\[L[p]=R\circ A,\quad \forall j=0,\ldots,4\,\int_{\mrt}(p(v)e_j(v) F(v)(1-F(v)) \dv=0\]
+to deduce \eqref{eq:rotA}.
+
+In order to prove $(1)$, we first note that
+\[L(tr B') = tr L(B')=tr B=0,\]i.e. that $tr B'$ belongs to the kernel of $L$.
+On the other hand,
+\[\int_\mrt tr B'(v)e_j(v)F(v)(1-F(v))\dv=tr\int_\mrt   B'(v)e_j(v)F(v)(1-F(v))\dv=0\]
+for all $j=0,\ldots,4$ by definition of $B'$, which implies that $tr B'$ is orthogonal to the kernel of $L$; we conclude that $tr B'=0$.
+
+In the same spirit,
+\[L(B'-B^{\prime T})=L(B')-L(B^{\prime T})=B-B^T=0\]
+and
+\[ \int_\mrt (B'(v)-B^{\prime T}(v))e_j(v)F(v)(1-F(v))\dv\]\[=\int_\mrt   B'(v)e_j(v)F(v)(1-F(v))\dv-\left(\int_\mrt   B'(v)e_j(v)F(v)(1-F(v))\dv\right)^T=0 \]for all $j=0,\ldots,4$,
+which allows us to conclude that $B'$ is symetric.
+
+Finally, we prove (2). We can observe that
+\[L[T_RB']=T_R(L[B'])=T_RB=RBR^{-1}\]
+and
+\[L(RB'R^{-1})=RL(B')R^{-1}=RBR^{-1}.\]
+Moreover, 
+\[\int_{\mrt}T_RB'(v)e_j(v)F(v)(1-F(v))\dv=0\]
+for all $j=0,\ldots,4$ is equivalent to
+
+\[\int_{\mrt} B'(v)e_j(v)F(v)(1-F(v))\dv=0\quad \forall j=0,\ldots,4\]
+\[\iff \int_{\mrt} RB'(v)R^{-1}e_j(v)F(v)(1-F(v))\dv=0\quad \forall j=0,\ldots,4.\]
+Therefore, the uniqueness of the solutions $B'$ of the system
+\[Lq=RB'R^{-1}, \quad \int_{\mrt} q(v)e_j(v)F(v)(1-F(v))\dv=0\quad \forall j=0,\ldots,4\]
+implies that (2) holds.
+\end{proof}
+\begin{proposition}\label{le:rot:gen}
+Let $n\ge 2$ and $s:\mrn\to\mrn$ such that for all isometries $R\in O(\mrn)$
+one has \[s\circ R=R\circ s.\]
+Then there exists $t:\mro_+\to \mro$ such that 
+\begin{equation}\label{eq:rot:gen}
+\forall x\in \mrn \quad s(x)=t(|x|)x.	
+\end{equation}
+\end{proposition}
+The proof of this proposition can be found in \cite{desvillettes1994remark}.
+\begin{proposition}\label{le:rot:matr}
+	Let $n\ge 2$ and $m:\mrn \to M_n(\mro)$ be a function such that for all isometry $R$ of $O(\mrn)$ one has \[\forall x\in \mrn\quad m(Rx)=Rm(x)R^{-1}.\]
+	We suppose moreover that for all $x$ in $\mrn$ $m(x)$ is a symmetric matrix with zero trace.
+
+	Then there exists $n:\mro_+\to\mro$ such that
+	\[\forall x\in \mrn\quad m(x)=n(|x|)\left(x\otimes x-\frac{|x|^2}{n}I\right).\]
+	\end{proposition}
+	The proof of this proposition also can be found in \cite{desvillettes1994remark}.
+
+	Lemma \ref{le:invert} is now a straightforward consequence of propositions \ref{le:rotA} and \ref{le:rot:gen} on one hand and \ref{le:rotA} and \ref{le:rot:matr} on the other hand.
+
+	The sign of functions $\alpha_L$ and $\beta_L$ is a direct consequence of non-positivity of the operator $L$; the rescaling of the variable $v$ implies that, in fact, these functions have $V=\frac{v-u}{\sqrt \theta} $ as one argument and $f,\,\theta$ as another. The result in lemma \ref{th:existence:new} allows us to say that indeed
+	\[\alpha_L=\alpha_L(\rho,\mathcal E,|V|),\quad \beta_L=\beta_L(\rho,\mathcal E,|V|).\]
+\end{proof}
+\end{subappendices}

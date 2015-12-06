@@ -1,0 +1,67 @@
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc} %french encoding
+\usepackage{lmodern} %fonts
+\usepackage[frenchb,english]{babel}
+\usepackage{csquotes} %quotation marks
+% \usepackage{graphicx} 
+\usepackage{amsmath,amssymb,amsthm} %symbols
+\usepackage{enumerate} %don't remember what for
+
+%required for three-digit numbers in ToC
+\setlrmarginsandblock{3.1cm}{3.1cm}{*}
+% \setulmarginsandblock{*}{3cm}{*}
+\checkandfixthelayout
+\renewcommand*{\cftdotsep}{1}
+\setpnumwidth{3em}
+\setrmarg{4em}
+
+%for the titlepage
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\usepackage{tabularx}
+\usepackage{array}
+% \usepackage{geometry}
+%for images
+\usepackage{tikz}
+
+\usepackage[hidelinks,
+pdfauthor={Timofey Zakrevskiy},
+            pdftitle={Kinetic models in the near-equilibrium regime},
+            pdfsubject={PhD dissertation},
+            pdfkeywords={kinetic equation, Boltzmann equation, hydrodynamic limit, scattering, global Maxwellian},
+hypertexnames=false]{hyperref} %links
+% \usepackage{color}
+% \usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+%
+\usepackage[backend=biber,% refsection=chapter
+style=asan,%
+]{biblatex}%
+\hypersetup{final}
+
+\usepackage{mathtools}
+\mathtoolsset{showonlyrefs=true}
+
+% \usepackage[doublespacing]{setspace}
+\appto{\bibsetup}{\raggedright} %very questionable option. No hyphenation in bibliography
+\addbibresource{Biblio.bib}%
+% \addbibresource{Remote}%
+
+\renewcommand{\thechapter}{\Roman{chapter}}
+\renewcommand{\thesection}{\arabic{section}}
+
+\author{Timofey Zakrevskiy}
+\date{26 novembre 2015}
+
+\renewenvironment{abstract}
+ {\small
+  \begin{center}
+  \bfseries \abstractname\vspace{-.5em}\vspace{0pt}
+  \end{center}
+  \list{}{
+    \setlength{\leftmargin}{.5cm}%
+    \setlength{\rightmargin}{\leftmargin}%
+  }%
+  \item\relax}
+ {\endlist}
+
+ \input{titlepagePre.tex}

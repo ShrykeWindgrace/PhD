@@ -1,0 +1,712 @@
+% \begin{abstract}
+% We are interested in the connection between kinetic models with Fermi-Dirac statistics and fluid dynamics. We establish that moments and parameters of Fermi-Dirac distributions are related by a diffeo\-mor\-phism. We obtain the macroscopic limits when the fluid is dense enough that particles undergo many collisions per unit of time. This situation is described via a small parameter
+% $\varepsilon$, called the Knudsen number, that represents the ratio of mean free path of particles between collisions to some characteristic length of the flow. We give the conditions that allow us to formally derive the generalized Euler equations from the Boltzmann equation by adopting the formalism proposed in 
+% [C.~Bardos, F.~Golse, and D.~Levermore, in: \textit{Advances in Kinetic Theory and Continuum Mechanics},
+%    {Springer}, Berlin, {1991}, pp.~57--71].
+%   These conditions are related to the H-theorem and assume a formally consistent convergence for fluid dynamical moments and entropy of the kinetic equation. We also discuss the well-posedness of the obtained Euler equations by using Godunov's criterion of hyperbolicity. 
+% \end{abstract}
+% \begin{otherlanguage}{french}	
+% \begin{abstract}
+% On s'intéresse à la rélation entre les modèles cinétiques avec la statistique de  Fermi-Dirac statistics et la dynamique de fluid. On établit que les moments et les paramètres des distributions de Fermi-Dirac sont liés par un difféomorphisme. On obtient les limites macroscopiques lorsque la fluide est suffisament dense pour que les particules subissent beaucoup de collisions per une unité de temps. Cette situation est décrite par un petit paramètre 
+% $\varepsilon$, appelé le nombre de  Knudsen, qui représente la rapport du libre parcours moyen des particules entre les collisions et de la longuer caracteristique du flot. On donne les conditions qui permettent de dériver formellement les équations d'Euler généralisées à partir d'équation de Boltzmann en utilisant la formalisme proposé dans 
+% \foreignlanguage{english}{[C.~Bardos, F.~Golse, and D.~Levermore, in: \textit{Advances in Kinetic Theory and Continuum Mechanics},
+%    {Springer}, Berlin, {1991}, pp.~57--71].}
+%    Ces conditions sont liées au théorème H et elles supposent une  convergence formellement consistente  de moments dynamiques de fluide et d'entropie de l'équation cinétique. On discute également si ces équations d'Euler sont bien posée en utilisant le critère d'hyperbolicité de Godunov.
+% \end{abstract}
+
+% \end{otherlanguage}
+
+ % Keywords: Kinetic model, %(74A25)
+ %   Boltzmann equation, % (35Q20)
+ %   Euler equations, %(35Q31).
+ %   entropy. 
+% \fontencoding{T1}\selectfont
+ 
+\section{Introduction}
+In this work we establish the connection between kinetic theory for Fermi-Dirac statistics and macroscopic fluid dynamics. We derive formal limits; in order to do that, we introduce a scaling for standard kinetic equation (see, for example, \cite{Lifshitz1981Course}) of the form
+\begin{equation}\label{eq:scaled}
+\partial_t F_\varepsilon +v\cdot \nabla_xF_\varepsilon =\frac{1}{\varepsilon }C(F_\varepsilon ).
+\end{equation}
+Here $F_\varepsilon$ is a non-negative function representing the density of particles with position $x$ and velocity $v$ in the single-particle phase space $\mathbb R^3_x\times\mathbb R^3_v$ at time $t$. The interaction of particles through collisions is given by the operator $C(F)$; this operator acts only on variable $v$ and is non-linear in the general case. We will keep this operator abstract.
+
+We base the connection between kinetic and macroscopic dynamics  on the 
+ conservation properties and entropy relations
+implying that the equilibria are Fermi-Dirac (i.e. of the form
+$1/(1+\exp(c_1+c_2|v-u|^2))$) distributions.
+
+It is important to notice that our approach differs from Hilbert expansion employed in works of C.~Cercignani. Our results highlight the role of entropy as it was done in \cite{Bardos1984Differents}; the convergence assumptions are similar to those in \cite{Bardos1991Fluid}. We also adopt the formalism for moments of distributions proposed in \cite{Bardos1991Fluidb}.
+
+In the section \ref{sec:moments} we examine the moments of Fermi-Dirac distributions and establish that the parameters of such a distribution are related to the moments by a diffeomorphism. While in the case of Maxwellian distributions such a relation is rather evident, the case of Fermi-Dirac distributions requires an additional analysis.
+
+We obtain the macroscopic limits when the fluid is dense enough that particles undergo many collisions per unit of time. In order to describe this situation, we introduce a small parameter $\varepsilon$, called the Knudsen number, that represents the ratio of mean free path of particles between collisions to some characteristic length of the flow. 
+
+Conservation properties  are used to derive the compressible Euler equations from \eqref{eq:scaled}; we will do so in section \ref{sec:application}, assuming a formally consistent convergence for fluid dynamical moments and entropy of the kinetic equation \eqref{eq:scaled} (see theorem~\ref{th:CEE}).
+
+\section{Kinetic models with Fermi-Dirac statistics} % (fold)
+\label{sec:kinetic_models}
+Denote for an integrable function $s$ its moment $\langle s(v)\rangle = \int\limits_{\mathbb R^3}s(v)dv$. 
+
+We assume that for all measurable functions rapidly decaying on infinity \begin{equation}\label{eq:F:bound}
+	F(t,x,v): \mathbb R_+\times \mathbb R^3\times  \mathbb R^3\to \mathbb R,\quad  0\le F\le 1 \mbox { a.e.}
+\end{equation}
+the collision operator $C$ satisfies the conservation properties 
+\begin{equation}\label{eq:C:conserv}\langle C(F)\rangle = 0, \quad \langle C(F)v\rangle = 0,\quad \langle
+C(F)|v|^2\rangle = 0,
+\end{equation}
+corresponding to  the conservation of mass, momentum, and energy through the collision process. If we multiply the equation \eqref{eq:scaled} by $1$, $v$, $|v|^2$ and integrate with respect to $v$, we obtain the respective 
+local conservation laws:
+\begin{align}\label{eq:conserv}
+\partial_t \langle F_\varepsilon \rangle +\nabla_x \cdot \langle F_\varepsilon v \rangle=&0,\notag\\
+\partial_t \langle F_\varepsilon v \rangle +\nabla_x \cdot \langle F_\varepsilon v\otimes v \rangle=&0,\\
+\partial_t \langle F_\varepsilon |v|^2\rangle +\nabla_x \cdot \langle F_\varepsilon |v|^2v \rangle=&0\notag.
+\end{align}
+
+We also assume that for every measurable rapidly decaying function $F$ satisfying \eqref{eq:F:bound} the non-negative quantity 
+\begin{equation}\label{eq:entropy}
+ \left\langle
+C(F )\ln\left(\frac{1-F }{F}\right)\right\rangle \ge0
+\end{equation}
+is the entropy production rate for this collision process.
+
+Observe that 
+\[\partial_t (F_\varepsilon \ln F_\varepsilon+(1-F_\varepsilon )\ln(1-F_\varepsilon )) = ( \ln F_\varepsilon - \ln(1-F_\varepsilon ))\partial_t F_\varepsilon ,\]
+\[\nabla_x (F_\varepsilon \ln F_\varepsilon +(1-F_\varepsilon )\ln(1-F_\varepsilon )) = ( \ln F_\varepsilon - \ln(1-F_\varepsilon )) \nabla_x F_\varepsilon ,\]
+therefore multiplying both parts of the equation \eqref{eq:scaled} by $\ln\left(\frac{F_\varepsilon}{1-F_\varepsilon }\right)$ and integrating with respect to $v$ yields
+
+\[ \left\langle\ln\left(\frac{1-F_\varepsilon }{F_\varepsilon}\right)\partial_t F_\varepsilon  +\ln\left(\frac{1-F_\varepsilon }{F_\varepsilon}\right)v\cdot \nabla_xF_\varepsilon\right\rangle   
+\]
+  \begin{multline*}=
+	\left\langle\partial_t (F_\varepsilon \ln F_\varepsilon+(1-F_\varepsilon )\ln(1-F_\varepsilon ))  \right.\\+ \left.v\cdot \nabla_x(F_\varepsilon \ln F_\varepsilon+(1-F_\varepsilon )\ln(1-F_\varepsilon ))\right\rangle
+\end{multline*}     
+\[=-\left\langle
+C(F_\varepsilon )\ln\left(\frac{1-F_\varepsilon }{F_\varepsilon}\right)\right\rangle \le0,\]which gives us a local entropy inequality
+
+ \begin{multline*}
+	\partial_t \left\langle(F_\varepsilon \ln F_\varepsilon+(1-F_\varepsilon )\ln(1-F_\varepsilon )) \right\rangle \\+ \nabla_x\cdot\left\langle(v F_\varepsilon \ln F_\varepsilon+v (1-F_\varepsilon )\ln(1-F_\varepsilon ))\right\rangle\le 0.
+\end{multline*} 
+
+
+
+Finally, the equilibria are assumed to be characterized by zero entropy
+production rate and are given by the class of Fermi-Dirac distributions (for more information see, for example, \cite{Landau1968Course})
+\begin{equation}\label{eq:genform}
+F(v) =\left(1+ \exp\left(\frac{|v-u|^2}{2\theta}-f\right)\right)^{-1},\quad u\in \mrt,\quad f\in\mathbb R,\quad \theta>0.
+\end{equation}
+We assume the following analogy of the Boltzmann's \textit{H}-theorem for the Fermi-Dirac statistics:
+\begin{theorem}
+	For every measurable rapidly decaying function $F$ satisfying \eqref{eq:F:bound} with at most polynomially increasing $|\ln \left(\frac{1-F}{F}\right)|$  the following properties 
+are equivalent:
+ 
+\begin{equation}\label{eq:Hthm:gen}\begin{array}{rl}
+1)& C(F)=0,\\
+2)&  \left\langle C(F)\ln \left(\frac{1-F}{F}\right)\right\rangle=0,\\
+3)& F \mbox{ is a Fermi-Dirac distribution of the form }\eqref{eq:genform}.
+\end{array}\end{equation}
+
+\end{theorem}
+% section kinetic_models_with_fermi_dirac_statistics (end)
+\section[Example of a collision operator for Fermi-Dirac statistics][Example of a collision operator]{Example of a collision operator for Fermi-Dirac statistics} % (fold)
+\label{sec:example}
+
+In this section we give an example of a collision operator satisfying the conservation properties \eqref{eq:C:conserv} and with positive entropy production rate \eqref{eq:entropy} together with \textit{H}-theorem.
+
+Consider the operator studied in \cite{Dolbeault1994FD}:
+\begin{equation}
+C(F) = \col b\left(F'F'_\ast(1-F)(1-F_\ast)-FF_\ast(1-F')(1-F'_\ast)\right) \dv_\ast\,\dom,
+\end{equation}
+where for $\omega\in\mst$ \[v' = v-\omega (v-v_\ast,\omega),\quad v'_\ast= v_\ast+\omega (v-v_\ast,\omega),\]
+\[F'=F(t,x,v'), \quad F_\ast=F(t,x,v_\ast),\quad F_\ast'=F(t,x,v_\ast')\]
+and $b=b(|v-v_\ast|,|(\omega,v-v_\ast)|)$~--- a collision kernel. Observe that the definition of vectors $v'$ and $v_\ast'$ implies the following relations:
+\begin{equation}\label{eq:v:conserv}
+ 	 v'+v'_\ast=v +v _\ast ,\quad|v'|^2+|v'_\ast|^2=|v|^2 +|v _\ast|^2.  
+ \end{equation}
+Observe also that \begin{equation*}
+	|v-v_\ast|=|v'-v'_\ast|, \quad |(v-v_\ast,\omega)|=|(v'-v'_\ast,\omega)|.
+\end{equation*}
+The above expression allows us to take the collision kernel in the form 
+\begin{equation}\label{eq:b:trick}
+	\bar b_\omega (v,v_\ast,v',v'_\ast)= b\left(\frac 12|v-v_\ast|+\frac 12|v'-v'_\ast|,\frac 12|(\omega,v-v_\ast)|+\frac 12|(v'-v'_\ast,\omega)|\right).
+\end{equation}
+In order to prove that the operator $C$ indeed satisfies the relations \eqref{eq:C:conserv} and \eqref{eq:entropy}, we first establish the following proposition:
+\begin{proposition}\label{pr:tech}
+	Suppose that we have measurable functions  $W:\left(\mrt\right)^4\to\mathbb C$ and $h:\mrt\to \mathbb C$ such that the integral
+	\[I=\coll \left|W(v,v_\ast,v-(v-v_\ast,\omega)\omega,v_\ast+(v-v_\ast,\omega)\omega)h(v)\right|\dv\dv_\ast\dom\] exists.
+	Then the following identity holds:
+	\[I= 
+	\coll W(v_\ast,v,v_\ast+(v-v_\ast,\omega)\omega,v-(v-v_\ast,\omega)\omega)h(v_\ast)\dv\dv_\ast\dom.\]
+	\[=\coll W(v',v'_\ast,v,v_\ast)h(v')\dv\dv_\ast\dom\]
+	\[=\coll W(v'_\ast,v' ,v_\ast,v)h(v'_\ast)\dv\dv_\ast\dom.\]
+\end{proposition}
+We give the proof of this proposition in appendix \ref{sec:technical_propositions}.
+
+The following proposition shows that the operator $C$ indeed satisfies the conservation properties \eqref{eq:C:conserv}:
+\begin{proposition}
+		\[	\langle C(F)\rangle=0,\quad \langle vC(F)\rangle=0,\quad\langle |v|^2C(F)\rangle=0 \]
+		for any measurable function $F$ rapidly decaying on infinity satisfying \eqref{eq:F:bound}.
+\end{proposition}
+\begin{proof}
+Take any function $h:\mrt\to\mro$, $h(v)\in \mathrm{span}\{1,v_1,v_2,v_3,|v|^2\}$. Let $w_i\in \mrt$; introduce a function   \begin{align}
+		W(w_1,w_2,w_3,w_4)  =&  \bar b(w_1,w_2,w_3,w_4) F(w_3)F(w_4)(1-F(w_1))(1-F(w_2))\notag\\&-\bar b(w_1,w_2,w_3,w_4)F(w_1)F(w_2)(1-F(w_3))(1-F(w_4))\label{eq:W}
+\end{align}
+and observe that
+\[\begin{split}
+	W(w_1,w_2,w_3,w_4)=W(w_2,w_1,w_3,w_4)\\=W(w_1,w_2,w_4,w_3)=-W(w_3,w_4,w_1,w_2)
+\end{split}\] for all $w_i$. 
+ Applying proposition \ref{pr:tech} to $W$  defined above and $h$ we can conclude that
+ \[\begin{split}
+ 	\langle h(v)C(F)\rangle = -\frac 14  \coll b\left(F'F'_\ast(1-F)(1-F_\ast)-FF_\ast(1-F')(1-F'_\ast)\right)\\\cdot\left( h(v')+h(v'_\ast)-h(v)-h(v_\ast)\right)\dv\dv_\ast\dom.
+ \end{split}\]
+Since $h(v)\in \mathrm{span}\{1,v_1,v_2,v_3,|v|^2\}$, applying the relation \eqref{eq:v:conserv} yields 
+\[h(v')+h(v'_\ast)-h(v)-h(v_\ast)=0\]
+for all $v$, $v_\ast$, and $\omega$. Therefore
+\[\langle C(F)h(v)\rangle=0\]and the proposition holds.
+\end{proof}
+
+\begin{proposition}
+	For any measurable function $F$ rapidly decaying on infinity satisfying \eqref{eq:F:bound} we have 
+	\begin{equation*} 
+ \left\langle
+C(F )\ln\left(\frac{1-F }{F}\right)\right\rangle \ge0.
+\end{equation*}
+\end{proposition}
+\begin{proof}
+	We apply the proposition \ref{pr:tech} with $W$ defined in \eqref{eq:W} and $h=\ln\left(\frac{1-F }{F}\right)$ and obtain that
+	\[ \left\langle
+C(F )\ln\left(\frac{1-F }{F}\right)\right\rangle
+=\frac 14 \left\langle
+C(F )\ln\left(\frac{1-F }{F}\frac{1-F_\ast }{F_\ast}\frac{F'}{1-F' }\frac{F'_\ast}{1-F'_\ast }\right)\right\rangle.
+\]
+Denote $X = (1-F )   (1-F_\ast)   F' F'_\ast $ and $Y = {F}  {F_\ast} {(1-F' )} {(1-F'_\ast )} $, then we can rewrite the above expression as
+\[\frac 14\coll b (X-Y)\ln(X/Y)\dv\dv_\ast\dom.\]
+The function $(X,Y)\to (X-Y)\ln(X/Y)$ is non-negative and so is the collision kernel $b$, therefore we can conclude that
+	\begin{equation*} 
+ \left\langle
+C(F )\ln\left(\frac{1-F }{F}\right)\right\rangle \ge0.
+\end{equation*}
+\end{proof}
+
+\begin{proposition}[H-theorem]
+	For every measurable rapidly decaying  $F$ with at most polynomially increasing $\left|\ln \left(\frac{1-F}{F}\right)\right|$ satisfying \eqref{eq:F:bound} the following properties 
+are equivalent:
+ 
+\begin{equation}\label{eq:Hthm}\begin{array}{rl}
+1)& C(F)=0,\\
+2)&  \left\langle C(F)\ln \left(\frac{1-F}{F}\right)\right\rangle=0,\\
+3)& F \mbox{ is a Fermi-Dirac distribution of the form }\eqref{eq:genform}.
+\end{array}\end{equation}
+\end{proposition}
+
+\begin{proof}
+	
+If $F $ is of the form \eqref{eq:genform}, then \[\ln\left(\frac{1-F}{F}\right) \in \mathrm{span}\left\{1,v_1,v_2,v_3,|v^2|\right\}, \]
+hence the entropy production rate is zero. On the other hand, by direct substitution one can show that in this case $C(F)=0$. 
+
+If the entropy production rate is zero, then applying the proposition \ref{pr:tech} with $W$ defined in \eqref{eq:W} and $h=\ln\left(\frac{1-F}{F}\right)$
+yields 
+\[\left\langle C(F)\ln \left(\frac{1-F }{F }\frac{1-F_\ast }{F_\ast }\frac{F'}{1-F'}\frac{F'_\ast}{1-F'_\ast}\right)\right\rangle=0.\]
+Let for simplicity $G=\frac{F}{1-F}$, then we can rewrite this expression as 
+\begin{multline*} 
+ \coll b(1-F)(1-F_\ast)(1-F')(1-F'_\ast)\\\cdot \left(G'_\ast G' -G_\ast G\right)\ln\left(\frac{G'_\ast G'}{G_\ast G}\right)\dv \dv_\ast  \dom.\end{multline*}
+ Since the function $(X,Y)\to (X-Y)\ln(X/Y)$ is non-negative on $\mathbb R^2$ and vanishes if and only if $X=Y$, we deduce that $G'_\ast G' =G_\ast G $ almost everywhere in $v$, or, in other words
+ \[\ln G'_\ast+ \ln G' =\ln G_\ast +\ln G \quad \text{a.e.}\]
+ By Boltzmann-Gronwall theorem (see, for example, \cite{cercignani1988boltzmann,Glassey1987Cauchy,Truesdell1980Fundamentalsa}) this implies that
+ \[\ln G(v) = a+w\cdot v+c|v|^2\]
+ for some constants $a,c\in\mro$ and $w\in \mrt$. In its turn, this implies that $G$ is a local Maxwellian distribution and therefore $F$ is a local Fermi-Dirac distribution.
+
+Finally, if $C(F)=0$, 
+\begin{multline}\label{eq:C:toMax}
+0=C(F) = \col b(1-F)(1-F_\ast)(1-F')(1-F'_\ast)\\\cdot \left( G'_\ast G' - G_\ast G\right) \dv_\ast\,\dom
+\end{multline}
+with $G=\frac{F }{1-F}$. Since the factor $b(1-F)(1-F_\ast)(1-F')(1-F'_\ast)$  is non-negative, we obtain that $G'_\ast G' - G_\ast G =0$, which, as above, implies that $G$ is a local Maxwellian distribution, and therefore $F$ is a Fermi-Dirac distribution.
+\end{proof}
+
+% section example_of_a_collision_operator_for_fermi_dirac_statistics (end)
+
+\section[Moments and parameters of Fermi-Dirac distributions][Moments and parameters]{Moments and parameters of Fermi-Dirac distributions}
+\label{sec:moments}
+Recall the definition of Maxwellian distributions:
+\begin{equation*}
+M(v)=M_{\rho^M,u^M,\theta^M}(v)	=\frac{\rho^M}{(2\pi\theta^M)^{3/2}}e^{-\frac{\left|v-u^M\right	|^2}{2\theta^M}}
+\end{equation*}
+for parameters $\rho^M\ge 0$, $u^M\in\mrt$, $\theta^M>0$. Define the vector of moments for such a distribution:
+\begin{equation}\label{eq:TM}
+	\begin{pmatrix}
+		\mu_0\\\mu_1\\\mu_2
+	\end{pmatrix}=
+	\begin{pmatrix}
+		\langle 1\rangle_M\\\langle v\rangle_M\\\langle |v|^2\rangle_M
+	\end{pmatrix} = \begin{pmatrix}
+		\rho^M\\\rho^M u^M\\\rho^M|u^M|^2+3\rho^M\theta^M
+	\end{pmatrix}.
+\end{equation}
+It is easy to see that the space of possible moments is described by \[\mu_0\ge 0,\quad \mu_1\in\mrt,\quad \mu_0\mu_2\ge |\mu_1|^2.\]
+Moreover, the map
+\[T_M:\mathbb R^5\to \mathbb R^5, \quad T_M(\rho^M,u^M,\theta^M) = (\mu_0,\mu_1,\mu_2)\]
+is a diffeomorphism; indeed, the expression \eqref{eq:TM} clearly shows that $T_M$ is smooth. In addition, the same expression allows us to say that
+\begin{align*}
+	\rho^M&=\mu_0,\\
+	u^M&=\frac{\mu_1}{\mu_0},\\
+	\theta^M&=\frac{\mu_2-|\mu_1|^2/\mu_0}{3\mu_0},
+\end{align*}
+hence the inverse application exists and is also smooth.
+
+Another observation requires a slightly different parametrisation of a Max\-wel\-lian distribution.   If
+ \[M(v) = e^{-\frac{|v-u^M|^2}{2\theta^M}-f^M },\]
+ and if the moments are defined as \[\rho^M = \langle M(v)\rangle,\quad \mathcal E^M = \frac 13 \langle |v-u|^2M(v)\rangle,\]
+ then the following equations hold:
+\[\rho^M\partial_{\rho^M} f^M +\frac 53\mathcal E^M \partial_{\mathcal E^M}f^M=0, \]
+\[\rho^M\partial_{\rho^M} \theta^M +\frac 53\mathcal E^M \partial_{\mathcal E^M}\theta^M=\frac 23\theta^M.\]
+This result quickly follows from the relations 
+\[f^M = -\ln\left(\frac{\rho^M}{(2\pi\theta^M)^{3/2}}\right),\]
+\[\rho^M = \mu_0,\quad \mathcal E^M =\frac{\mu_2-|\mu_1|^2/\mu_0}{3}.\]
+
+
+The goal of this section is to establish the similar properties of moments of Fermi-Dirac distributions and find under which conditions the parameters of this distribution can be found via its moments. 
+
+We study the Fermi-Dirac distribution \[F_{f,  u,\theta}(v)=\frac{1}{1+\exp\left(\frac{|v-u|^2}{2\theta}-f\right)} .\] The admissible parameters form an open convex set $D \subset\mathbb R^5$: \[(f,  u,\theta)\in D= \mathbb R\times \mathbb R^3\times (0,\infty).\]
+ The moments of the distribution $F$ are
+\[\langle F(v)\rangle\ge 0,\quad \langle vF(v)\rangle\in\mathbb R^3, \quad\langle |v|^2F(v)\rangle\ge 0. \]
+Therefore, we can define a map 
+\[T_F:D\to \mathbb R^5, \quad T_F(f,  u,\theta) = \left(\langle F(v)\rangle, \langle vF(v)\rangle, \langle |v|^2F(v)\rangle\right).\]
+
+Let $U$ be the range of $T_F$, i.e. $U=T_F(D)$. We will examine the properties of $U$ and establish that $T_F$ is a diffeomorphism $D\to U$. To simplify the calculations, we will introduce the following notations:
+\begin{equation}\label{eq:rho}\rho = \int\limits_{\mathbb R^3} \frac{\dv}{1+\exp\left(\frac{|v-u|^2}{2\theta}-f\right)} =  \theta^{3/2}\int\limits_{\mathbb R^3} \frac{\dv}{1+\exp\left(\frac{|v|^2}{2}-f\right)}, \end{equation}
+
+\begin{equation}\label{eq:E}
+\mathcal E = \frac 13\int\limits_{\mathbb R^3} \frac{|v-u|^2\dv}{1+\exp\left(\frac{|v-u|^2}{2\theta}-f\right)} = \frac{\theta^{5/2}}{3}\int\limits_{\mrt} \frac{|v |^2\dv}{1+\exp\left(\frac{|v |^2}{2 }-f\right)}.
+\end{equation}
+It is easy to see that \[T_F(f, u,\theta) = (\rho,\rho u, \rho |u|^2+3  \mathcal E).\]
+
+The quantities $\rho$ and $\mathcal E$ can be expressed in terms of polylogarithms assuming $\langle F(v)\rangle\ne0$. We discuss the properties of these special functions in appendix \ref{se:appPoly}. 
+
+The following theorem establishes the invertibility of the map $T_F$:
+\begin{theorem}\label{th:existence:new} If $\rho$ and $\mathcal E$ are given by \eqref{eq:rho} and \eqref{eq:E}, respectively, then the following statements hold: \begin{enumerate}\item
+	the ratio $\frac{\rho}{\mathcal E^{3/5}}$ depends only on $f$, 
+ \item setting $J=\frac{(8\pi\sqrt 2)^{2/5}}{3}\left(\frac 52 \right)^{3/5} $, then the map \[f\to\frac{\rho}{\mathcal E^{3/5}}\]is  $\mathcal C^\infty (\mathbb R; (0,J))$ and strictly monotone; there exists a function  
+\begin{equation}\label{eq:f:bar}
+\bar f\in \mathcal C^1((0,J),\mathbb R),\quad f=\bar f\left(\frac{\rho(f,\theta)}{(\mathcal E(f,\theta))^{3/5}}\right),
+\end{equation}
+
+\item the function $\theta$ is given by   
+$	\theta = \left(\frac{\rho}{ 4\sqrt 2\pi\Gamma(3/2)\mathcal F_{3/2}(f)}\right)^{2/3} $
+
+
+\item the map $T_F$ is a diffeomorphism,
+
+\item $f$ and $\theta$ seen as functions of $\rho$ and $\mathcal E$ satisfy
+\begin{equation}\label{eq:transp:f}\rho\partial_\rho f +\frac 53\mathcal E \partial_{\mathcal E}f=0, \end{equation}
+\begin{equation}\label{eq:transp:theta}\rho\partial_\rho \theta +\frac 53\mathcal E \partial_{\mathcal E}\theta=\frac 23\theta.\end{equation}
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+We can express $\rho$ and $\mathcal E$ in terms of polylogarithms:
+\begin{equation}\label{eq:rho:polylog}
+	\rho(f,\theta) = 4\pi\sqrt 2\theta^{3/2}\Gamma(3/2)\mathcal F_{3/2}(f),
+\end{equation}
+\begin{equation}\label{eq:E:polylog}\mathcal E(f,\theta)= 8\pi\sqrt 2\theta^{5/2}\Gamma(5/2)\mathcal F_{5/2}(f),
+\end{equation}
+with
+\begin{equation*} \mathcal F_p(w)= \frac{1}{\Gamma(p)}\int\limits_0^{\infty}\frac{t^{p-1}}{e^{t-w}+1}
+\mathrm dt,\quad \mathcal G_p(w)=(\mathcal F_p(w))^{1/p},\end{equation*}
+which yields (1).
+Let \[a = \frac{\rho}{\mathcal E^{3/5}}.\] 
+The expressions for moments together with properties of polylogarithms yield
+\[a=\frac{4\pi\sqrt 2 \Gamma(3/2)}{(8\pi\sqrt 2 \Gamma(5/2))^{3/5}}\frac{\mathcal F_{3/2}(f)}{(\mathcal F_{5/2}(f))^{3/5}}=\frac{5}{2} \frac{4\pi\sqrt 2 \Gamma(3/2)}{(8\pi\sqrt 2 \Gamma(5/2))^{3/5}}
+\frac{\mathrm d}{\mathrm df   }\mathcal G_{5/2}(f).\]
+
+As established in the theorem \ref{th:conv} (see appendix \ref{se:appPoly}), the function $f\to \frac{\mathrm d}{\mathrm df   }\mathcal G_{5/2}(f)$ is strictly monotone, hence the map $f\mapsto a$ is invertible. In order to obtain possible values of $a$, we study \[\lim_{f\to\pm\infty }\frac{\mathcal F_{3/2}(f)}{(\mathcal F_{5/2}(f))^{3/5}}.\]
+The Taylor development of polylogarithms for $|z|<1$ writes (see, for example, \cite{NIST:DLMF},\cite{Olver:2010:NHMF},\cite{Prudnikov1986Integrals})
+\[-\Li_s(-z)=\frac{1}{\Gamma(s)}\int^\infty_0\frac{t^{s-1}\mathrm dt}{e^t/z+1}=\sum_{k\ge 1}\frac{z^k}{k^s},\]in other words, $-\Li_s(-z)=z+\mathcal O(z^2)$ near $z=0$, which implies that
+\[\lim_{f\to-\infty }\frac{\mathcal F_{3/2}(f)}{(\mathcal F_{5/2}(f))^{3/5}}=0.\]
+
+On the other hand, we know the limiting behaviour of polylogarithms when $f\to+\infty$ and $p\ne -1,\,-2,\,-3,\dots$ (see, for example, \cite{Wood1992Computation}):
+\[\lim_{f\to+\infty}\frac{\mathcal F_p(f)}{f^p}=\frac{1}{\Gamma(p+1)},\]
+which yields
+\[\lim_{f\to\infty }\frac{\mathcal F_{3/2}(f)}{(\mathcal F_{5/2}(f))^{3/5}}=\frac{(\Gamma(7/2))^{3/5}}{\Gamma(5/2)},\]
+hence
+\[a< \frac{4\pi\sqrt 2 \Gamma(3/2)}{(8\pi\sqrt 2 \Gamma(5/2))^{3/5}}\frac{(\Gamma(7/2))^{3/5}}{\Gamma(5/2)}=\frac{(8\pi\sqrt 2)^{2/5}}{3}\left(\frac 52 \right)^{3/5}  =J.\]
+Thanks to the monotonicity of the function $f\to \frac{\mathrm d}{\mathrm df   }\mathcal G_{5/2}(f)$, we obtain that $a\in (0,J)$. The regularity of the function $\bar f$ follows from the regularity of polylogarithms; the expression for $\theta$ is a direct consequence of \eqref{eq:rho:polylog} and the previous point.
+
+Finally, the following equations show that the map $T_F$ is invertible:
+
+\[u = \frac{\langle vF(v) \rangle}{\rho},\]
+\[\mathcal E = \frac 13 \left(\langle |v|^2F(v) - \rho|u|^2\rangle\right) ,\]
+\[f=\bar f\left( \frac{\rho}{\mathcal E^{3/5}}\right),\]
+\[\theta = \left(\frac{\rho}{ 4\sqrt 2\pi\Gamma(3/2)\mathcal F_{3/2}(f)}\right)^{2/3}.\]
+
+The differential equations \eqref{eq:transp:f} \eqref{eq:transp:theta}   follow  from (1) and (2), respectively.
+
+\end{proof}
+\textbf{Remark.} The inequality
+\begin{equation}
+\frac{\rho}{\mathcal
+E^{3/5}}<J=\left(\frac 52\right)^{3/5}\left(4\pi 
+\frac{2\sqrt 2}{3}\right)^{2/5}\end{equation}
+comes from the form of Fermi-Dirac distributions; they are bounded by $1$, therefore this inequality can be interpreted as that a Fermi-Dirac distribution cannot accumulate an arbitrary number of particles with small velocities in one point.
+
+The result of the theorem \ref{th:existence:new} allows us to say that the image of the map $T_F$ is a convex set
+\begin{equation}\label{eq:U}
+	 U=\left\{(x,v,z)\in(0,\infty)\times \mathbb R^3\times \mathbb R:z>\frac{|v|^2}{x}+J^{5/3}x^{5/3}\right\}. 
+\end{equation}
+Indeed, $U$ is the subset of $\mathbb R^5$ above the graph of the function \[h: (0,\infty)\times \mathbb R^3\to\mathbb R,\quad h(x,v) = \frac{|v|^2}{x}+J^{5/3}x^{5/3}.\]
+	The Hessian of $h$ writes 
+	\[\mathrm{Hess}(h)=\frac{2}{x^2}\begin{pmatrix}
+		{|v|^2}+\frac{5}{9}J^{5/3}x^{5/3}&-v_1&-v_2&-v_3\\
+		-v_1&x &0&0\\
+		-v_2&0&x &0\\
+		-v_3&0&0&x 		
+	\end{pmatrix}.
+	\]
+	By Sylvester's criterion, this matrix is positive definite for $(x,v)\in (0,\infty)\times \mathbb R^3$; hence, the function $h$ is convex and, therefore, the set $U$ is convex.
+
+  
+\section{The entropy and the map \texorpdfstring{$T_F$}{T  F } } % (fold)
+\label{sec:entropy} From now on we drop the subscript in the notation $T_F$. 
+We define the vector of conserved quantities $\vec e$ as follows:\[\vec e(v)
+=\begin{pmatrix}1\\v_1\\v_2\\v_3\\|v|^2
+\end{pmatrix}.\]
+Let us define the operator $\odot$ as the standard scalar product in $\mathbb R^5$.
+Then  we can put every
+Fermi-Dirac distribution in the form
+\[F[\vbeta] = \left(1+e^{\vbeta\odot\vec e}\right)^{-1},\quad \vbeta
+\in D= \mathbb R\times \mathbb R^3\times(0,\infty).\]
+It is important to notice that $\vbeta$ does not depend on $v$.
+
+One can easily see that the parameters $(f,u,\theta)$ of the representation \eqref{eq:genform} and $\vbeta$ are connected by 
+\begin{equation}\label{eq:parameters}
+	\begin{array}{cc}
+	\beta_4 = \frac{1}{2\theta},& \theta= \frac{1}{2\beta_4},\\
+	\beta_3 = -\frac{u_3}{\theta},& u_3= -\frac{\beta_3}{2\beta_4},\\
+	\beta_2 = -\frac{u_2}{\theta},& u_2= -\frac{\beta_2}{2\beta_4},\\
+	\beta_1 = -\frac{u_1}{\theta},& u_1= -\frac{\beta_1}{2\beta_4},\\
+	\beta_0 = -f+\frac{|u|^2}{2\theta},& f =-\beta_0 + (\beta_1^2+\beta_2^2+\beta_3^2) \frac{1}{4\beta_4}.
+\end{array}
+\end{equation}
+Let us consider the vector of conserved  densities 
+\begin{equation}\label{eq:compEulerRho}
+  \vrho = -\langle \vec e F[\vbeta]\rangle.
+\end{equation} Clearly, the image of the map $T:\vbeta\to\vrho$ is the set $U'=-U$ where $U$ is defined in \eqref{eq:U}. The relations \eqref{eq:parameters} and theorem \ref{th:existence:new} imply that the map $T$ is a diffeomorphism $D\to U'$.
+
+The following proposition establishes the form of entropy associated with the Fermi-Dirac distribution.
+\begin{theorem}\label{th:entropy}
+\[\quad\]
+\begin{itemize}
+	\item There exists a positive and strictly convex function $\sigma^\ast:D\to \mathbb R$ such that
+	\[\vrho(\vbeta)=\nabla_{\vbeta}\sigma^\ast(\vbeta)\]
+	for $\vrho$ given by \eqref{eq:compEulerRho}.
+	\item There exists a strictly convex function $\sigma:U'\to \mathbb R$ such that 
+	\[\vbeta(\vrho) = \nabla_{\vrho}\sigma(\vrho);\] moreover, this function is the entropy density of the Fermi-Dirac distribution associated with $T^{-1}(\vrho)$.
+\end{itemize}
+\end{theorem}
+\begin{proof}
+Put
+\[\sigma^\ast(\vbeta)=-\left\langle \ln\left(1-F[\vbeta]\right)\right\rangle,\]
+then
+\[\nabla_{\vbeta}\sigma^\ast(\vbeta) = -\nabla_{\vbeta} \left\langle \ln\left(1-F[\vbeta]\right)\right\rangle=
+\left\langle \frac{\nabla_{\vbeta} F[\vbeta]}{1-F[\vbeta]}  \right\rangle
+ \]
+ \[
+ =-\left\langle \frac{ F[\vbeta](1-F[\vbeta])\vec e}{1-F[\vbeta]}  \right\rangle=\vrho.
+ \]
+Note that $\sigma^\ast$ is a strictly positive and convex function of
+$\vbeta$, because 
+\[\nabla_{\vbeta}\vec \rho=\langle\vec e \otimes \vec e \,F[\vbeta](1-F[\vbeta] )\rangle\]
+is a positive definite matrix. Indeed, take a vector $\vec w\in\mathbb R^5$ and suppose that
+\[
+0= \langle\vec e \otimes \vec e \,F(\vec
+\beta)(1-F[\vbeta] )\rangle \vec w\odot\vec w  = \left\langle|\vec e \odot \vec w|^2 F[\vbeta](1-F[\vbeta] )\right\rangle.
+\]
+Since $F[\vbeta](1-F[\vbeta])$ is positive, then $\vec e \odot \vec w =0$ for almost all $v$; the functions $1$, $v_1$, $v_2$, $v_3$, and $|v|^2$ are linearly independent on $\mrt$, which results in $\vec w=0$. We can therefore conclude that $\sigma^\ast$ is strictly convex.
+
+
+Let the function $\sigma$ be the Legendre transform of the function $\sigma^\ast$, then $\sigma $ is also a  convex function and 
+\[\vbeta = \nabla_{\vrho}\sigma(\vrho).\]The function $\sigma$  is defined on $U'$ and can be expressed
+ via the relation
+\[\sigma(\vrho)+\sigma^\ast(\vbeta)=\vbeta\odot\vec \rho\] with
+$\vbeta    = (\nabla_\vbeta\sigma^\ast)^{-1}(\vrho) = T^{-1}(\vrho)$, so
+\begin{multline}\label{eq:sigma}
+	\sigma(\vec \rho)=\left\langle-\vbeta\odot\vec e
+F[\vbeta])+\ln\left(1-F[\vbeta])\right) \right\rangle\\
+=\left\langle \left(1-F[\vbeta])\right)\ln\left(1-F[\vbeta])\right)
++F[\vbeta])\ln F[\vbeta])\right\rangle.
+\end{multline}
+In other words, this function coincides with the expression for the entropy density of
+the Fermi-Dirac distribution associated with $T^{-1} (\vrho)$.
+\end{proof}
+
+The following theorem establishes the form of the entropy flux associated with entropy density $\sigma$ defined in theorem \ref{th:entropy}.
+\begin{theorem}\label{th:entropyFlux}
+\[\quad\]
+\begin{itemize}
+	\item The flux corresponding to the Fermi-Dirac distribution $F[\vbeta]$   for each $\vrho\in U'$, $\vbeta=T^{-1}(\vrho) $  is a map $\vec \upsilon: U'\to\mathbb R^{5\times 3}$, written as 
+\[\vec \upsilon(\vrho)=-\langle \vec e\otimes v
+F[T^{-1}(\vrho)])\rangle.\]
+There exists a function $\tau^\ast: D\to\mathbb R^3$ such that 
+ \begin{equation*}
+ 	\vec \upsilon(T(\vbeta))=(\nabla_{\vbeta}\tau^{\ast}(\vbeta))^{T}.
+ \end{equation*}
+
+ \item 
+The function $\tau:U'\to\mrt$ for every $\vrho\in U'$ 
+and $\vbeta  = T^{-1}(\vrho)$ defined by 
+\[\tau (\vrho)= \left\langle
+v\left(1-F[\vbeta])\right)\ln\left(1-F[\vbeta])\right) +vF[\vbeta])\ln
+F[\vbeta])\right\rangle,\]
+$\tau(\vrho)$ is  the entropy flux for the  Fermi-Dirac distribution 
+associated with conserved densities $\vrho$.
+\end{itemize}
+\end{theorem}
+\begin{proof}
+The expression for $\vec \upsilon(\vrho)$ quickly follows from the form of local conservation laws \eqref{eq:conserv}.
+
+If \[\tau^\ast: D\to\mrt,\quad\tau^\ast(\vbeta)=-\left\langle
+v\ln\left(1-F [\vec
+\beta] \right)\right\rangle,\]
+then 
+\[\vec \upsilon(\vrho)=(\nabla_{\vbeta}\tau^{\ast}(\vbeta))^{T},\]
+with $\vbeta = T^{-1}(\vrho) $.
+Indeed, 
+\[\nabla_{\vbeta}\tau^{\ast}(\vbeta) = -\nabla_{\vbeta}\left\langle
+v\ln\left(1-F [\vec
+\beta] \right)\right\rangle\]
+\[=-\left\langle
+v\nabla_{\vbeta}\ln\left(1-F [\vbeta]\right)\right\rangle = \left\langle
+v  \frac{\nabla_{\vbeta}F [\vbeta]}{1-F [\vbeta]} \right\rangle \]
+\[= -\left\langle
+  \frac{ F [\vbeta](1-F [\vbeta])v\otimes\vec e}{1-F [\vbeta]} \right\rangle = \left\langle
+    F [\vbeta](1-F [\vbeta])v\otimes\vec e  \right\rangle = \vec \upsilon(\vrho)^T .\]
+
+ Consider the function $\tau(\vrho)$  given by
+ \[\tau(\vrho)+\tau^\ast(\vbeta)=\vbeta\odot\vec\upsilon(\vrho)\]
+ with $\vbeta=T^{-1}(\vrho)$. We can simplify it by writing
+\[\tau(\vrho) = \vbeta\odot\vec\upsilon(\vrho) - \tau^\ast(\vbeta) =\left\langle v\ln\left(1-F [\vec
+\beta] \right)-\vbeta\odot\vec e  v
+F[  \vbeta ]) \right\rangle.\]
+Since $\vbeta\odot\vec e = \ln \left(\frac 1F-1\right)$, we can further simplify as 
+\[\tau(\vrho) =  \left\langle v\left(1-F [\vec
+\beta] \right)\ln\left(1-F [\vec
+\beta] \right)+  vF [\vec
+\beta]\ln(F [\vec
+\beta])
+  \right\rangle.\]
+  We conclude that $\tau$ is the entropy flux of the Fermi-Dirac distribution associated with the conserved densities $\vrho$.
+\end{proof}
+
+\section{Applications to the Eulerian limit} % (fold)
+\label{sec:application}
+
+\begin{theorem}\label{th:CEE}
+Assume that the collision operator satisfies properties \eqref{eq:C:conserv},
+ \eqref{eq:entropy}, and \eqref{eq:Hthm:gen}. We consider
+$F_\varepsilon$~--- a sequence of non-negative solutions of 
+ \begin{equation}
+(\partial_t+v\cdot\nabla_x)F_\varepsilon =
+\frac{1}{\varepsilon}C(F_\varepsilon),\quad (t,x,v)\in \mathbb R_+\times \mathbb R^3\times \mathbb R^3
+\label{eq:compEuler}
+\end{equation} 
+such that $F_\varepsilon(t,x,v)$ converges to a non-negative function $F$ almost
+everywhere in $\mathbb R_+\times \mathbb R^3\times \mathbb R^3$ as $\varepsilon$ tends  to zero. Assume also that the  moments
+
+
+\[\langle F_\varepsilon\rangle,\quad \langle vF_\varepsilon\rangle,
+\quad \langle v\otimes v F_\varepsilon\rangle,\quad \langle
+|v|^2vF_\varepsilon\rangle\]
+ converge in the sense of distributions to the corresponding moments
+\[\langle F \rangle,\quad \langle vF \rangle,
+\quad \langle v\otimes v F \rangle,\quad \langle |v|^2vF \rangle,\]
+that the entropy density and entropy  flux converge in the sense of distributions
+\[\lim\limits_{\varepsilon\to 0}\langle  F_\varepsilon\ln F_\varepsilon +
+(1-F_\varepsilon)\ln (1-F_\varepsilon) \rangle
+=\langle F \ln F  + (1-F )\ln (1-F) \rangle,\]
+\[\lim\limits_{\varepsilon\to 0}\langle v F_\varepsilon\ln F_\varepsilon +
+v(1-F_\varepsilon)\ln (1- F_\varepsilon) \rangle
+=\langle vF \ln F  + v(1-F )\ln (1-F) \rangle,\]
+and finally that the entropy production rate satisfy
+\[\liminf_{\varepsilon\to 0} \left\langle
+C(F_\varepsilon)\ln\left(\frac{1-F_\varepsilon}{F_\varepsilon}
+\right)\right\rangle\ge \left\langle C(F )\ln\left(\frac
+{1-F }{F }\right)\right\rangle.\]
+Then the limit $F$ is a local Fermi-Dirac distribution
+\[F(t,x,v) = F[\nabla_{\vrho}\sigma(\vrho(t,x))], \]
+where the vector of conserved densities $\vrho(t,x)$ satisfies the system of conservation laws 
+\begin{equation}\label{eq:compEulerDiv}\partial_t \vec \rho +
+\nabla_x\cdot\vec\upsilon(\vrho)=0\end{equation}
+together with the entropy inequality
+\begin{equation}\label{eq:compEulerEntr}
+	 \partial_t \sigma(\vec \rho)+\nabla_x\cdot\tau(\vrho)\le 0 
+\end{equation}
+in the sense of distributions on $\mathbb R^\ast_+\times \mathbb R^3\times \mathbb R^3$.
+\end{theorem}
+
+\begin{proof}
+Multiplying the equation \eqref{eq:compEuler} by $\varepsilon
+\ln\left(\frac{F_\varepsilon}
+{1-F_\varepsilon}\right)$ and integrating with respect to $v$ gives
+ \begin{multline}\label{ineq:entr}\varepsilon\partial_t\langle   F_\varepsilon\ln F_\varepsilon + 
+(1-F_\varepsilon)\ln (1-F_\varepsilon) \rangle+
+\varepsilon\nabla_x\cdot\langle v F_\varepsilon\ln F_\varepsilon +
+ v(1-F_\varepsilon)\ln (1-F_\varepsilon) \rangle\\\le \left\langle
+C(F_\varepsilon)\ln\left(\frac{F_\varepsilon}
+{1-F_\varepsilon}\right)\right\rangle.\end{multline} 
+The left hand side of the above expression tends to zero in the sense of distributions as $\varepsilon$ tends to zero. On the other hand, $\left\langle
+C(F_\varepsilon)\ln\left(\frac{F_\varepsilon}
+{1-F_\varepsilon}\right)\right\rangle\le 0$, therefore it is a Radon measure. Hence, 
+\begin{equation*}
+	\iint_{\mathbb R^\ast_+\times \mathbb R^3}\left\langle
+C(F_\varepsilon)\ln\left(\frac{F_\varepsilon}
+{1-F_\varepsilon}\right)\right\rangle\phi(t,x)dxdt\to 0 \quad \forall \phi \in C_c(\mathbb R^\ast_+\times \mathbb R^3).
+\end{equation*}In particular, this holds for $\phi\ge \mathbf 1_{[a,b]\times B(0,R)}$, so
+\begin{equation*}
+	\iint_{[a,b]\times B(0,R)}\left\langle
+C(F_\varepsilon)\ln\left(\frac{F_\varepsilon}
+{1-F_\varepsilon}\right)\right\rangle dxdt\to 0,
+\end{equation*}
+by Fatou's lemma we conclude that \begin{equation*}
+	\iint_{[a,b]\times B(0,R)}\left\langle
+C(F )\ln\left(\frac{F }
+{1-F }\right)\right\rangle dxdt\to 0,\quad \forall a,b,\,\,\forall R.
+\end{equation*}
+The characterisation of equilibria \eqref{eq:Hthm} allows us to say that for almost
+every 
+$(t, x)\in \mathbb R_+\times \mathbb R^3$ the distribution $F$ is a solution of $C(F)=0$ and has therefore the form
+\eqref{eq:genform}.
+
+
+
+In the system of local conservation laws 
+\begin{equation}
+\begin{array}{rl}
+	\partial_t\langle F_\varepsilon\rangle+\nabla_x\cdot \langle v
+F_\varepsilon\rangle=0,\\
+	\partial_t\langle vF_\varepsilon\rangle+\nabla_x\cdot \langle v\otimes v
+F_\varepsilon\rangle=0,\\
+	\partial_t\langle |v|^2F_\varepsilon\rangle+\nabla_x\cdot \langle v|v|^2
+F_\varepsilon\rangle=0
+\end{array}
+\end{equation}
+we pass to the the limit in the sense of distributions. Thanks to the convergence assumptions of this theorem, we obtain 
+the compressible Euler system \eqref{eq:compEulerDiv}.
+
+We rewrite \eqref{ineq:entr}  as 
+ \begin{multline}\label{ineq:entr2} \partial_t\langle   F_\varepsilon\ln F_\varepsilon + 
+(1-F_\varepsilon)\ln (1-F_\varepsilon) \rangle+
+\nabla_x\cdot\langle v F_\varepsilon\ln F_\varepsilon +
+ v(1-F_\varepsilon)\ln (1-F_\varepsilon) \rangle\\\le \frac 1\varepsilon\left\langle
+C(F_\varepsilon)\ln\left(\frac{F_\varepsilon}
+{1-F_\varepsilon}\right)\right\rangle.\end{multline} 
+
+The right hand side is non-positive by the characterization \eqref{eq:Hthm} and the left hand side converges in the sense of distributions to $\partial_t \sigma(\vec \rho)+\nabla_x\cdot\tau(\vrho)$, which yields \eqref{eq:compEulerEntr}.
+\end{proof}
+
+Observe that the system \eqref{eq:compEulerDiv} has the convex entropy $\sigma$, therefore, it has Godounov's structure and hence is hyperbolic (see, for example, \cite{Godunov1987Lois},\cite{Godunov1961Interesting},\cite{Godunov1978Elementy}, and \cite{Harten1998Convex}). The hyperbolicity of the system \eqref{eq:compEulerDiv} implies several useful properties, notably that it has a unique smooth local solution.
+ 
+\begin{subappendices}
+\renewcommand{\thesection}{\Alph{section}}
+\renewcommand{\thetheorem}{\thesection.\Roman{theorem}}
+\setcounter{theorem}{0}
+\renewcommand{\thelemma}{\thesection.\arabic{lemma}}
+\setcounter{lemma}{0}
+\renewcommand{\theproposition}{\thesection.\arabic{proposition}}
+\setcounter{proposition}{0}
+\section{Properties of polylogarithms}\label{se:appPoly}
+We study the polylogarithms for the argument $p>0$ defined by the formula
+\begin{equation}\label{eq:defPolyLog}\Li_p(-e^w) = 
+-\frac{1}{\Gamma(p)}\int\limits_0^{\infty}\frac{t^{p-1}}{e^{t-w}+1}
+\mathrm dt.\end{equation}
+In order to simplify the reasoning, we introduce the notations
+\begin{equation}\label{eq:defCalF}\mathcal F_p(w)=-\Li_p(-e^w),\quad \mathcal G_p(w)=(\mathcal F_p(w))^{1/p}.\end{equation}
+We will use the following properties:
+\begin{itemize}
+\item $\frac{\mathrm d}{\mathrm dw}\mathcal F_p(w) = \mathcal F_{p-1}(w)$;
+\item for $p\ge 0$ the function $w\to \mathcal F_p(w)$ is positive and monotonically increasing. Moreover, $\mathcal F_p(w)\sim \frac{w^{p}}{\Gamma(p+1)}$ as $w\to+\infty$;
+\item if $p>0$, then \[ \frac{\mathrm d^2}{\mathrm dw^2}\mathcal G_p(w)>0\iff 
+\frac{p\mathcal F_p(w)}{\mathcal F_{p-1}(w)}>\frac{(p-1)\mathcal F_{p-1}(w)}{\mathcal F_{p-2}(w)}.\]
+\end{itemize}
+\begin{theorem}\label{th:conv}
+If $p\ge 2$, then the function $w\to \frac{\mathrm d^2}{\mathrm dw^2}\mathcal G_p(w)$ is strictly positive.
+\end{theorem}
+\begin{proof}
+For each fixed $w$, we examine the function
+\[ \Psi(p)= \frac{p\mathcal F_p(w)}{\mathcal 
+F_{p-1}(w)}=\frac{\int_0^\infty t^{p-1}\mathrm d\mu(t)}{\int_0^\infty 
+t^{p-2}\mathrm d\mu(t)},\]
+with 
+\[d\mu(t) = \frac{\mathrm dt}{e^{t-w}+1}.\]
+Clearly,  we have $t^s\in L^1(\mathrm d\mu(t))$ for all $  s>-1$, so that $\Psi(p)$ is 
+defined for $p>1$. By continuity, we can put $\Psi(1)=0$.
+
+Indeed, $\int_0^\infty t^{p-1}\mathrm d\mu(t)$ converges to $\int_0^\infty \mathrm d\mu(t)$ as $p\to 1$ by Lebesgue theorem; on the other hand, \[\lim_{p\to 1}\int_0^\infty t^{p-2}\mathrm d\mu(t)=+\infty\]by the comparison test, which implies that
+\[\lim_{p\to 1,\,p>1}\Psi(p)=0.\]
+We want to prove 
+that $\Psi(p)>\Psi(p-1)$ for $p\ge 2$.
+
+Let us consider the function
+\[\Phi:x\to \int_0^\infty t^{x}\mathrm d\mu(t).\]
+We claim that this function is strictly log-convex. Indeed, $\Phi>0$, so $\ln\! 
+\circ \Phi$ is defined. 
+
+Let us take $\frac 1m +\frac 1n=1$ with $m,n\in [1,\infty]$ and $y>x>-1$. By 
+H\"older's inequality, 
+
+\[\int_0^\infty t^{\frac xn+\frac ym}\mathrm d\mu(t)\le\left(\int_0^\infty t^x \mathrm d\mu(t)\right)^{\frac 1n}\left(\int_0^\infty t^y \mathrm d\mu(t)\right)^{\frac 1m},\]
+hence
+\[\ln(\Phi(x/m+y/n)) = \ln\int_0^\infty t^{x/m+y/n}\mathrm d\mu(t)\]\[<\frac 
+1m\ln\int_0^\infty t^{x  }\mathrm d\mu(t)+\frac 1n \ln\int_0^\infty t^{ y 
+}\mathrm d\mu(t)=\frac 1m\ln \Phi(x)+\frac 1n\ln \Phi(y).\]
+The inequality is strict because   the functions $t\to t^x$ and $t\to t^y$ 
+are linearly independent since $x\ne y$.
+
+Thus, the function ${p\to\ln(\Phi(p))}$ is strictly convex. Clearly, this 
+function is $\mathcal C^\infty(-1,\infty)$. In particular, the function
+\[p\to \frac{\ln(\Phi(p))-\ln(\Phi(p-1))}{p-(p-1)}=\ln(\Psi(p))\]
+is strictly increasing wherever it is defined.
+Indeed, let us suppose that its derivative is zero at some point:
+\[0=\ln(\Phi(p))'-\ln(\Phi(p-1))'=\int_{p-1}^p \ln(\Phi(s))''\mathrm ds.\]
+As $\ln(\Phi(s))''\ge 0$, we conclude that $\ln(\Phi(s))''=0$ on the interval 
+$[p-1,p]$, which contradicts the strict convexity of $\ln \circ \Phi$ on its 
+domain of definition, hence $\ln(\Psi(p))$ is strictly increasing. It follows 
+immediately that $\Psi$ itself is strictly increasing, which assures that  
+$\Psi(p+1)> \Psi(p)$ on its domain of definition.
+
+Thus, we conclude that $w\to\mathcal  G_p(w)$ has a strictly positive second 
+derivative for $p\ge 2$.
+\end{proof}
+
+\textbf{Remark.} We also conjecture that $w\to\mathcal  G_p(w)$ is convex for $p\ge 1$, which is supported by numerical evidence and the fact that $\mathcal G_1(w) = \ln (1+e^w)$ is a strictly convex function.
+  \section{Technical result} % (fold)
+  \label{sec:technical_propositions}
+  \begin{proposition} 
+	Suppose that we have functions  $W:\left(\mrt\right)^4\to\mathbb C$ and $h:\mrt\to \mathbb C$ such that the integral
+	\[I=\coll W(v,v_\ast,v-(v-v_\ast,\omega)\omega,v_\ast+(v-v_\ast,\omega)\omega)h(v)\dv\dv_\ast\dom\] exists.
+	Then the following identity holds:
+	\[I= 
+	\coll W(v_\ast,v,v_\ast+(v-v_\ast,\omega)\omega,v-(v-v_\ast,\omega)\omega)h(v_\ast)\dv\dv_\ast\dom.\]
+	\[=\coll W(v',v'_\ast,v,v_\ast)h(v)\dv\dv_\ast\dom\]
+	\[=\coll W(v'_\ast,v' ,v_\ast,v)h(v_\ast)\dv\dv_\ast\dom.\]
+\end{proposition}
+\begin{proof}
+	First, let us apply the change of variables $(v,v_\ast)\to (v_\ast,v)$. The Jacobian of such change of variables is unity, hence 
+	\[I= \coll W(v_\ast,v,v_\ast+(v-v_\ast,\omega)\omega,v-(v-v_\ast,\omega)\omega)h(v_\ast)\dv\dv_\ast\dom.\]
+	In the next change of variables we will express $v$ and $v_\ast$  in terms of $v '$ and $v'_\ast$:
+	\[v= v'-(v'-v'_\ast,\omega)\omega,\quad v_\ast= v'_\ast-(v'-v'_\ast,\omega)\omega.\]
+	This change of variables also has the Jacobian equal to one, hence 
+	\[I=\coll W(v'-(v'-v'_\ast,\omega)\omega,v'_\ast+(v'-v'_\ast,\omega)\omega,v',v'_\ast)h(v')\dv'\dv'_\ast\dom\]
+	\[=\coll W(v-(v-v_\ast,\omega)\omega,v_\ast+(v-v_\ast,\omega)\omega,v,v_\ast)h(v)\dv\dv_\ast\dom\]
+	\[=\coll W(v',v'_\ast,v,v_\ast)h(v)\dv\dv_\ast\dom.\]
+
+	Applying the first change of variables to the above expression, we obtain that
+	\[I=\coll W(v'_\ast,v' ,v_\ast,v)h(v_\ast)\dv\dv_\ast\dom.\]
+\end{proof}
+
+  % section technical_propositions (end)
+ 
+\end{subappendices}%
+%
+% \clearpage
+% 
+% \phantomsection
+  % \addcontentsline{toc}{section}{References}
+%
+%
+% \printbibliography
+% \printbibliography[heading=subbibliography]

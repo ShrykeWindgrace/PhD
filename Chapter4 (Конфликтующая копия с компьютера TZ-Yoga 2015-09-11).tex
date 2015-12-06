@@ -1,0 +1,823 @@
+% \begin{abstract}
+% 	 In the present work we consider the Boltzmann equation linearised around a global Maxwellian function $M$ of finite mass. We examine the linearised collision operator $L$ and give sufficient conditions for its continuity in the space $L^2(M\dx\dv)$. We also give sufficient conditions for existence, unicity, and stability of solutions of the linearised Boltzmann equation in the space\\ $L^{\infty}(\dt,L^2(M\dx\dv))$ in terms of parameters of the collision kernel and of the global  Maxwellian $M$. We establish the existence of limits of these solutions for large time $|t|\to\infty$, and, conversely, the uniqueness of solutions having a given limit.
+
+% We introduce the scattering operator $\Sc$ and give estimations on its norm in terms of Boltzmann's $H$-function associated with the linearised Boltzmann equation. We also give an estimation of its spectral gap by using a Lebesgue space with special weight.
+% \end{abstract}
+% \begin{otherlanguage}{french}
+% \begin{abstract}
+% 	 Dans ce chapitre on considère l'équation de Boltzmann   linéarisée autour d'une fonction Maxwellienne globale $M$ à  masse finie. On étidue l'operateur de collision linéarisé $L$ et donne des conditions suffisantes pour sa continuité dans l'espace $L^2(M\dx\dv)$. On donne également les conditions suffisantes d'existence, unicité et stabilité des solutions l'équation de Boltzmann   linéarisée dans l'espace $L^{\infty}(\dt,L^2(M\dx\dv))$ en termes de paramères du noyau de collision et de la fonction Maxwellienne globale $M$. On établit l'existence de limites de ces solution au temps grand  $|t|\to\infty$, et, conversement, l'unicité des solutions admettantes une limite donnée.
+
+% 	 On introduit l'opérateur de scattering  $\Sc$ et donne les estimations de sa norme en termes de   $H$-fonction de Boltzmann's associée à l'équation de Boltzmann   linéarisée . On donne également une estimation de son gap  spectrale en utilisant un espace de Lebesgue muni d'une poids spécifique.
+% \end{abstract}
+% \end{otherlanguage}
+\section{Introduction} % (fold)
+\label{sec:introduction}
+For the Boltzmann equation 
+\[\partial_t F + v\cdot \nabla_x F = C(F)\]
+there two competing mechanisms in the density evolution for this equation: on the one hand, the dissipation increases entropy and therefore the solution relaxes to the thermodynamic equilibrium; on the other hand, the dispersion rarefies the collisions between particles and hence diminishes the effect of dispersion. The authors of \cite{FG} show that particular choice of the function $M$ allows us to find a balance between these two mechanisms.
+
+In this chapter we study long time behaviour of the solutions $g=g(t,x,v)$ of the linearised Boltzmann equation near a global Maxwellian $M$ in $\mbo\times\rdrd$. The global Maxwellian functions $M=M(t,x,v)$ are both local Maxwellians in $v$ (i.e. of the form $\exp (a(t,x)+\vec b(t,x)\cdot v + c(t,x)|v|^2)$) and satisfy the free transport equation \[\partial_t M(t,x,v)+v\cdot\nabla_x M(t,x,v)=0.\]
+An example of a global Maxwellian is a function $(t,x,v)\to \exp(-|x-tv|^2)$.
+The class of global Maxwellians of finite mass is known to be the source of an interesting dynamics for the Boltzmann equation where the effects of dispersion and of relaxation to the local equilibrium are in a balanced competition. For a further discussion of this subject, see \cite{FG}. 
+
+
+In \cite{Golse2015Dispersion}, Golse considers the question on comparability of two entities: on the one side, the difference $H(f)-H(\Sc [f])$, where $\Sc$ is the scattering operator for nonlinear Boltzmann equation and $H$ is the associated H-function for this equation, and $H(f)-H(M_f(0))$, where $M_f$ is a global Maxwellian function admitting the same moments as the function $f$. It was shown that
+\[0\le H(f)-H(\Sc[f])\le H(f)-H(M_f(0)).\]
+The question is whether one can obtain an inequality of the form 
+\[c(H(f)-H(M_f(0)))^\alpha\le H(f)-H(\Sc[f]) \]
+for some constants $\alpha>0$ and $c>0$, which is analogous to the Cercignani's conjecture on entropy production in the context of the Boltzmann equation over $\mrd$ in the scattering regime (see, for example, \cite{Villani2008Entropy}).
+
+Our result can be viewed as a negative answer to the same question but for the linearised Boltzmann equation.
+
+On the other hand, this implies that thanks to the particular choice of the global Maxwellian function $M$ the solutions of the equation \eqref{eq:i:linear} are not relaxing to a thermodynamic equilibrium.
+
+The goal of the present work is to study the dynamics defined by the Boltzmann equation linearised near a global Maxwellian in $\mrd$. We establish the existence and uniqueness of its solutions and conduct an analysis of the large-time behaviour of these solutions.
+
+This chapter is organised as follows: in the section \ref{sec:linearised_equation} we recall the properties of the global Maxwellians, introduce necessary functional spaces, and prove the continuity of the linearised Boltzmann operator $L_t$.	In the section \ref{sec:solutions_of_the_linearised_equation} we prove the existence and unicity of the Cauchy problem and the large-time limit problem for the linearised Boltzmann equation \eqref{eq:theone}. We also study the large-time limits of these solutions. In the section \ref{sec:scattering_operator} we define the scattering operator and show its properties.
+% section introduction (end)
+
+\section{Linearised equation} % (fold)
+\label{sec:linearised_equation}
+ \subsection{Global Maxwellians and the linearised Boltzmann equation} % (fold)
+ \label{ssec:global_maxwellians}
+ 
+Global Maxwellians with finite mass are functions of $(t,x,v)\in \mbo\times\rdrd$ of the form
+\begin{equation}
+	\frac{m}{(2\pi)^{d}}\sqrt{\det(Q)}\exp(-q(v,x-x_0,t)),
+	\label{levermore}
+\end{equation}
+where $m>0$ and \begin{equation}
+	\notag
+	q(t,x,v)=\frac{1}{2}\left(c|v|^2+a|x-tv|^2+2b(x-tv)\cdot v+2v\cdot B(x-tv)\right)
+\end{equation}
+such that $a,c>0$, $b\in \mathbb R$, $B=-B^T$ a matrix such that \begin{equation}
+	\notag
+Q=(ac-b^2)I+B^2>0.	
+\end{equation}
+If local Maxwellian writes 
+\[M[\rho,u,\theta](v)=\frac{\rho}{(2 \pi)^{d/2}}\exp\left(-\frac{|v-u|^2}{2 \theta}\right),\]
+then global Maxwellians can be represented as local Maxwellians with
+ \begin{equation}\label{eq:locals}
+ 	\theta(t)=\frac{1}{ at^2-2bt+c },\quad \rho(t,x)=m \sqrt{\det\left(\frac{Q}{2 \pi}\right)}\theta^{d/2}(t)\exp(-\theta(t)x^{T}Qx),
+ \end{equation}
+\[u(t,x)=\theta(t)(axt-bx-Bx).\]
+% with the matrix $Q=(ac-b^2)I+B^2$.
+ % section global_maxwellians (end)
+For a complete characterisation of global Maxwellians see \cite{CDL-GlM}.
+
+The linearised Boltzmann equation writes as follows:
+\begin{equation}\label{eq:theone}
+	(\partial_t + v\cdot \nabla_x)g(t,x,v)=L_t[g](t,x,v).
+\end{equation}
+As previously, for vectors $\omega\in\msd $ and $v,v_*\in\mrd$ we denote
+\[v'=v-(v-v_*,\omega)\omega,\quad v'_*=v_*+(v-v_*,\omega)\omega.\]
+We also denote \[g'=g(t,x,v'),\quad g_*=g(t,x,v_*),\quad g'_*=g(t,x,v'_*)\]
+and similarly for $M$.
+ The linearised collision operator $L_t$ writes  
+\[L_t[g](t,x,v) = \int_{\mrd\times\msd}b(v-v_*,\omega)M(t,x,v_*)\{g\}(t,x,v,v_*)\dv_*\dom\]
+with \[\{g\}(t,x,v,v_*) = g'_*+g'- g_*-g,  \]
+and $b$ is the collision kernel.
+
+This operator is well-studied for a large class of collision kernels $b$. Most notably, this operator is local in $(t,x)$, and acts only on the $v$-dependence of the distribution function only. It is self-adjoint non-positive in the space $L^2(M\dv)$. Moreover, the null-space is spanned by functions $1,v_1,\ldots,v_d,|v|^2$ (see, for example, \cite{Caflisch1980Boltzmann}, \cite{Glassey1987Cauchy}, \cite{Golse1989Stationary}, \cite{Grad:mist}, \cite{Levermore2010Compactness} for further discussion of properties of this operator).
+% \begin{itemize}
+% 	\item its null space is generated by the functions $\{1,v_1,\ldots,v_d,|v|^2\}$
+% 	\item it is naturally defined on the space $L^2(M\dv)$ and is non-positive symmetric
+% 	% \item it satisfies the Fredholm alternative in a well-chosen hilbert space.
+% \end{itemize}
+% For a more detailed discussion of these properties, see, for example, \cite{glassey1987cauchy}.%, \cite{levermore2009compactness}.
+
+We will assume that the collision kernel has separated form, i.e.
+\[ b(z, \omega) = |z|^\beta \hat b \left(\omega \cdot n \right),\quad \mbox{with }n=\frac{z}{|z|}\]
+and satisfies the weak cut-off condition (see \cite{Grad:weakCO}):
+ \begin{equation}\label{eq:b1}
+ 	b_1 = \int_{\msd} \hat b(\omega\cdot n)\dom< \infty.
+ \end{equation}
+Such a collision kernel will be said to correspond to a \enquote{hard} potential for the molecular
+interaction if $\beta \in  (0, 1]$, and to a  \enquote{soft}
+potential if 
+$\beta\in(-d,0)$.
+The case $\beta=0$ corresponds to an assumption made by Maxwell 
+in \cite{maxwell1867dynamical}, and is referred to as the case of  \enquote{Maxwell molecules}.
+The case of hard sphere collisions is the case where $b(z, \omega) = |z \cdot \omega|$. %The case β ∈ (1, 2] is
+% referred to as “super-hard”; it does not arise from any radial, inverse power law potential and
+% is therefore of limited physical interest.
+% For this class of collision kernels the aforementioned properties of the operator $L_t$ hold (see \cite{Grad:mist}, \cite{levermore2009compactness}).
+
+\subsection{Functional spaces} % (fold)
+\label{sub:functional_spaces}
+For a given global Maxwellian $M$ we introduce the Hilbert space 
+\begin{equation}
+	\label{eq:Xt}
+	\glXt=L^2(M(t,x,v)\dx\dv).
+\end{equation}
+We will study the solutions of the equation \eqref{eq:theone} in the space $\glY$ given by the norm
+\begin{equation}
+	\label{eq:Y}
+	\|g(t,x,v),\glY\|=\sup_{t\in\mbo}\|g(t,\cdot,\cdot),\glXt\|.
+\end{equation}
+We will also denote by $B(\glXt)$ the space of linear bounded operators on the space $\glXt$. The $(\cdot,\cdot)_{\glXt}$ will stand for scalar product in $\glXt$.
+% For any time $t$ the operator $L_t$ is naturally defined on the space $\glXt$. The following lemma gives the estimation on its norm.
+% subsection functional_spaces (end)
+
+\subsection{Conservative solutions} % (fold)
+\label{sub:conservative_solutions}
+In this subsection we will study the space of solutions of the equation \eqref{eq:theone} satisfying both the free transport equation
+\[(\partial_t + v\cdot \nabla_x)g(t,x,v)=0\] and belonging to the null-space of $L_t$ a.e. in $t$ and $x$. We will call it the space of conservative solutions.	
+
+\begin{lemma}\label{le:CS}
+A basis of the space of conservative solutions is
+\[1, \quad (x-tv)_i,\quad |x-tv|^2, \quad v_i,\quad |v|^2\]
+\[v\cdot (x-tv),\quad S_j(x-tv)\cdot v,\]where $i=1,\dots, d$ and the antisymmetric matrices $S_j$ form a basis of the space of antisymmetric matrices in $M_d(\mbo)$.
+\end{lemma}
+The proof of this result is given in appendix \ref{sec:proof_of_lemma_CS}.
+
+We will denote this space of functions over $\mbo\times\rdrd$ by $CS$ and the basis vectors defined in the above lemma by $r_j(t;x,v)$. We will also introduce the space $CS_s$ of functions over $\rdrd$ generated by $r_j(s;x,v)$ for a fixed time $s$.
+
+
+% subsection conservative_solutions (end)
+\subsection{Projection on the space of conservative solutions} % (fold)
+\label{sub:projector_on_the_space_of_conservative_solutions}
+We will introduce the operator $A=v\cdot\nabla_x $
+defined over the space of functions over $\rdrd$:
+\[e^{tA}[h](x,v)=h(x+tv,v).\]
+We will also extend this definition on functions defined on $\mbo\times\rdrd $ as
+\[e^{tA}[g](s,x,v)=g(s,x+tv,v).\] Note that for each global Maxwellian $M$ we have the identity
+\[e^{ tA}[M(t,x,v) ]=M(0,x,v).\]
+In addition, for each time $s\in\mbo$ we can define an orthogonal projection $P_s=P_s^*=P_s^2$ on $CS_s$ in the space $\glX{s}$.
+Note that this operator commutes with the operator $e^{sA}$ in the sense that
+\[
+	\forall g:\mrd\times\mrd\to\mbo,\quad g\in \glXo,\quad P_s[e^{sA}[g]]=e^{sA}[P_0[g]].	
+\]
+Indeed, the basis vectors of $CS$ for $t=0$ and for $t=s$ are related by
+\[r_j(s;x,v)=e^{-sA}[r_j(0;x,v)].\] Moreover, the orthogonal projection is uniquely determined by the scalar products with basis vectors $r_j$, and it is easy to see that
+
+\[(r_j(s),e^{-sA}[g])_{\glX{s}} = (e^{-sA}[r_j(0)],e^{-sA}[g])_{\glX{s}}=(r_j(0),g)_{\glXo}, \]
+which allows us to conclude.
+
+\begin{lemma}
+	\label{le:CS-invert}
+	Let $M$ be a global Maxwellian, then for each function $h(x,v)\in \glXt$ there exists a unique function $p(x,v)\in CS_t$ such that
+	\[\forall j\quad (h,r_j(t))_{\glXt}=(p,r_j(t))_{\glXt}.\]
+\end{lemma}
+\begin{proof}
+	The vectors $r_j(t)$ are linearly independent, hence the Gram matrix $N$ given by $N_{ij}=(r_i(t),r_j(t))_{\glXt}$ is non-singular. Then again, since for a fixed $t$ the vectors $r_j(t)$ generate the same linear space of functions over $x$ and $v$, we can assume that $p$ is a linear combination of $r_j(t)$:
+	\[p(x,v)=\sum_j \alpha_jr_j(t),\] therefore the problem reduces to finding the solution of the system of linear equations \[ \sum_jN_{ij}\alpha_j=(h,r_i(t))_{\glXt},\]
+	which obviously has a unique solution.
+\end{proof}
+% subsection projector_on_the_space_of_conservative_solutions (end)
+
+
+
+
+
+\subsection{Continuity of the operator $L_t$} % (fold)
+\label{sub:continuity_of_the_operator_Lt}
+
+% subsection continuity_of_the_operator_Lt (end)
+
+\begin{theorem}\label{le:L:cont}
+	Suppose that the collision kernel $b$ has the separate form with $\beta\in (-d,0]$. For any global Maxwellian $M$ and any time $t$ the operator $L_t$ is continuous on the space $\glXt$.
+
+	Moreover, if in addition we have $\beta\in \binter $, then
+	\[\int_{\mbo}\|L_t,B(\glXt)\| \dt<\infty.\]
+\end{theorem}
+\noindent We give the proof of this theorem in appendix \ref{sec:proof_of_lemma_Lcont}.
+
+\noindent For a global Maxwellian $M$ and collision kernel $b$ of separate form satisfying the condition \eqref{eq:b1} with $\beta\in \binter  $ we will denote \begin{equation}
+	\label{eq:mu:def}
+	\mu(M) = \int_{\mbo}\|L_t,B(\glXt)\| \dt <\infty.
+\end{equation}
+\textbf{Remark.} It is important to notice that the norm of the operator $L_t$ and $\mu(M)$ can be made arbitrarily small by choosing an appropriate global Maxwellian, for example, with sufficiently small mass.
+
+\noindent\textbf{Remark 2.} In the case $\beta\in(0,1]$ the operator $L_t$ is naturally defined as an unbounded operator on $L^2(M\dv)$ (see \cite{Grad:mist}) %\eqref
+ and therefore one will need to conduct a similar analysis in a Hilbert space with different weight in order to obtain similar results.
+
+
+
+
+
+% section linearised_equation (end)
+\section{Solutions of the linearised equation} % (fold)
+\label{sec:solutions_of_the_linearised_equation}
+
+
+\begin{definition} A mild solution of the equation \eqref{eq:theone} is a function \[g=g(t,x,v) \in L^1_{loc} (I\times \mrd\times \mrd)\] where $I$ is an interval in $\mbo$,  such that $L_t[g]\in L^1_{loc} (I\times \rdrd ) $
+and
+\[e^{t_2A}[g](t_2,x,v)-e^{t_1A}[g](t_1,x,v)=\int_{t_1}^{t_2}e^{sA}[L_s[g]](s,x,v)\ds.\]
+
+\end{definition}
+\subsection{Conservation properties} % (fold)
+\label{sub:conservation_properties}
+% Here come conservation properties.
+In this subsection we state the conservation properties of solutions of the linearised Boltzmann equation \eqref{eq:theone}.
+\begin{theorem}
+	\label{th:conserv}
+	Assume that $M(t,x,v)$ is a local Maxwellian in $v$. Let $g=g(t,x,v)$ be a measurable function defined a.e. on $I\times\rdrd$ where $I$ is an open interval in $\mbo$.
+	 % and \textbf{satisfying the bound --- which one?!} 
+	
+	\begin{enumerate}
+		\item  For a.e. $(t,x)\in I\times \mrd$ the following identity holds:
+		\[\int_{\mrd} M(t,x,v) L_t[g](t,x,v)\begin{pmatrix}
+			1\\v\\|v|^2
+		\end{pmatrix}\dv=0.\]
+		\item Assume moreover that $M$ is a global Maxwellian and $g$ is a mild solution of the linearised Boltzmann equation \eqref{eq:theone} in the sense of distributions on $I\times\rdrd$. Then
+		the function $g$ satisfies the global conservation laws
+		\[\frac{\mathrm d}{\mathrm dt}\int_{\rdrd} M(t,x,v)g(t,x,v)\begin{pmatrix}
+			1\\
+			x-tv\\
+			|x-tv|^2\\
+			v\\
+			|v|^2\\
+			(x-tv)\cdot v\\
+			x\wedge v
+		\end{pmatrix}\dx\dv=0\]
+		in the sense of distributions on $I$.
+	\end{enumerate}
+\end{theorem}
+
+\begin{theorem}
+	\label{th:H} Let $M$ be a global Maxwellian. Let  also $g=g(t,x,v)$ be a measurable function defined a.e. on $I\times\rdrd$ where $I$ is an interval in $\mbo$ such that 
+	\[\sup_{t\in I} \|g(t),\glXt\|< \infty.\]
+	Then
+	\begin{enumerate}
+		\item for a.e. $(t,x)\in I\times\mbo$
+		\[\int_{\mrd}  M(t)L[g(t)]g(t)\dv\le 0.\]
+		\item the inequality above becomes an equality if and only if $L[g]=0$ a.e. on $I\times\rdrd$, or equivalently, $g$ is locally a linear combination of functions $1,v_1,\ldots,v_d,|v|^2$, i.e. there exist functions $a(t,x)$, $c(t,x)$ and a vector field $b(t,x)$ in $\mrd$ such that
+		\[g(t,x,v) = a(t,x)+b(t,x)\cdot v+c(t,x)|v|^2.\]
+
+		Assume moreover that $g$ is a mild solution of the linearised Boltzmann equation \eqref{eq:theone} on $I\times\rdrd$, then the Boltzmann $H$-function associated with $g$ defined as 
+		\[H[g](t) = \|g(t),\glXt\|^2\]
+		satisfies
+		\[\frac{\mathrm d H[g](t)}{\mathrm dt}=\int_{\rdrd} M(t)L[g(t)]g(t)\dx\dv\le 0.\]
+	\end{enumerate}
+\end{theorem}
+% subsection conservation_properties (end)
+
+\subsection{Existence of solutions and their limiting behaviour} % (fold)
+\label{sub:existence_of_solutions}
+In this subsection we will study the existence of mild solutions for the Cauchy problem for the equation \eqref{eq:theone}, as well as  for the boundary problems. We will also establish the results on the  behaviour of these solutions for $|t|\to \infty$.
+
+First, we state the following variant of Gronwall's lemma:
+\begin{lemma}
+\label{le:gron} Let $\Delta>0$, let also $m\in L^1(\mbo)$ satisfy $m(t)>0$ a.e., then the following statements hold:
+\begin{enumerate}
+	\item
+	if $\phi_+ \in L^{\infty}([t_0,\infty))$ satisfies the integral inequality 
+	\[0\le \phi_0(t)\le \Delta+\int_{t}^{+\infty}\phi_0(s)m(s)\ds \mbox{ for a.e. }t>t_0,\]
+	then
+	\[\phi_0(t)\le \Delta \exp\left(\int_{t_0}^{t}m(s)\ds \right)\]
+	for a.e. $t\ge t_0$.
+	\item 
+	if $\phi_- \in L^{\infty}((-\infty,t_0])$ satisfies the integral inequality 
+	\[0\le \phi_-(t)\le \Delta+\int_{-\infty}^{t}\phi_-(s)m(s)\ds \mbox{ for a.e. }t<t_0,\]
+	then
+	\[\phi_-(t)\le \Delta \exp\left(\int_{t}^{t_0}m(s)\ds\right)\]
+	for a.e. $t< t_0$.
+	\item let $T>t_0$; if $\psi_+ \in L^{\infty}([t_0,T])$ satisfies the integral inequality 
+	\[0\le \psi_+(t)\le \Delta+\int_{t_0}^{t}\psi_+(s)m(s)\ds \mbox{ for a.e. }t\in[t_0,T],\]
+	then
+	\[\psi_+(t)\le \Delta \exp\left(\int_{t_0}^{t}m(s)\ds\right)\]
+	for a.e. $t\in[t_0,T]$.
+	\item let $T<t_0$; if $\psi_- \in L^{\infty}([T,t_0])$ satisfies the integral inequality 
+	\[0\le \psi_-(t)\le \Delta+\int_{t}^{t_0}\psi_-(s)m(s)\ds \mbox{ for a.e. }t\in[T,t_0],\]
+	then
+	\[\psi_-(t)\le \Delta \exp\left(\int_{t}^{t_0}m(s)\ds\right)\]
+	for a.e. $t\in[T,t_0]$.
+\end{enumerate}
+\end{lemma} \noindent We give the proof of this lemma in  appendix \ref{sec:proof_of_lemma_GRON}.
+
+
+\begin{theorem}\label{th:exists}
+	Assume that the collision kernel $b$ has
+	separated form with $\beta\in \binter$. Let $M$ be a global Maxwellian such 
+	that $\mu(M)<1$.
+	\begin{enumerate}
+	     \item \label{eit:exists}
+		For each $g^{in}\in \glX{0}$ there exists a unique mild solution $g\in \glY$
+		of the linearised Boltzmann equation \eqref{eq:theone} such that $g(0)=g^{in}$.
+		\item  This	solution satisfies the estimation: \[\|g,\glY\|\le    \|g^{in},\glX{0}\|e^{ \mu (M)}. \]
+\end{enumerate}
+\end{theorem}
+\noindent
+\textbf{Remark.} If the initial value $g^{in}(x,v)$ belongs to the space $CS_0$, then the unique solution $g(t,x,v)$ of the equation \eqref{eq:theone} with initial data $g(0,x,v) = g^{in}(x,v)$ writes, obviously,\[g(t,x,v)=e^{-tA}[g^{in}(x,v)].\]
+\begin{proof}
+	By the definition of mild solutions, we need to find $g\in \glY$ such that \begin{equation}\label{eq:tosolve}
+		g(t,x,v) = e^{-tA}[g^{in}]+\int_0^te^{(s-t)A}[L_s[g(s,x,v)]]\ds.
+	\end{equation}
+We will introduce the linear maps \[G:\glXo\to\glY,\quad G[h](t,x,v)=e^{-tA}[h](t,x,v) = h(x-tv,v) \]and
+\[B_0:\glY\to\glY,\quad B_0[f](t,x,v) = \int_0^t e^{(s-t)A}[L_s[f(s,x,v)]]\ds.\]
+In terms of these linear operators we can rewrite the identity \eqref{eq:tosolve} as 
+\[g = G[g^{in}]+B_0[g]\] or \[(I-B_0)[g]=G[g^{in}].\]
+	% \begin{lemma}\label{le:E}
+	Under the hypotheses of   theorem \ref{th:exists} the operator $B_0$ is well-defined on $\glY$ and \[\|B_0\|\le \mu(M) <1.\]
+		% Moreover, \begin{equation}
+		% 	\label{eq:contraction}\|\mathcal E[f_1]-\mathcal E[f_2],\glY\|\le 4 \mu(M) \|f_1-f_2,\glY\|.
+		% \end{equation}
+	% \end{lemma}
+	% \begin{proof}
+	% First,
+	% 	\[\|e^{-tA}[g^{in}](t,x,v),\glY \|=
+	% 	\sup_{t\in\mbo}\|e^{-tA}[g^{in}],\glXt\|\]\[
+	% 	=\sup_{t\in\mbo}\| g^{in},\glXo\|=
+	% 	\| g^{in},\glXo\|,
+	% 	\]
+	% and second,
+	Indeed,
+	\[\|B_0[f],\glY\|\]
+	\[=\left\|\int_0^te^{(s-t)A}[L_s[f(s,x,v)]]\ds ,\glY \right\|=\sup_{t\in\mbo}\left\|\int_0^te^{(s-t)A}[L_s[f(s,x,v)]]\ds,\glXt\right\|\]
+	\[=
+	\sup_{t\in\mbo}\left\|\int_0^t  L_s[f(s,x,v) ]\ds,\glX{s}\right\|
+	  \le \sup_{t\in\mbo}\int_0^t\|  L_s[f(s,x,v) ],\glX{s}\|\ds\]
+	\[\le \int_{\mbo}\|  L_s[f(s,x,v) ],\glX{s}\|\ds\]\[\le \int_{\mbo}\|  L_s ,B(\glXs)\|\|f(s),\glX{s}\|\ds\le  \mu(M)\|f,\glY\|.\]
+	Since $\|B_0\|<1$, the operator $I-B_0$ is continuously invertible and 
+	\[g = (I-B_0)^{-1}[G[g^{in}]].\]
+	This expression allows us to write an estimate
+		\begin{equation}\label{eq:bad-estimation}
+			\|g,\glY\|\le \frac{\|g^{in},\glX{0}\|}{1-\mu(M)}.
+		\end{equation}
+	However, since $g$ is a mild solution of the equation \eqref{eq:theone}, it satisfies
+	\[g(t)=e^{-tA}[g^{in}]+\int_0^te^{(s-t)A}[L_s[g(s)]]\ds,\]
+	which leads to 
+	\[\|g(t),\glXt\|\le \|e^{-tA}[g^{in}],\glXt\|+\int_0^t\left\|e^{(s-t)A}[L_s[g(s)]],\glXt\right\|\ds\]
+
+	\[ \le \| g^{in},\glXo\|+\int_0^t\left\| L_s[g(s)] ,\glXs\right\|\ds\]\[\le \| g^{in},\glXo\|+\int_0^t\left\| L_s,B(\glXs)\right\|\|g(s) ,\glXs\|\ds.\]
+	Lemma \ref{le:gron}, applied to the function $t\to \|g(t),\glXt\|$, results in 
+	\[\|g(t),\glXt\|\le \| g^{in},\glXo\|\exp\left(\left|\int_{0}^{t}\| L_s ,B(\glXs)\|\ds\right|\right),\]
+	and
+	\[\|g,\glY\|\le \| g^{in},\glXo\| e^{\mu(M)} ,\]
+	which is a better estimation than \eqref{eq:bad-estimation}.
+\end{proof}
+Similarly, we can introduce the boundary value problem: instead of condition at time $t=0$ we impose the condition on $t\to- \infty$ or $t\to+\infty$.
+
+\begin{theorem}
+	\label{th:exists:boundary}
+     Assume that the collision kernel $b$ has
+separated form with $\beta\in \binter$. Let $M$ be a global Maxwellian such
+that $\mu(M)<1$.     \begin{enumerate}     \item \label{eit:exists:boundary}
+For each $\gmi\in \glX{0}$ there exists a unique mild solution $g_-\in \glY$
+of the linearised Boltzmann equation \eqref{eq:theone} such that \[\lim_{t\to- \infty}\left\|e^{tA}[g_-(t)]-\gmi,\glXo\right\|=0.\]
+	\item For each $\gpi\in \glX{0}$ there exists a unique mild solution $g_+\in \glY$
+of the linearised Boltzmann equation \eqref{eq:theone} such that \[\lim_{t\to+ \infty}\left\|e^{tA}[g_+(t)]-\gpi,\glXo\right\|=0.\]
+     \item  These
+solutions satisfy the estimations \[\|g_-,\glY\|\le \|\gmi,\glX{0}\|e^{ \mu (M)}, \]
+\[\|g_+,\glY\|\le \|\gpi,\glX{0}\|e^{ \mu (M)} .\]
+	\end{enumerate}%
+%
+	We will denote the linear maps $\glXo\to \glY$ given by  $\gmi\mapsto g_-$
+	 and $\gpi\mapsto g_+$ as
+	  $\F_-$ and $\F_+$, respectively. 
+% This result allows us to  introduce the operators \[\F_\pm:\glXo \to\glY \] with $\F_-[\gmi]=g_-$ and $\F_+[\gpi]=g_+$ being the elements of $\glY$ obtained as aforementioned unique mild solutions of the corresponding boundary problems.
+\end{theorem}\noindent
+\textbf{Remark.} If $h\in CS_0$ then
+\[\F_{-}[h](t,x,v) = e^{-tA}[h(x,v)],\quad \F_{+}[h](t,x,v) = e^{-tA}[h(x,v)].\]
+Indeed, the function $(t,x,v)\to e^{-tA}[h(x,v)]$ belongs to $\glY$, is a mild solution of the equation \eqref{eq:theone} and its limiting behaviour for $t\to\pm \infty	$ is evident.
+
+\begin{proof}
+	As in the proof of   theorem \ref{th:exists}, we introduce the operators
+	\[B_-:\glY\to\glY,\quad B_-[f](t,x,v)=\int_{-\infty}^{t}e^{(s-t)A}[L_s[f(s)]]\ds,\]
+	\[B_+:\glY\to\glY,\quad B_+[f](t,x,v)=\int_{t}^{+\infty}e^{(s-t)A}[L_s[f(s)]]\ds.\]
+	The norms of these operators satisfy the estimations 
+	\[\|B_-\|\le  \mu(M)<1,\quad \|B_+\|\le  \mu(M)<1\] for the same reasons as the operator $B_0$ introduced in   theorem \ref{th:exists}. 
+
+	If a mild solution $f\in \glY$ of the equation \eqref{eq:theone} satisfies \[\lim_{t\to- \infty}e^{tA}[f] = \gmi,\] then we can pass to the limit $t_1\to -\infty$ in the identity
+	\[e^{t_2A}[f](t_2)-e^{t_1A}[f](t_1) = \int_{t_1}^{t_2}e^{sA}[L_s[f(s)]]\ds,\]
+	 implying that 
+	\[e^{t_2A}[f](t_2)-\gmi  = \int_{ -\infty}^{t_2}e^{sA}[L_s[f(s)]]\ds.\]
+	The last integral converges in $\glXo$, because
+	\[\int_{ -\infty}^{t_2}\left\|e^{sA}[L_s[f(s)]],\glXo\right\|\ds=%\]
+	%\[
+	\int_{ -\infty}^{t_2}\left\| L_s[f(s)] ,\glXs\right\|\ds\]
+	\[\le\int_{ -\infty}^{t_2} \| L_s,B(\glXs)\|\|[f(s)] ,\glXs\|\ds\le \mu(M) \|f,\glY\|.\]
+	In other words, the function $g_-$ solves the equation
+	\[g_-=G[\gmi]+B_-[g_-].\]
+	The operator $(I-B_-)^{-1}$ is well-defined, hence $g_-$ writes:
+	\[g_-=(I-B_-)^{-1}[G[\gmi]].\] 
+	% In other words, this function satisfies the relation
+	% \[g(t,x,v) = e^{-tA}[\gmi]+\int_{-\infty}^{t}e^{(s-t)A}[L_s[g(s)]]\ds.\]
+	In particular, this leads to 
+	\[e^{t_2A}[g](t_2)-e^{t_1A}[g](t_1) = \int_{t_1}^{t_2}e^{ s A}[L_s[g(s)]]\ds,\]
+	hence $g_-$ is a mild solution of the equation \eqref{eq:theone}. Moreover,
+	\[\left\|e^{tA}[g(t)]-\gmi,\glXo\right\| = \left\|\int_{-\infty}^{t}e^{ s  A}[L_s[g(s)]]\ds,\glXo\right\|\]
+	\[\le\int_{-\infty}^{t}\left\|e^{ s  A}[L_s[g(s)]],\glXo\right\|\ds=\int_{-\infty}^{t}\left\| L_s[g(s) ],\glX{s}\right\|\ds \]
+	\[\le \|g,\glY\|\int_{-\infty}^{t} \|L_s,B(\glXs)\|\ds\to 0\mbox{ as }t\to- \infty,\]
+	which concludes the proof of the first part of the theorem.
+
+	% The second part of the theorem is done likewise.
+		
+	The function $g_-$ satisfies
+	\[e^{tA}[g_-(t)]=\gmi+\int_{-\infty}^{t}e^{sA}[L[g_-(s)]]\ds.\]
+	When we consider the norm in $\glXo$ of both parts of this equality, we get
+	\[\|g_-(t),\glXt\|\le \|\gmi,\glXo\|+ \int_{-\infty}^{t} \|L[g_-(s)],\glXs\| \ds\]
+	\[\le \|\gmi,\glXo\|+ \int_{-\infty}^{t} \|L_s,B(\glXs)\|\| g_-(s),\glXs\| \ds.\]
+	By applying  % second result in
+	 lemma \ref{le:gron}
+	  % with \[\phi_-(t) = \|g_-(t),\glXt\|,\quad \Delta=\|\gmi,\glXo\|,\quad m(s) =\|L_s,B(\glXs)\|,\]
+	   we conclude that
+	\[\|g_-(t),\glXt\|\le \|\gmi,\glXo\| \exp\left(\int_{-\infty}^{t} \|L_s,B(\glXs)\| \ds\right)\]\[\le \|\gmi,\glXo\|  e^{\mu(M) }.   \]
+	The proof for the case   $t\to+\infty$ is done likewise.
+\end{proof}
+
+% subsection existence_of_solutions (end)
+\subsection{Large time behaviour} % (fold)
+\label{ssec:large_time_behaviour}
+
+
+\begin{theorem}
+	\label{th:limits}
+	Assume that the collision kernel has separated form and $\beta \in   \binter $. Assume that for some global Maxwellian $M$ the function $g=g(t,x,v)$ is the mild solution of the equation \eqref{eq:theone} defined a.e. on $(t_0,\infty)\times\mbt\times\mbt$ (resp. $(-\infty,t_0)\times\mbt\times\mbt$) for some $t_0\in\mbo$. Suppose that
+ $\sup_{t>t_0}\|g,\glXt\|< \infty $ (resp. $\sup_{t<t_0}\|g,\glXt\|< \infty $), then there exists a unique $\gpi=\gpi(x,v)$ (resp. $\gmi=\gmi(x,v)$) such that
+ \[\|g(t)-e^{-tA}[\gpi],\glXt\|\to0\]
+as $t\to+\infty$ --- resp.
+ \[\|g(t)-e^{-tA}[\gmi],\glXt\|\to0\]
+as $t\to-\infty$.
+
+
+\end{theorem}
+\begin{proof}
+Let us study the case for $t\to+ \infty$.
+	By the definition of mild solutions we have 
+\[e^{(t-t_0)A}[g(t)]=g(t_0)+\int_{t_0}^te^{(s-t_0)A}[L[g(s)]]\ds.\]
+The last integral converges in $\glX{t_0}$ as $t\to\infty$, because
+\[\left\|\int_{t_0}^te^{(s-t_0)A}[L[g(s)]]\ds,\glX{t_0}\right\|\le \int_{t_0}^t\left\|e^{(s-t_0)A}[L[g(s)]],\glX{t_0}\right\|\ds\]
+\[=\int_{t_0}^t\left\| L[g(s)],\glX{s}\right\|\ds\le  \mu(M)\sup_{s>t_0}\|g(s),\glX{s}\|. \]
+Hence $e^{(t-t_0)A}[g(t)]$ converges in $\glX{t_0}$ and therefore $e^{(t-t_0)A}[g(t)]$ converges to a limit in $\glX{t_0}$.
+
+The case $t\to - \infty$ is treated similarly.
+\end{proof}
+
+\begin{definition}
+Let $M$ be a global Maxwellian. 
+	Let $g^{in}$ and $\gpi$ (resp. $\gmi$)be two elements in $\glX{0}$. We will say that
+	\[\gpi = \T_+[g^{in}]\mbox{--- resp. } \gmi = \T_+[g^{in}],\] if there exists a unique mild solution $g$ of the linearised Boltzmann equation \eqref{eq:theone} on $t\in[0, \infty)$ (resp. on $t\in (-\infty,0]$) such that \[\|g(t)-e^{-tA}[\gpi],\glX{t}\|\to0 \mbox{ as } t\to \infty\] (resp. $\|g(t)-e^{-tA}[\gmi],\glX{t}\|\to0$ as $t\to- \infty$) and $g|_{t=0}=g^{in}$.
+\end{definition}
+ 
+\begin{theorem}	\label{th:tau}
+	Assume that the collision kernel $b$ has separated form with $\beta\in \binter$. Let $M$ be a global Maxwellian. Let also $g_1(t,x,v) $ defined a.e on $(0,+\infty)\times\rdrd$ and $g_2(t,x,v) $ defined a.e on $( -\infty,0)\times\rdrd$ be   mild solutions of the corresponding linearised Boltzmann equation  satisfying 
+	\begin{align*}
+		\sup_{t>0}\|g_1 (t),\glX{t}\|<\infty,\\
+		\sup_{t<0}\|g_2 (t),\glX{t}\|<\infty. 
+	\end{align*}
+	Let $\gpi(x,v)$ and $\gmi(x,v)$ be such that
+	\begin{align*}
+		 \|g_1 (t)-e^{-tA}[\gpi],\glX{t}\|&\to 0 \quad\mbox {as }t\to+\infty,\\
+		 \|g_2 (t)-e^{-tA}[\gmi],\glX{t}\|&\to 0 \quad\mbox {as }t\to-\infty,
+	\end{align*}
+	then
+	 \begin{equation}
+		\|g_1 (t) ,\glX{t}\|\le \|\gpi ,\glX{0}\|e^{ \mu(M)}
+	\end{equation} 
+	a.e. on $(0,\infty)$ and 
+	 \begin{equation}\label{eq:stab}
+	  	\|g_2 (t) ,\glX{t}\|\le \|\gmi ,\glX{0}\|e^{ \mu(M)}
+	  \end{equation} a.e. on $(-\infty,0)$.
+\end{theorem}
+\begin{proof}
+	By the definition of mild solutions we can write
+	\[e^{t_1A} [g_1(t_1)]=e^{tA}[g_1(t)]+\int_{t}^{t_1}e^{sA}[L[g(s)]]\ds \] for each $t_1>t>0$. By letting $t_1\to +\infty$ we obtain
+
+	\[e^{tA}[g_1 (t)]=\gpi-\int_{t}^{+\infty}e^{sA}[L[g_1(s)]]\ds.\] We take the norm in $\glX{0}$ of the above expression to obtain the inequality
+	 \begin{equation*}
+		\|g_1 ,\glX{t}\|\le \|\gpi,\glX{0}\|  + \int_t^{+\infty} \|L_s,B(\glXs)\|\|g_1(s),\glXs\|\ds.
+	\end{equation*} 
+%
+	By lemma \ref{le:gron} we deduce that
+	\[\|g_1 ,\glX{t}\|\le \|\gpi,\glXo\|\exp \left( \int_t^{+\infty} \|L_s,B(\glXs)\| \ds\right)\]\[\le\|\gpi,\glX{0}\| e^{ \mu(M)}. \]
+The proof of the inequality \eqref{eq:stab} is done likewise.
+\end{proof}
+In particular,   theorem \ref{th:tau} implies that the operators $\T_\pm$ are injective.
+
+% subsection large_time_behaviour (end)
+
+% section solutions_of_the_linearised_equation (end)
+
+\section{Scattering operator} % (fold)
+\label{sec:scattering_operator}
+\begin{definition}\label{def:sc}
+	Let $M$ be a global Maxwellian; let also $\gmi$ and $\gpi$ be two functions in $\glXo$. We say that $\gpi=\Sc[\gmi]$ if there exists a unique mild solution of the linearised Boltzmann equation \eqref{eq:theone} in the space $\glY$ such that
+	\[\|e^{tA}[g(t)]-\gmi,\glXo\|\to 0\mbox{ as }t\to -\infty\]
+	and
+	\[\|e^{tA}[g(t)]-\gpi,\glXo\|\to 0\mbox{ as }t\to +\infty.\]
+\end{definition}
+ 
+\begin{theorem}
+	\label{th:sc}
+	Assume that collision kernel $b$ has the separated form with $\beta\in \binter$ and let $M$ be a global Maxwellian with $\mu(M)<1$. Then
+	\begin{enumerate}
+		\item for all $\gmi\in\glXo$ there exists a unique $\gpi\in\glXo$ such that $\Sc[\gmi]=\gpi$. In particular, if $\gmi\in CS_0$, then $\Sc[\gmi]=\gmi$.
+		\item  for all $\gpi\in\glXo$ there exists a unique $\gmi\in\glXo$ such that $\Sc[\gmi]=\gpi$. The function $\gmi$ so obtained will be noted $\Sc^{-1}[\gpi]$.
+		\item the maps $\Sc$ and $\Sc^{-1}$ are linear bounded on $\glXo$.
+		\item the operator $\Sc$ satisfies the global conservation laws in the sense
+		\[
+		(r_j(0),\Sc[\gmi])_{\glXo}
+		=(r_j(0), \gmi )_{\glXo}
+		\]
+		where the vectors $r_j$ are defined in lemma \ref{le:CS}.
+		\item the operator $\Sc$ decreases the norm of the function in $\glXo$, i.e.
+		\[\|\Sc[\gmi],\glXo\|\le \|\gmi,\glXo\|\]
+		with equality if and only if $\gmi\in CS_0$.
+ 	\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+	By   theorem \ref{th:exists:boundary} for a given $\gmi$ the function $g=\F_-[\gmi]$ is the unique mild solution of the equation \eqref{eq:theone} in the space $\glY$ satisfying \[\|e^{tA}[g(t)]-\gmi,\glXo\|\to 0\mbox{ as }t\to -\infty.\]
+	Then, by   theorem \ref{th:limits} there exists a unique limit in $\glXo$ of the function $(t,x,v)\to e^{tA}[g(t,x,v)]$ as $t\to\infty$ which gives us $\gpi$, which proves the first point of   theorem \ref{th:sc}. The second point of this theorem is treated similarly, which allows us to say that the linear operators $\Sc$ and $\Sc^{-1}$ are bounded on $\glXo$.
+
+	The conservation properties of the operator $\Sc$ quickly follow from the conservation properties of the functions $\F_\pm[ g^{\pm\infty} ]$ shown in theorem \ref{th:conserv}.
+
+	Let $\gpi$ and $\gmi$ be functions in $\glXo$ such that $\Sc[\gmi]=\gpi$. We consider the corresponding mild solution $g\in\glY$ from the definition \ref{def:sc}. Given that the function $M(t,x,v)$ satisfies the free transport equation, we can write 
+	\[\int_\rdrd(\partial_t g(t,x,v)+v\cdot\nabla_x g(t,x,v))M(t,x,v)g(t,x,v)\dx\dv = \frac{\mathrm d}{\mathrm dt  } \|g(t),\glXt\|^2\]
+	\[=(L_t[g(t)],g(t))_{\glXt}.\]
+	We integrate this equality with respect to time 
+	on $[-T,T]$, $T>0$ to get
+	\[ \|g(T),\glX{T}\|^2 -\|g(-T),\glX{-T}\|^2=\int_{-T}^{T}(L_t[g(t)],g(t))_{\glXt}\dt,\]
+	which gives
+	\[ \|e^{TA}[g(T)],\glXo\|^2-\|e^{-TA}[g(-T)],\glXo\|^2=\int_{-T}^{T}(L_t[g(t)],g(t))_{\glXt}\dt\]
+	By the convergence properties \[\lim_{T\to+\infty}e^{TA}[g(T)] = \gpi, \quad \lim_{T\to+\infty}e^{-TA}[g(-T)] = \gmi,\]  we can write
+	\[ \|\Sc[\gmi],\glXo\|^2 -\|\gmi,\glXo\|^2=\int_{\mbo}\left(L_t[g(t)],g(t)\right)_{\glXt}\dt.\]
+	Since the operator $L_t$ is non-positive, we immediately conclude that
+	\[\|\Sc[\gmi],\glXo\|  \le  \|\gmi,\glXo\|,\]
+	and the point ($5$) of this theorem holds.
+
+	The above inequality becomes equality if and only if for a.e. $t\in\mbo$ \[ (L_t[g(t)],g(t))_{\glXt}=0,\] which implies that for a.e. $t$ and $x$ the function $v\to g(t,x,v)$ belongs to the null-space of $L_t$. This result, together with the equation \eqref{eq:theone}, implies that $g$ is a conservative solution, i.e. $g\in CS$. This, in its turn, implies that \[
+	g(t,x,v)=e^{-tA}[g(0,x,v)]\]
+	and therefore
+	\[g^{\pm \infty	} = \lim_{t\to\pm \infty}e^{tA}[g(t,x,v)] = g(0,x,v).\]
+\end{proof}
+The following theorem describes the main result of this chapter:
+\begin{theorem}
+	\label{th:sc:2}
+	Assume that collision kernel $b$ has the separated form with $\beta\in \binter$ and let $M$ be a global Maxwellian with $\mu(M)<1$. Then
+	\begin{enumerate}
+		\item the operator $\Sc$ satisfies \[\|\Sc[\gmi],\glXo\|\ge \|P_0[\gmi],\glXo\|\]
+		where $P_0$ is the orthogonal projector on $CS_0$ in $\glXo$. The  above expression is an equality  if and only if $\gmi=\Sc[\gmi]\in CS_0$.
+		\item if, in addition, the collision kernel satisfies the inequality
+		\[\inf_{\omega_1,\, \omega_2\in\msd}\int_{\msd} \min(\hat b(\omega_1\cdot \omega_3),\hat  b(\omega_2\cdot \omega_3))\dom_3>0,\]
+		then there exists a constant $C>0$ such that $\forall \gmi  \in (CS_0)^\bot$ 
+		\begin{equation}\label{eq:key}
+			\begin{split}
+					 \| \gmi ,\glXo\|^2-\|\Sc[\gmi],\glXo\|^2 
+					 \\ \ge C \int_{\mbo}\left\|g,L^2\left(M(t,x,v)\rho(t,x)\theta^{\frac{\beta+d}{2}}	(t)\left(1+ |v |^2\right)^{\beta/2}\dx\dv \right)\right\|^2\dt
+				\end{split}
+		\end{equation}
+		with $\rho(t,x)$, $u(t,x)$ and $\theta(t)$ defined in \eqref{eq:locals}.
+ 	\end{enumerate}
+\end{theorem}
+\begin{proof}
+	The conservation properties of the operator $\Sc$ imply that 
+	\[(r_j(0),  \gmi)_{\glXo}=
+	(r_j(0),  \Sc[\gmi]  )_{\glXo},\]
+	therefore
+	\[P_0[\gmi] = P_0[\Sc[\gmi]]\]
+	and
+	\[\|\Sc[\gmi],\glXo\|^2 = \|P_0[\Sc[\gmi]],\glXo\|^2+\|(I-P_0)[\Sc[\gmi]],\glXo\|^2\]\[\ge 
+	\|P_0[ \gmi ],\glXo\|^2, \]
+	so
+	\[\|\gmi,\glXo\|^2-\|\Sc[\gmi],\glXo\|^2  \le\|\gmi,\glXo\|^2-\|P_0[\gmi],\glXo\|^2.\]
+
+
+On the other hand, we want to obtain a below estimation for the quantity $\|\gmi,\glXo\|^2-\|\Sc[\gmi],\glXo\|^2  $, in other words, on the integral  \[-\int_{\mbo}(L_t[g(t)],g(t))_{\glXt}\dt .\]
+
+We will base our reasoning on the result established in \cite{mouhot2007quantitative}:\begin{lemma}
+	 Suppose that $\bar M $ is a local Maxwellian of the form $ M[1,0,1](v) = \exp(-|v|^2/2)$. Suppose also that the collision kernel $b$ has separated form
+\[b(|v-v_*|,\omega) = |v-v_*|^{\beta} \hat b \left(\frac{v-v_*}{|v-v_*|}\cdot \omega\right)\]
+satisfying $\beta\in(-d,1]$ and
+\[\inf_{\omega_1,\, \omega_2\in\msd}\int_{\msd} \min(\hat b(\omega_1\cdot \omega_3),\hat b(\omega_2\cdot \omega_3))\dom_3>0.\]
+ Then there exists a constant $C>0$ such that for each  function $h\in L^2(\bar M(v)\dv)$ satisfying
+\[\begin{aligned}
+	\int h(v)\bar M(v)\dv =  \int|v|^2h(v)\bar M(v)\dv=0,\\ \forall i=1,\dots , d \int v_i h(v)\bar M(v)\dv=0,
+\end{aligned}\] one has the estimate
+\begin{equation}
+	\label{eq:estimation}
+	\begin{split}
+		-\int b(|v-v_*|,\omega)\bar M(v)\bar M(v_*)\{h\}h(v)\dom\dv\dv_*\\\ge C\int \bar M(v)|h(v)|^2 (1+|v|^2)^{\beta/2}\dv.
+	\end{split}
+\end{equation}
+\end{lemma}
+In particular, for a local Maxwellian $ M {[\rho,u,\theta]}(v)$ this would imply that
+for the same constant $C$ we can write
+\begin{equation}\label{eq:below}
+	\begin{split}
+		-\int b(|v-v_*|,\omega) M [{\rho,u,\theta}](v) M[{\rho,u,\theta}](v_*)\{h\}h(v)\dom\dv\dv_*\\\ge C \rho \theta^{\frac{\beta+d}{2}}\int   M [\rho,u,\theta] (v)|h(v)|^2 \left(1+\frac{|v-u|^2}{2 \theta}\right)^{\beta/2}\dv
+	\end{split}
+\end{equation}
+for functions $h\in L^2( M {[\rho,u,\theta]}\dv)$ orthogonal to $1$, $v_i$, $|v|^2$.
+
+Now let us suppose that $M$ is a global Maxwellian, $g\in \glY$, such that for a.e. $t\in \mbo$
+\[\int_\mrd g(t,x,v) M(t,x,v)\dv =  \int_\mrd|v|^2 g(t,x,v) M(t,x,v)\dv=0,\]\[ \forall i=1,\dots , d \int _\mrd v_i  g(t,x,v) M(t,x,v)\dv=0.\]
+Since we can represent the global Maxwellian $M$ as a local Maxwellian given by $  M [{\rho,u,\theta}](v)$ with $\rho(t,x)$, $u(t,x)$, $\theta(t)$ defined in \eqref{eq:locals}, the inequality \eqref{eq:below} applies. 
+
+Upon integrating with respect to $\dx$ we obtain 
+	\[-(L_t[g(t)],g(t))_{\glXt}\]\[\ge C \int_\rdrd \rho(t,x)\theta^{\frac{\beta+d}{2}}	(t,x)  M(t)|g(t,x,v)|^2 (1+|v|^2)^{\beta/2}\dv\dx,\]
+therefore
+\[-\int_{\mbo}(L_t[g(t)],g(t))_{\glXt}\dt\]\[\ge C \int_{\mbo}\left\|g,L^2(M(t,x,v)\rho(t,x)\theta^{\frac{\beta+d}{2}}	(t,x)(1+|v|^2)^{\beta/2}\dx\dv )\right\|^2\dt,\]and the theorem is proven.
+
+If $\beta=0$, then the last inequality immediately gives \eqref{eq:key}; if $\beta<0$, an extra step is required:\footnote{the weight depends on $\beta$! for $\beta=0$ and for $\beta<0$ we have different values, don't we?}
+
+\input{lower.tex}
+\end{proof}
+
+
+\begin{subappendices}
+\renewcommand{\thesection}{\Alph{section}}
+\section{Appendices}
+% \renewcommand\theubsection{\Alph{subsection}}
+\subsection{Proof of lemma \ref{le:CS}} % (fold)
+	\label{sec:proof_of_lemma_CS}
+First, we remind two easy results:
+\begin{lemma}\label{le:antisym}
+	A matrix $H\in M_d(\mbr)$ is antisymmetric $H=-H^T$ if and only if \[\forall  v \in \mbr^d \quad \left( Hv,v \right)=0.\]
+\end{lemma}%proof is in autumn
+\begin{lemma}\label{le:antisym2}Let $H\in C^2(\mrd, \mrd)$ such that $\nabla H=-(\nabla H)^T$, then there exists a constant antisymmetric matrix $\mathcal H\in M_d(\mbr)$ and a constant vector $h\in \mrd$ such that $H(x)=\mathcal Hx+h$.
+\end{lemma}
+
+\begin{proof}[Proof of lemma \ref{le:CS}]
+Since conservative solutions are in the null-space of $L$, they have the form
+\[A(t,x)-B(t,x)\cdot v+C(t,x)|v|^2.\]
+We will find the form of functions $A$, $B$, and $C$ by substituting them into the transport equation. We will obtain a polynomial with respect to $v$, which has to be identically zero, which implies that all its coefficients are zero, therefore we can write the following system:
+\begin{align}
+	\partial_t A(t,x)&= 0\label{eq:1}\\
+	\nabla_x A(t,x)&= \partial_t B(t,x)\label{eq:2}\\
+	\forall v\in\mbt\left( \left( \partial_tC(t,x)I-\nabla_x B \right)v,v \right)&= 0\label{eq:3}\\
+	\nabla_x C(t,x)&= 0\label{eq:4}
+\end{align}
+The equation \eqref{eq:1} implies that\begin{equation}
+	A=A(x),
+	\label{eq:5}
+\end{equation}
+the equation \eqref{eq:4} implies that \begin{equation}
+	C=C(t).
+	\label{eq:6}
+\end{equation}The equation \eqref{eq:2} together with \eqref{eq:5} implies that \[\nabla_x A(x)=\partial_t B(t,x),\]therefore
+\begin{equation}
+	B(t,x)=B_0(x)+t\nabla_x A(x).
+	\label{eq:7}
+\end{equation}
+The equation \eqref{eq:3} implies that the the matrix $\partial_t C(t)-\nabla_x B(t,x)$ is antisymmetric, therefore we can say that \begin{equation}
+	\forall i\quad (\nabla_x B)_{i,i}=\partial_t C(t)
+	\label{eq:8}
+\end{equation}
+and, by taking into account \eqref{eq:7}, that
+\begin{equation}
+	C(t) = c_0+c_1t+c_2\frac{t^2}{2}.
+	\label{eq:9}
+\end{equation}
+Moreover, the form \eqref{eq:9} together with \eqref{eq:8} and \eqref{eq:7} give us 
+\begin{equation}
+	c_1I-\nabla_x B_0(x) \mbox{ antisymmetric,}
+	\label{eq:10}
+\end{equation}
+\begin{equation}
+	c_2I-\nabla_x \nabla_xA(x) \mbox{ antisymmetric.}
+	\label{eq:11}
+\end{equation}
+The equation \eqref{eq:11} immediately results in  $A_{,ij}=-A_{,ji}$ for $i\ne j$, which implies $A_{,ij}=0$ for that case, hence $\forall i A_{,ii}=c_2$, thus
+\begin{equation}
+	A(x)=\frac{1}{2}c_2|x|^2+a_1\cdot x + a_0 
+	\label{eq:12}
+\end{equation}for some constant $a_0\in \mbo$ and $a_1\in \mrd$.
+This also simplifies $B$:
+\[B(t,x)=B_0(x)+t(c_2x+a_1).\]
+The lemma \ref{le:antisym2} applied to the equation \eqref{eq:10} gives us a constant antisymmetric matrix $\mathcal H$ such that \[c_1I-\nabla_x B_0(x)=\mathcal H,\]which results in \begin{equation}
+	B_0(x)=c_1x-\mathcal H x+b_0 
+	\label{eq:13}
+\end{equation}for some constant vector $b_0\in \mrd$.
+
+Therefore, a conservative solution writes
+\[\frac{1}{2}c_2|x|^2+a_1\cdot x + a_0-\left(c_1x-\mathcal H x+b_0 +t(c_2x+a_1)\right)\cdot v+\left(c_0+c_1t+c_2\frac{t^2}{2}\right)|v|^2
+\]
+or
+\[\frac{1}{2}c_2|x-tv|^2+(a_1-c_1v)\cdot(x-tv)+c_0|v|^2-b_0\cdot v+a_0+\mathcal Hx\cdot v.\]
+for some constant $a_0,\,c_0,\,c_1
+,\,c_2\in\mbo$, $b_0,\,a_1\in\mrd$, and $\mathcal H=-\mathcal H^T\in M_d(\mbo)$.
+
+
+If the matrices $\mathcal H_{j}$ for a basis of antisymmetric matrices in $M_d(\mbo)$, then the functions
+\[1, \quad (x-tv)_i,\quad |x-tv|^2, \quad v_i,\quad |v|^2\]
+\[v\cdot (x-tv),\quad \mathcal H_{j}(x-tv)\cdot v\]
+are linearly independent.
+Indeed, suppose that a certain linear combination 
+\[\frac{1}{2}c_2|x|^2+a_1\cdot x + a_0-\left(c_1x-\mathcal H x+b_0 +t(c_2x+a_1)\right)\cdot v+\left(c_0+c_1t+c_2\frac{t^2}{2}\right)|v|^2\]
+is identically zero for all $x$ and $v$. By taking $x=v=0$ we immediately conclude that $a_0=0$. Then, by choosing $x=tv$ we obtain an expression \[\forall v\in\mrd \quad c_0|v|^2-b_0\cdot v,\]which leads to $c_0=0$ and $b_0=0$.
+Then again, after fixing $v=0$ we get 
+\[\forall x\in\mrd \quad \frac{1}{2}c_2|x |^2+ a_1 \cdot x =0 ,\]
+therefore $a_1=0$ and $c_2=0$. Now we can chose $x=(t+1)v$ to obtain
+\[\forall v \in\mrd \quad     -c_1v \cdot v=0,\]
+hence $c_1=0$, too.
+
+Finally, we are left with \[\forall x,\,v\in\mrd\quad \mathcal Hx\cdot v=0,\]
+which immediately results in $\mathcal H=0$. We conclude that all coefficients in the linear combination are zero, therefore, the functions $r_j(t)$ are indeed linearly independent.
+\end{proof}
+% subsection proof_of_lemma_CS (end)
+
+
+\subsection{Proof of theorem \ref{le:L:cont}} % (fold)
+\label{sec:proof_of_lemma_Lcont}
+
+
+
+\begin{proof}[Proof of theorem \ref{le:L:cont}] %We will omit the time variable for convenience.
+	We will use the estimations obtained in \cite{FG}:
+	\begin{lemma}
+	\label{pr:beta}
+	Let $\beta\in(-d,0]$ and
+	\[C(t,x,v) = \int_{\mrd\times\msd} M_* \hat b\left(\omega \cdot \frac{v-v_*}{|v-v_*|}\right)|v-v_*|^{ \beta}\dom\dv_* ,\]
+	then 
+	 \[\sup_{x,v}C(t,x,v) \le  m  b_1 \sqrt{\det\left(\frac{Q}{2 \pi }\right)} \frac{2^{\beta/2 }\Gamma\left(\frac{d+\beta}{2} \right)}{\Gamma\left( d \right)}\theta^{\frac{d +\beta}{2} }(t)>0,\]
+	where $\theta(t)$ is given by \eqref{eq:locals}.
+	\end{lemma}
+
+	First, we prove that the operator $L_t$ is bounded on the space\\ $L^1(M(t,x,v)\dx\dv)$. Indeed, we write the estimation for any function $g\in L^1(M(t,x,v)\dx\dv)$:
+	\[
+		\|L_t[g],L^1(M(t,x,v)\dx\dv)\|\]\[\le \int_{\msd\times\mrd\times\rdrd}^{}MM_*b(\omega,v-v_*)(|g'|+|g'_*|+|g|+|g_*|)\dom\dx\dv\dv_*
+	\]
+	\[
+		\le 4\int_{\mrd\times\rdrd}MM_*|v-v_*|^{\beta}|g|\dx\dv\dv_*
+	\]
+	\[
+		\le 4\sup_{x,v}\left(\int_{\msd\times\mrd} b(\omega, v-v_* ) M(t,x,v_*)\dom\dv_*\right) \|g,L^1(M(t,x,v)\dx\dv)\|
+	\]
+	\[
+		 \le 4\sup_{x,v} C(t,x,v) \|g,L^1(M(t,x,v)\dx\dv)\|.
+	\]
+	By   lemma \ref{pr:beta} the factor $\sup_{x,v} C(t,x,v) $ is finite for $\beta>-d$, therefore the operator $L_t$ is continuous in  $L^1(M(t,x,v)\dx\dv)$ and its norm satisfies
+	\[\|L_t ,B(L^1(M(t,x,v)\dx\dv))\|\le 4   \sup_{x,v} C(t,x,v). \]
+
+	Second, we prove that $L_t$ is bounded on the space  \[ L^\infty(M(t,x,v)\dx\dv)=L^\infty(\dx\dv).\] We can write an estimation for any function $g\in L^\infty(M(t,x,v)\dx\dv)$:
+	\[
+		\|L_t[g],L^\infty(M(t,x,v)\dx\dv)\|=\|L_t[g],L^\infty(\dx\dv)\|
+	\]
+	\[
+		\le \sup_{x,v}\int_{\msd\times\mrd}M_*b(\omega,v-v_*)(|g'|+|g'_*|+|g|+|g_*|)\dom\dv_*
+	\]
+	\[
+		\le 4 \sup_{x,v}|g(t,x,v)|\sup_{x,v}\left(\int_{\msd\times\mrd} b(\omega,v-v_*) M(t,x,v_*)\dom\dv_*\right).
+	\]
+	\[
+		\le 4 \sup_{x,v} C(t,x,v) \|g,L^\infty(M(t,x,v)\dx\dv)\|.
+	\]
+	Again, by the same proposition \ref{pr:beta} the above inequality shows that the operator $L_t$ is bounded in $ L^\infty(M(t,x,v)\dx\dv)$ and its norm satisfies
+	\[\|L_t ,B(L^\infty(M(t,x,v)\dx\dv))\|\le 4  \sup_{x,v} C(t,x,v). \]
+	
+	By the Riesz-Thorin's theorem the operator is bounded in the space\\ $L^p(M(t,x,v)\dx\dv)$ for any $p\in[1,\infty]$; we are interested in the particular case $p=2$. By the same theorem we can obtain an estimation on the norm of $L_t$ in $B(\glXt)$, namely:
+	% \[
+	\begin{multline*}
+			\|L_t,B(\glXt)\| \\
+			\le\|L_t,B( L^1(M(t,x,v)\dx\dv))\|^{1/2}\|L_t,B( L^\infty(M(t,x,v)\dx\dv))\|^{1/2}
+			\\\le 4  \sup_{x,v} C(t,x,v)
+			\le 4b_1m \sqrt{\det\left(\frac{Q}{2 \pi }\right)} \frac{2^{\beta/2 }\Gamma\left(\frac{d+\beta}{2} \right)}{\Gamma\left( d \right)}\theta^{\frac{d +\beta}{2} }(t).
+	\end{multline*}
+	% \]
+	Moreover, if in addition $\beta \in \binter $, then the function $t\to \|L_t,B(\glXt)\|$ belongs to $L^1(\mbo)$. This result quickly follows from the asymptotics $\theta(t)=O(|t|^{-2})$ as $|t|\to \infty$ and the above estimations.
+\end{proof}
+% subsection proof_of_lemma_Lcont (end)
+
+
+\subsection{Proof of theorem
+ \ref{th:conserv}} % (fold)
+\label{sec:proof_of_theorems_conserv}
+\begin{proof}[Proof of theorem \ref{th:conserv}]
+	Let us take $p(t,x,v)\in CS$, then 
+	\[\forall t\in \mbo \quad e^{tA}[p(t,x,v)] = p(0,x,v)\]
+	and hence
+	\[e^{t_2A}[pg](t_2,x,v)-e^{t_1A}[pg](t_1,x,v)=\int_{t_1}^{t_2}e^{sA}\left[p L[g ]\right](s,x,v)\ds\]
+	for a.e. $(x,v)\in \rdrd$ and $t_1,\,t_2\in\mbo $. Since $\sup_{t\in I}\|g(t),\glXt\|<\infty$ and $p\in\glY$, we obtain that $pg\in L^1(M(t,x,v)\dt\dx\dv)$ on $I\times\rdrd$. By lemma \ref{le:L:cont} the operator $L$ is linear bounded on $\glXt$ for all time $t$. We conclude that $p(t,x,v)L[g](t,x,v)\in L^1(M(t,x,v)\dt\dx\dv)$ on $I\times\rdrd$. Therefore
+	\[
+	\int_{\rdrd} e^{t_2A}[pg](t_2)M(0)\dx\dv - \int_{\rdrd} e^{t_1A}[pg](t_1)M(0)\dx\dv \]\[= 
+	\int_{t_1}^{t_2}\int_{\rdrd} e^{sA}\left[p L[g ]\right](s)M(0)\ds\dx\dv,
+	\]
+	or
+	\[
+	\int_{\rdrd}   p(t_2)g (t_2)M(t_2)\dx\dv - \int_{\rdrd}   p(t_1)g (t_1)M(t_1)\dx\dv \]\[{= }
+	\int_{t_1}^{t_2}\int_{\rdrd}  p(s) L[g ] (s)M(s)\ds\dx\dv.
+	\]
+	Finally, for a.e. $(t,x)\in I\times\mrd$ we have \[
+	\int_{\rdrd}  p(s) L[g ] (s)M(s) \dv=0\]
+	by the first statement in theorem \ref{th:conserv} because the function $v\to p(t,x,v)$ is a linear combination of  functions $1,v_1,\ldots,v_d,|v|^2$. Hence,
+	for all $t_1,\,t_2$
+	\[
+	\int_{\rdrd}   p(t_2)g (t_2)M(t_2)\dx\dv = \int_{\rdrd}   p(t_1)g (t_1)M(t_1)\dx\dv. \]
+
+\end{proof}
+% subsection proof_of_theorems_conserv (end)
+
+
+	\subsection{Proof of lemma \ref{le:gron}} % (fold)
+	\label{sec:proof_of_lemma_GRON}
+	\begin{proof}[Proof of lemma \ref{le:gron}] 
+		We can rewrite the inequality 
+		\[0\le \phi_+(t)\le \Delta+\int_{t}^{+\infty}\phi_+(s)m(s)\ds \]
+		as 
+		\[\frac{m(t)\phi_+(t)}{\Delta+\int_{t}^{+\infty}\phi_+(s)m(s)\ds }\le m(t),\]
+		which upon integration with respect to $t$ leads to
+		\[-\ln\left(\Delta +\int_{t}^{+\infty}\phi_+(s)m(s)\ds \right)\Bigg|_{t=\tau}^{t=+\infty} = \int_{\tau}^{+\infty}m(t)\dt,\]
+		% and
+		\[\ln\left(\Delta +\int_{\tau}^{+\infty}\phi_+(s)m(s)\ds \right) = \ln\Delta+\int_{\tau}^{+\infty}m(t)\dt,\]and
+		\[ \Delta +\int_{\tau}^{+\infty}\phi_+(s)m(s)\ds   =  \Delta\exp\left(\int_{\tau}^{+\infty}m(t)\dt\right).\]
+		When we put this inequality into the initial inequality, we obtain
+		\[0\le \phi_+(t)\le \Delta\exp\left(\int_{t}^{+\infty}m(s)\ds\right).\]
+		The proof for $\phi_-$ and $\psi_\pm$ is done likewise.
+	\end{proof}
+	% subsection proof_of_lemma_GRON (end)
+
+
+\end{subappendices}

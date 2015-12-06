@@ -1,0 +1,64 @@
+\documentclass[a4paper,12pt,twoside,%draft
+]{memoir}
+\input{preamble.tex}
+\input{macro.tex}
+\setcounter{tocdepth}{1}% 0 - chapters, 1 - sections, 2 - subsections, 3 -subsubsections
+\begin{document}
+\input{titlepage2.tex}
+\frontmatter
+\input{Summary.tex}
+\newpage
+\input{SummaryFR.tex}
+
+\chapter*{Acknowledgements} % (fold)
+\label{cha:acknowledgements}
+% \addcontentsline{toc}{chapter}{Acknowledgements}
+\input{Acknowledgements.tex}%to add
+% chapter acknowledgements (end)
+
+\cleardoublepage
+\tableofcontents*
+\mainmatter
+
+
+\chapter*{Introduction} % (fold)
+\label{cha:intro}
+\addcontentsline{toc}{chapter}{Introduction}
+\markboth{INTRODUCTION}{}
+\input{Introduction.tex}
+% chapter intro (end)
+
+\chapter[The Euler limit for kinetic models with Fermi-Dirac statistics][Euler limit]{The Euler limit for kinetic models with Fermi-Dirac statistics} % (fold)
+\label{cha:i}
+\include{Chapter1}
+% \end{refsection}
+
+\chapter[The Navier-Stokes limit for kinetic models with Fermi-Dirac statistics][Navier-Stokes limit]{The Navier-Stokes limit for kinetic models with Fermi-Dirac statistics} % (fold)
+% \{\chaptername}
+\label{cha:ii}
+\include{Chapter2}
+% chapter ii (end)
+
+\chapter[The incompressible fluid dynamic limit for kinetic models with Fermi-Dirac statistics][Incompressible fluid dynamic limit]{The incompressible fluid dynamic limit for kinetic models with Fermi-Dirac statistics} % (fold)
+\label{cha:iii}
+\include{Chapter3}
+% chapter iii (end)
+\addtocontents{toc}{\protect\newpage}%required to avoid nasty pagebreaks in ToC
+\chapter[Solutions of the Boltzmann equation over \texorpdfstring{$\mathbb R^D$}{RD}  linearised about global Maxwellians with small mass][Solutions near global Maxwellians]{Solutions of the Boltzmann equation over \texorpdfstring{$\mathbb R^D$}{RD} linearised about global Maxwellians with small mass} % (fold)
+\label{cha:iv}
+\include{Chapter4}
+% chapter iv (end) 
+
+\printbibliography
+% % \backmatter
+
+% \cleartoverso
+% % \setlrmarginsandblock{2cm}{2cm}{*}
+% \setulmarginsandblock{50pt}{*}{*}
+% \checkandfixthelayout
+
+% \thispagestyle{empty}
+% \tiny{\input{Summary.tex}}
+
+% \input{SummaryFR.tex}
+\end{document}

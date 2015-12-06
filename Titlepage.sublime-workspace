@@ -1,0 +1,807 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"use",
+				"use	Usepackage (Option)"
+			],
+			[
+				"to",
+				"today	latex-document"
+			],
+			[
+				"LAr",
+				"Large	latex-document"
+			],
+			[
+				"La",
+				"Large	latex-document"
+			],
+			[
+				"L",
+				"LARGE	latex-document"
+			],
+			[
+				"mark",
+				"markboth{lefthead}{righthead}	latex-document"
+			],
+			[
+				"incl",
+				"includegraphics{name}	latex-document"
+			],
+			[
+				"chap",
+				"chaptername{name}	latex-document"
+			],
+			[
+				"sele",
+				"setlanguage{language}	latex-dev"
+			],
+			[
+				"ref",
+				"ref{key}	latex-document"
+			],
+			[
+				"bib",
+				"bibliographystyle{style}	latex-document"
+			],
+			[
+				"cite",
+				"cite{keylist}	latex-document"
+			],
+			[
+				"tit",
+				"title{text}	latex-document"
+			],
+			[
+				"foot",
+				"footnote[number]{text}	latex-document"
+			],
+			[
+				"fo",
+				"footnote[number]{text}	latex-document"
+			],
+			[
+				"inp",
+				"input{file}	latex-document"
+			],
+			[
+				"foo",
+				"footnote[number]{text}	latex-document"
+			],
+			[
+				"textb",
+				"textbf{text}	latex-document"
+			],
+			[
+				"inf",
+				"infty	latex-mathsymbols"
+			],
+			[
+				"ta",
+				"tableofcontents	latex-document"
+			],
+			[
+				"sec",
+				"section{title}	latex-document"
+			],
+			[
+				"eq",
+				"eqref{label}	amsmath"
+			],
+			[
+				"label",
+				"label{key}	latex-document"
+			],
+			[
+				"mb",
+				"mbr	autumn.tex"
+			],
+			[
+				"re",
+				"relocatePanels"
+			],
+			[
+				"C",
+				"Count"
+			],
+			[
+				"ps",
+				"pstyle"
+			],
+			[
+				"R",
+				"Remove"
+			],
+			[
+				"i",
+				"index"
+			],
+			[
+				"Field",
+				"FieldFormats"
+			],
+			[
+				"Ch",
+				"changedFlag"
+			],
+			[
+				"changed",
+				"changedFlag"
+			],
+			[
+				"evince",
+				"evince_win"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "test.tex",
+			"settings":
+			{
+				"buffer_size": 469,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "titlepage.tex",
+			"settings":
+			{
+				"buffer_size": 1770,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Titlepage.sublime-project",
+			"settings":
+			{
+				"buffer_size": 42,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 555.0,
+		"last_filter": "cah",
+		"selected_items":
+		[
+			[
+				"cah",
+				"LaTeXing: Rebuild Cache (Hard)"
+			],
+			[
+				"clear",
+				"LaTeXing: Clean up (Remove) all Nonessential Files"
+			],
+			[
+				"ssx",
+				"Set Syntax: LaTeXing"
+			],
+			[
+				"ssmd",
+				"Set Syntax: Markdown"
+			],
+			[
+				"art",
+				"Snippet: New Article TZ"
+			],
+			[
+				"rename",
+				"LaTeXing: Rename Environment"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Upgrade/Overwrite All Packages"
+			],
+			[
+				"update",
+				"Package Control: Upgrade/Overwrite All Packages"
+			],
+			[
+				"",
+				"Build With: LaTeX - Clean up Files"
+			],
+			[
+				"cle",
+				"Build With: LaTeX - Clean up Files"
+			],
+			[
+				"memoi",
+				"Set Syntax: LaTeX Memoir"
+			],
+			[
+				"ssxla",
+				"Set Syntax: LaTeXing"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"ssma",
+				"Set Syntax: Markdown"
+			],
+			[
+				"repos",
+				"Package Control: Add Repository"
+			],
+			[
+				"install ",
+				"Package Control: Advanced Install Package"
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"arti",
+				"Snippet: New Article"
+			],
+			[
+				"ssxlat",
+				"Set Syntax: LaTeXing"
+			],
+			[
+				"proof",
+				"Snippet: LaTeXing Option Root File"
+			],
+			[
+				"eq",
+				"Snippet: Equation"
+			],
+			[
+				"res",
+				"PackageResourceViewer: Open Resource"
+			],
+			[
+				"sslate",
+				"Set Syntax: LaTeXing"
+			],
+			[
+				"sslatex",
+				"Set Syntax: LaTeXing"
+			],
+			[
+				"ssla",
+				"Set Syntax: LaTeXing"
+			],
+			[
+				"pr",
+				"PackageResourceViewer: Open Resource"
+			],
+			[
+				"Build: ",
+				"Build: Build"
+			],
+			[
+				"prv",
+				"PackageResourceViewer: Open Resource"
+			],
+			[
+				"Snippet: ",
+				"Snippet: Turn selection into LaTeX environment"
+			]
+		],
+		"width": 832.0
+	},
+	"console":
+	{
+		"height": 251.0,
+		"history":
+		[
+			"import urllib.request,os; pr='Preferences.sublime-settings'; ip='ignored_packages'; n='Package Control'; s=sublime.load_settings(pr); ig=s.get(ip); ig.append(n); s.set(ip,ig); sublime.save_settings('Preferences.sublime-settings'); pf=n+'.sublime-package'; urllib.request.install_opener(urllib.request.build_opener(urllib.request.ProxyHandler())); by=urllib.request.urlopen('https://packagecontrol.io/'+pf.replace(' ','%20')).read(); open(os.path.join(sublime.installed_packages_path(),pf),'wb').write(by); ig.remove(n); s.set(ip,ig); sublime.save_settings(pr); print('Package Control: 3.0.0 upgrade successful!')",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) "
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/c/Users/Timofey/Dropbox/LaTeX/Anton/Maximisation.tex",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/TH/titlepage.tex",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/TH/Summary.tex",
+		"/C/Users/TZ/Dropbox/LaTeX/Work/TH/titlepage.tex",
+		"/C/Users/TZ/Dropbox/LaTeX/Work/TH/test.tex",
+		"/c/Users/Timofey/Dropbox/LaTeX/Work/ThePresentation/ThePresentation.tex",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/TH/Acknowledgements.tex",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/TH/Images/logo.mdown",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/TH/Main.toc",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/FD/CSNE/Final/bib.bib",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/TH/Biblio.bib",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/TH/Chapter3.tex",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/TH/Main.aux",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/TH/macro.tex",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/TH/preamble.tex",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/FD/CSNE/Final/Code/Fredholm2.tex",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/FD/CSNE/Final/Code/ProofA.tex",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/FD/CSNE/Final/Code/LimitingCNS.tex",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/FD/CSNE/Final/CSNE.tex",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/FD/CSNE/Final/Code/collisionkernel.tex",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/FD/CSNE/Final/Code/FirstOrder.tex",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/FD/CSNE/Final/Code/remind1for2.tex",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/Scattering/winter.bib",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/FD/CSNE/Final/Code/CNS.tex",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/FD/CSNE/Final/Code/AppendixKernel.tex",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/FD/CSNE/Final/Code/AppendixInvar.tex",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/FD/CSNE/Final/Code/Intro2.tex",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/FD/CSNE/Final/Code/abstract.tex",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/TH/Chapter2.tex",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/TH/Chapter1.tex",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/TH/Chapter4.tex",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/Scattering/winter.tex",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/Scattering/Code/LinearisedEquation.tex",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/Scattering/Code/Appendix.tex",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/TH/Thesis.sublime-project",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/TH/main.toc",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/TH/lit for cha 1.bib",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/FD/CES/bib.bib",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/TH/main.bbl",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/TH/Remote.bib",
+		"/C/Users/Timofey/Downloads/Cambridge University Engineering Department (CUED) LaTeX PhD Thesis Template/PhDThesisPSnPDF.cls",
+		"/C/Users/Timofey/Downloads/Cambridge University Engineering Department (CUED) LaTeX PhD Thesis Template/thesis.tex",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/FD/CES/Final/EulerLimit.tex",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/Scattering/Code/macros.tex",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/FD/INSE/Final/Code/macros.tex",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/FD/CSNE/Final/Code/macros.tex",
+		"/C/Users/Timofey/AppData/Local/Temp/Temp1_Cambridge University Engineering Department (CUED) LaTeX PhD Thesis Template.zip/thesis.tex",
+		"/C/Users/Timofey/AppData/Local/Temp/Temp1_Cambridge University Engineering Department (CUED) LaTeX PhD Thesis Template.zip/Preamble/preamble.tex",
+		"/C/Users/Timofey/AppData/Local/Temp/Temp1_Cambridge University Engineering Department (CUED) LaTeX PhD Thesis Template.zip/thesis-info.tex",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/FD/CSNE/Final/Code/titlepage.tex",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/FD/CSNE/Final/Code/Numerical1.tex",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/FD/CSNE/Final/Code/IncompressibilityOur1.tex",
+		"/c/Users/Timofey/Dropbox/LaTeX/Work/FD/CSNE/Final/Code/Fredholm2.tex",
+		"/c/Users/Timofey/Dropbox/LaTeX/Work/FD/CSNE/Final/Code/ProofA.tex",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/FD/CSNE/Final/Code/Bortho.tex",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/FD/CSNE/Final/Code/ack.tex",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/FD/CSNE/Final/Code/1m2f.tex",
+		"/c/Users/TZ/Dropbox/LaTeX/Work/FD/CSNE/Final/Code/ProofA.tex",
+		"/c/Users/TZ/Dropbox/LaTeX/Work/FD/CSNE/Final/Code/Fredholm2.tex",
+		"/c/Users/Timofey/Dropbox/LaTeX/Work/FD/CSNE/Final/Code/AppendixKernel.tex",
+		"/c/Users/Timofey/Dropbox/LaTeX/Work/FD/CSNE/Final/Code/CNS.tex",
+		"/c/Users/TZ/Dropbox/LaTeX/Work/FD/CSNE/Final/Code/CNS.tex",
+		"/c/Users/TZ/Dropbox/LaTeX/Work/FD/CSNE/Final/Code/LimitingCNS.tex",
+		"/C/Users/TZ/Dropbox/LaTeX/Work/FD/CSNE/Final/CSNE.sublime-project",
+		"/C/Users/TZ/Dropbox/LaTeX/Work/FD/CSNE/Final/Code/AppendixKernel.tex",
+		"/C/Users/TZ/Dropbox/LaTeX/Work/FD/CSNE/Final/Code/FirstOrder.tex",
+		"/C/Users/TZ/Dropbox/LaTeX/Work/FD/CSNE/Final/Code/LimitingCNS.tex",
+		"/C/Users/TZ/Dropbox/LaTeX/Work/FD/CSNE/Final/Code/ProofA.tex",
+		"/C/Users/TZ/Dropbox/LaTeX/Work/FD/CSNE/Final/Code/Fredholm2.tex",
+		"/C/Users/TZ/Dropbox/LaTeX/Work/FD/CSNE/Final/Code/CNS.tex",
+		"/C/Users/TZ/Dropbox/LaTeX/Work/FD/CSNE/Final/Code/remind1for2.tex",
+		"/C/Users/TZ/Dropbox/LaTeX/Work/FD/CSNE/Final/Code/Intro2.tex",
+		"/C/Users/TZ/Dropbox/LaTeX/Work/FD/CSNE/Final/Code/abstract.tex",
+		"/c/Users/Timofey/Dropbox/LaTeX/Work/FD/CSNE/Final/Code/AppendixInvar.tex",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/Autumn/app-conservation-laws.tex",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/Autumn/app-cons.tex",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/Autumn/appendix.tex",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/Autumn/intro.tex",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/Autumn/winter.bib",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/Autumn/TitleAbstract.tex",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/Autumn/app-L-cont.tex",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/Autumn/winter.tex",
+		"/C/Users/Timofey/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/Autumn/Remote.bib",
+		"/C/Users/Timofey/AppData/Roaming/Sublime Text 3/Packages/Default/Default (Windows).sublime-keymap",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/Autumn/winter.toc",
+		"/C/Users/TZ/Dropbox/LaTeX/Work/Autumn/winter.tex",
+		"/C/Users/TZ/Dropbox/LaTeX/Work/Autumn/winter.bib",
+		"/C/Users/TZ/Dropbox/LaTeX/Work/Autumn/macros.tex",
+		"/C/Users/TZ/Dropbox/LaTeX/Work/Autumn/appendix.tex",
+		"/C/Users/Timofey/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/Autumn/Autumn.sublime-project",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/Autumn/TItleAbstract.tex",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/Autumn/spring.mdown",
+		"/C/Users/Timofey/AppData/Roaming/Sublime Text 3/Packages/User/LaTeXing.sublime-settings",
+		"/C/Users/Timofey/AppData/Roaming/Sublime Text 3/Packages/LaTeXing/LaTeXing.sublime-settings",
+		"/C/Users/TZ/Dropbox/LaTeX/Fun/mathbb.tex",
+		"/C/Users/TZ/Dropbox/LaTeX/Work/Autumn/Autumn.sublime-project",
+		"/C/Users/TZ/Dropbox/LaTeX/Work/Autumn/autumn.tex",
+		"/C/Users/Timofey/Dropbox/Paris 12/Алгебра/LaTeX/first.tex",
+		"/C/Users/Timofey/Downloads/temp/git-game/README.md",
+		"/C/Users/Timofey/AppData/Local/Temp/Temp1_git-game-master.zip/git-game-master/README.md",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/Autumn/nonneededL2.tex",
+		"/C/Users/TZ/Dropbox/PhD articles/Last/Scattering/GlobalBoltzR3.tex",
+		"/C/Users/TZ/AppData/Roaming/Sublime Text 3/Packages/User/LatexFrac.sublime-snippet",
+		"/C/Users/TZ/AppData/Roaming/Sublime Text 3/Packages/User/LatexInfinity.sublime-snippet",
+		"/C/Program Files (x86)/SumatraPDF/“c",
+		"/C/Users/Timofey/AppData/Local/Temp/Temp1_PETOOH-master.zip/PETOOH-master/README.md",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/Autumn/question math.se.txt",
+		"/C/Users/Timofey/Dropbox/Paris 12/PhD seminar/beamercolorthemeCMLS.sty",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/Beamer/Palaiseau/beamercolorthemeCMLS.sty",
+		"/C/Users/Timofey/Dropbox/LaTeX/Work/Autumn/nonneeded.tex",
+		"/C/Users/TZ/AppData/Roaming/Sublime Text 3/Packages/LaTeXing/completions/LaTeX Math.latexing-completions",
+		"/C/Users/TZ/Dropbox/LaTeX/Cards/Working/Habr/habr.tex",
+		"/C/Users/TZ/Dropbox/LaTeX/Cards/Working/Habr/drawing.tex",
+		"/C/Users/TZ/AppData/Roaming/Sublime Text 3/Packages/LaTeXing/completions/LaTeX Command Symbols.latexing-completions",
+		"/C/Users/TZ/AppData/Roaming/Sublime Text 3/Packages/LaTeXing/completions/LaTeX Dots.latexing-completions",
+		"/C/Users/TZ/Dropbox/LaTeX/Work/Beamer/Palaiseau/template.tex",
+		"/C/Users/TZ/Dropbox/LaTeX/Cards/share/card.tex",
+		"/C/Users/TZ/Dropbox/snippets",
+		"/C/Users/TZ/AppData/Roaming/Sublime Text 3/Packages/User/BeamerFrame.sublime-snippet",
+		"/C/Users/TZ/AppData/Roaming/Sublime Text 3/Packages/User/LatexIntegral.sublime-snippet",
+		"/C/Users/TZ/Dropbox/Paris 12/SS/LaTeX/CC3/third.tex",
+		"/C/Users/TZ/Dropbox/Paris 12/SS/LaTeX/CC3/rational.tex",
+		"/C/Users/TZ/Dropbox/Paris 12/SS/LaTeX/CC3/rationali.tex",
+		"/C/Users/TZ/AppData/Roaming/Sublime Text 3/Packages/LaTeXing/snippets/wrapper/environment.sublime-snippet",
+		"/C/Users/TZ/AppData/Roaming/Sublime Text 3/Packages/LaTeXing/snippets/wrapper/emph.sublime-snippet",
+		"/C/Users/TZ/AppData/Roaming/Sublime Text 3/Packages/LaTeXing/snippets/wrapper/command.sublime-snippet"
+	],
+	"find":
+	{
+		"height": 67.0
+	},
+	"find_in_files":
+	{
+		"height": 256.0,
+		"where_history":
+		[
+			"",
+			"eq:scaled"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"120",
+			"Role",
+			"Occupation",
+			"Large",
+			"90",
+			"\\rule{\\textwidth}{1pt}",
+			"100",
+			"chapter name",
+			" ",
+			"block",
+			"The",
+			"\\begin{abstract}\n	In the present article we study the connection between the solutions of kinetic equations and the solutions of the incompressible Navier-Stokes equations. We introduce several scalings for the kinetic equations and formally derive the limiting fluid dynamic equations with the help of the moment method expansion. \n\\end{abstract}\n",
+			"eq:b1",
+			"eq:E",
+			"eq:f:bar",
+			"transp",
+			"derivative",
+			"pr:tech",
+			"eq:expansion",
+			"eq:b1",
+			"b1",
+			"\\label{eq:b1}",
+			"\\label{eq:Fgen}",
+			"\\label{th:kerL}",
+			"equation",
+			"\\label{eq:L:form}",
+			"eq:L:form",
+			"eq:b1",
+			"eq:scaled",
+			"equation",
+			"eq:Cf",
+			"equation",
+			"eq:scaled",
+			"bardos",
+			"compactness",
+			"compac",
+			"visc",
+			"Bardos1991Fluid",
+			"levermore2",
+			"cite",
+			"mathe",
+			"cite",
+			"bardos",
+			"desvil",
+			"thesis",
+			"landau",
+			"vol",
+			"input",
+			"\\",
+			"Code",
+			"MyPath",
+			"subAppendix",
+			"subappendix",
+			"Appendix",
+			"appendix",
+			"\\{",
+			"appendices",
+			"wood1992computation",
+			"cite",
+			"prudnikov1986integrals",
+			"truesdell1980fundamentals",
+			"landau1968vol5",
+			"Bardos1991FluidDiscr",
+			"bardos1991fluid",
+			"CBFG1984aspects",
+			"landau1981vol10",
+			"F",
+			"gamma",
+			"eq:b1",
+			"b:cond",
+			"le:invert",
+			" \\",
+			"Then there",
+			"+phi",
+			"v_ast",
+			"section",
+			"multline",
+			"split",
+			"ion}\\]",
+			"\\bar",
+			"законов",
+			"mende",
+			"s",
+			"4 \\mu",
+			"\\frac 14",
+			"\\frac14",
+			"\\frac{1}{4}",
+			"L[",
+			"split",
+			"_ref",
+			",x,v",
+			"_2",
+			"proof_of_theorems_ref",
+			"prmatrix",
+			"\\T",
+			"\\|",
+			"_T",
+			"_t",
+			"assume that ",
+			"_2",
+			"_{ }^{ }",
+			"+",
+			"defi",
+			"theorem",
+			"lemma",
+			"split",
+			"align",
+			"split",
+			"0",
+			"enumerate",
+			"lemma",
+			"numer",
+			"do no vanish after",
+			"production",
+			"frame",
+			"valeur",
+			"}\n",
+			"tilde",
+			"lemma",
+			"t_0^\\infty",
+			" w",
+			"B_{11}",
+			"input",
+			"book",
+			"thesis",
+			"publisher+location+date",
+			"publisher",
+			"incoll"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"eq:b1FD\n",
+			".\n",
+			"Wood1992Computation",
+			"Prudnikov1986Integrals",
+			"Truesdell1980Fundamentalsa",
+			"Landau1968Course",
+			"Bardos1991Fluidb",
+			"Bardos1991Fluid",
+			"Bardos1984Differents",
+			"Lifshitz1981Course"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "test.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 469,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								455,
+								455
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "titlepage.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1770,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1465,
+								1452
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 4247.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "Titlepage.sublime-project",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 42,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								35,
+								35
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 67.0
+	},
+	"input":
+	{
+		"height": 89.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 330.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "Titlepage.sublime-project",
+	"replace":
+	{
+		"height": 130.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"mac",
+				"C:\\Users\\Timofey\\Dropbox\\LaTeX\\Work\\FD\\CSNE\\Final\\Code\\macros.tex"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 1250.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"C:\\Users\\Timofey\\Dropbox\\LaTeX\\Work\\FD\\INSE\\Final\\INSE.sublime-project"
+			]
+		],
+		"width": 950.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

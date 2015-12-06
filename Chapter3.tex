@@ -1,0 +1,733 @@
+% \begin{abstract}
+% 	In the present article we study the connection between the solutions of kinetic equations and the solutions of the incompressible Navier-Stokes equations. We introduce several scalings for the kinetic equations and formally derive the limiting fluid dynamic equations with the help of the moment method expansion. 
+% \end{abstract}
+% \begin{otherlanguage}{french}
+% 	\begin{abstract}
+% 	Dans ce chapitre on étudie la rélation entre le solutions des équations cinétiques et les solutions des équations de  Navier-Stokes incompressible.  On introduit les différents echelles  de temps et d'espace pour les équations cinétiques et, à l'aide de méthode de developpement des moments, on obtient comme la limite formelle les équations de dynamique de fluide.
+% \end{abstract}
+
+% \end{otherlanguage}
+% ------------------------- section "Introduction"
+\section[Introduction]{Introduction}
+In this chapter we establish the connection between kinetic theory for Fermi-Dirac statistics and macroscopic fluid dynamics. We derive formal limits; in order to do that, we introduce several scalings for standard kinetic equations of the form
+\begin{equation}\label{eq:unscaled}
+\partial_t F  +v\cdot \nabla_xF  =
+C(F ).
+\end{equation}
+Here $F $ is a non-negative function representing the density of particles with position $x$ and velocity $v$ in the single-particle phase space $\mathbb R^3_x\times\mathbb R^3_v$ at time $t$. The interaction of particles through collisions is given by the operator $C(F)$; this operator acts only on the variable $v$ and is non-linear in the general case.
+
+As in the chapter \ref{cha:ii} we will consider the class of collision operators given by %(see \cite{Lifshitz1981Course,Dolbeault1994FD})
+\begin{equation*}%\label {eq:Cform}
+C(F) = \col b\left(F'F'_\ast(1-F)(1-F_\ast)-FF_\ast(1-F')(1-F'_\ast)\right) \dv_\ast \dom,
+\end{equation*}
+where for $\omega \in\mathbb S^2$ \[v' = v- (v-v_\ast,\omega)\omega,\quad v'_\ast= v_\ast+ (v-v_\ast,\omega)\omega,\]
+\[F'=F(t,x,v'), \quad F_\ast=F(t,x,v_\ast),\quad F_\ast'=F(t,x,v_\ast')\]
+and $b=b(|v-v_\ast|,|(\omega,v-v_\ast)|)$ is the collision kernel. 
+
+% \textbf{BEGIN OF REWRITE BLOCK}
+
+
+% We base the connection between kinetic and macroscopic dynamics on the following two properties of the collision operator:
+
+% \begin{enumerate}[(a)]
+% \item \label{item:conserv-d} conservation properties and entropy relations
+% implying that the equilibria are Fermi-Dirac (i.e. of the form
+% $1/(1+\exp(c_1+c_2|v-u|^2)$) distributions;
+% \item \label{item:derivative-d} the derivative of $C(F)$ satisfies the Fredholm alternative with a nullspace related to the conservation properties of $C$.
+% \end{enumerate}
+% We obtain the macroscopic limits when the fluid is dense enough that particles undergo many collisions per unit of time. In order to describe this situation, we will consider the case where the Knudsen number goes to zero; this dimensionless number is the ratio of the mean free path of particles between collisions to some characteristic length of the flow.
+
+% \textbf{END OF REWRITE BLOCK}
+
+This chapter extends the results obtained in chapters \ref{cha:i} and \ref{cha:ii} by establishing the limiting form of the fluid dynamic equations in the incompressible case. This regime requires stronger assumptions than \ref{cha:ii}. Form the other point of view, this work extends the results obtained in \cite{Bardos1991Fluid} for the Fermi-Dirac statistics.
+
+In a compressible fluid one can introduce the Mach number $M\!a$, which is the ratio  of the bulk velocity to the speed of sound, and the Reynolds number $Re$, which is a ratio of inertial forces to the viscous forces and can be written as $Re = \frac{\mathbf vL}{\nu}$, where $\mathbf v$ is the bulk velocity, $L$ is the characteristic linear dimension, and $\nu$ is the dynamic viscosity of the fluid. The Mach and Reynolds numbers are related to the Knudsen number $K\!n$ by the von K\'arm\'an relation (see \cite{karman1923gastheoretische}): \begin{equation}K\!n=\frac{M\!a}{Re}.\end{equation}
+Clearly, in order to obtain a fluid dynamic limit with finite Reynolds number as $Kn$ tends to zero, the Mach number must vanish. This fact was already observed in \cite{Sone1969As}. The only such hydrodynamic limits are, therefore,  incompressible limits. The derivation of the incompressible Navier-Stokes equations is done in section \ref{section:INSE} (see theorem \ref{th:INSE}). We assume only  a formally consistent convergence for the fluid dynamical moments.% and entropy of the solutions of the kinetic equation \eqref{eq:scaled}.
+
+
+%-------------------------------section "Incompressible case"
+%-------------------------------label "section:INSE"
+\section{Incompressible case}
+  \label{section:INSE}
+We will build a connection between the kinetic equation and the incompressible Navier-Stokes equations. As previously, we describe the range of parameters for which the incompressible Navier-Stokes equations are a good approximation to the solution of the kinetic equation. However, in this case we study macroscopic fluid dynamics with a finite Reynolds number.
+
+One way of realizing distributions with a small Mach number is to think of 
+them as perturbations around a given uniform Fermi-Dirac distribution, i.e. a Fermi-Dirac distribution that  is
+constant in space and time. By some appropriate choice of Galilean frame and
+dimensional units, this Fermi-Dirac distribution can be taken with zero
+velocity, unit chemical potential and temperature. We will denote
+it by $F$. The initial data $F_\ep(0,x,v)$ is assumed to be close to $F$
+with the order of the distance measured in terms of the Knudsen number. Since we want to obtain the
+incompressible flow in the limit, the kinetic energy of the flow in the acoustic modes must be
+smaller than that in the vortical modes. The acoustic modes vary on a faster
+time scale that vortical ones, we may suppress them by assuming that the
+initial data is consistent with motion on a slow time scale; we will measure
+this scale separation in terms of the Knudsen number.
+
+We quantify the scaling with a small parameter $\ep$ such that the time scale is
+of order $\ep^{-1}$, the Knudsen number is of order $\ep^q$, and
+the distance to the absolute Fermi-Dirac distribution $F$ is of order
+$\ep^r$ with $q\ge 1$, $r\ge 1$.
+
+We seek the solutions of the scaled kinetic equation  
+\begin{equation}\ep\partial_t F_\ep+ v\cdot\nabla_x F_\ep =
+\frac{1}{\ep^q}C(F_\ep)\label{eq:inc}\end{equation}
+in the form
+\begin{equation}F_\ep = F(1+\ep^r(1-F)g_\ep).\label{eq:incsol}
+\end{equation}
+
+We recall several properties of the moments of Fermi-Dirac distributions and of the linearised collision operator. In the chapter \ref{cha:i} it was established that the form of the limiting Euler equations is 
+independent of the choice of the collision operator $C$ in the class of 
+operators satisfying conservation and entropy properties. This choice appears on 
+the macroscopic level only in the construction of the Navier-Stokes limit. We 
+obtain the compressible Navier-Stokes equations by classical Chapman-Enskog 
+expansion. We give a description of this method below.
+
+% Given $(\mu,u,\theta)$, define the corresponding  Fermi-Dirac distribution 
+% \begin{equation}\label{eq:Fgen}
+% F_{(\mu,u,\theta)}(v) =
+% \left(1+\exp\left(-\frac{\mu}{\theta}+\frac{|v-u|^2}{2\theta}\right)\right)^{
+% -1}\end{equation} %
+% However, for computational reasons it is useful to
+As in chapter \ref{cha:ii} we 
+ write Fermi-Dirac distributions in the form
+\begin{equation*}%\label{eq:Fgen2}
+F_{(f,u,\theta)}(v) =
+\left(1+\exp\left(-f+\frac{|v-u|^2}{2\theta}\right)\right)^{
+-1}.\end{equation*}%with $f= \frac{\mu}{\theta}$.
+The subscript is omitted wherever it is convenient.
+The Navier-Stokes equations operate in hydrodynamic variables  $\rho$ and $\mathcal E$ defined in \eqref{eq:rho} and \eqref{eq:E}:
+\begin{equation*}
+%\label{eq:rho}
+\rho = \int\limits_{\mathbb R^3} \frac{\dv}{1+\exp\left(\frac{|v-u|^2}{2\theta}-f\right)} =  \theta^{3/2}\int\limits_{\mathbb R^3} \frac{\dv}{1+\exp\left(\frac{|v|^2}{2}-f\right)},
+ \end{equation*}
+% and
+\begin{equation*}%\label{eq:E}
+\mathcal E = \frac 13\int\limits_{\mathbb R^3} \frac{|v-u|^2\dv}{1+\exp\left(\frac{|v-u|^2}{2\theta}-f\right)} = \frac {\theta^{5/2}}{3}\int\limits_{\mathbb R^3} \frac{|v |^2\dv}{1+\exp\left(\frac{|v |^2}{2 }-f\right)}.
+\end{equation*}
+
+Note that $\rho$ and $\mathcal E$ do not depend on $u$ and are $\mathcal C^1$ functions of $f$ and $\theta$.
+
+% We remind the result established in \cite{TZThesis1} for moments of  Fermi-Dirac distributions of the form \eqref{eq:Fgen2}:
+
+% \begin{lemma}\label{th:existence:new} If $\rho$ and $\mathcal E$ are given, respectively, by \eqref{eq:rho} and \eqref{eq:E}, then the following statements hold: \begin{enumerate}\item
+% 	the ratio $\frac{\rho}{\mathcal E^{3/5}}$ depends only on $f$, 
+%  \item setting $J=\frac{(8\pi\sqrt 2)^{2/5}}{3}\left(\frac 52 \right)^{3/5} $, then the map \[f\to\frac{\rho}{\mathcal E^{3/5}}\]is  $\mathcal C^\infty (\mathbb R; (0,J))$ and strictly monotone; there exists a function  
+% \begin{equation}\label{eq:f:bar}
+% \bar f\in \mathcal C^1((0,J),\mathbb R),\quad f=\bar f\left(\frac{\rho(f,\theta)}{(\mathcal E(f,\theta))^{3/5}}\right),
+% \end{equation}
+
+% \item the function $\theta$ is given by   
+% $	\theta = \left(\frac{\rho}{ 4\sqrt 2\pi\Gamma(3/2)\mathcal F_{3/2}(f)}\right)^{2/3} $
+
+
+% \item the map $(f,\theta)\to(\rho,\mathcal E)$ is a diffeomorphism,
+
+% \item $f$ and $\theta$ seen as as functions of $\rho$ and $\mathcal E$ satisfy
+% \begin{equation}\label{eq:transp:f}\rho\partial_\rho f +\frac 53\mathcal E \partial_{\mathcal E}f=0, \end{equation}
+% \begin{equation}\label{eq:transp:theta}\rho\partial_\rho \theta +\frac 53\mathcal E \partial_{\mathcal E}\theta=\frac 23\theta.\end{equation}
+% \end{enumerate}
+% \end{lemma}
+
+As previously, we denote by $L$ and $Q$ the first and the second Fréchet derivatives of the operator 
+$G\to (F(1-F))^{-1}C(F+F(1-F)G)$ at $G=0$ for a Fermi-Dirac distribution $F$:
+\begin{equation*}\label{eq:fre}\begin{aligned}
+L(g)&=\frac{DC(F)\cdot (F(1-F)g)}{F(1-F)},\\Q(g,g)&=\frac{D^2C(F): 
+(F(1-F)g\otimes F(1-F)g)}{F(1-F)}.\end{aligned}
+\end{equation*}
+By Taylor's formula% then gives
+\begin{equation*}\label{eq:expansion-d}
+\frac{C(F+F(1-F)\epsilon g)}{F(1-F)}= \epsilon L(g) +\frac{\epsilon^2}{2} Q(g,g)+\mathcal O(\epsilon^3).
+\end{equation*}
+
+
+
+ Note that this expansion enables us to say that the case $r=q=1$ is the unique scaling compatible with the usual incompressible Navier-Stokes equations.  
+  Indeed, if $u(t,x)$ is a solution of the incompressible Navier-Stokes equation \[ \partial_t u+(u\cdot\nabla_x)u=-\nabla_xp+\nu \Delta u,\] then so is the function $ \lambda^{-1} u(\lambda^{-2}t,\lambda^{-1}x)$ for a positive constant $\lambda$.
+By putting the same rescaling for the function  $g_\ep $ with $\lambda=\ep$ and denoting the rescaled function by $\tilde g_\ep$ we obtain that the following identity must hold:
+\[\ep^{r-2}\tilde g_\ep +\ep^{r-2} v\cdot\nabla_x \tilde g_\ep = \ep^{r-1-q}L(\tilde g_\ep)+\frac {\ep^{2r-2-q}}{2}Q(\tilde g_\ep,\tilde g_\ep) +\mathcal O(\ep ^{3r-3-q}). \]
+This relation implies the equation \[r-2=r-1-q=2r-2-q,\]which has only one solution $r=q=1$. See also \cite{bouchut2000kinetic,de1989incompressible} for the discussion of compatible scalings.
+
+As we already said, in general, the operator $L$ is unbounded, but it is defined as an unbounded linear operator on the space $L^2(F(1-F)\mathrm dv)$. 
+
+Recall that for the collision operator \eqref{eq:Cform} the linearised collision operator can be written as
+   \begin{equation*}%\label{eq:L:form}
+   	L[h](v)=\frac{1}{ (1-F)F }\col b\mathcal N \{h \} \dv_\ast\dom ,
+   \end{equation*}
+with\[\mathcal N = FF_\ast(1-F')(1-F'_\ast)=F'F'_\ast(1-F)(1-F_\ast)\]
+and\[\{\phi\}=\phi'_\ast+\phi'-\phi_\ast-\phi.\]
+Note that $FF_\ast(1-F')(1-F'_\ast)=F'F'_\ast(1-F)(1-F_\ast)$ if and only if $F$ is a Fermi-Dirac distribution.
+
+We also recall the following result, established in chapter \ref{cha:ii}:
+% \textbf{BEGIN OF REWRITE BLOCK}
+
+% We will suppose that the operator $L$ is self-adjoint and satisfies the Fredholm alternative.
+
+% The following properties  were established in chapter \ref{cha:ii}:
+\begin{theorem*}  \begin{itemize}
+\item 
+  The linearised collision operator $L$ defined in \eqref{eq:L:form} self-ad\-joint, non-positive, and its nullspace is $\ker L = \mbox{span}\{1,v_1,v_2,v_3,|v|^2\}$. 
+ \item 
+Denoting \[V=\frac{v-u}{\sqrt\theta}, \quad A(V)=\left(\frac{|V|^2}{2}-\frac52   \frac{\mathcal E}{\rho\theta}\right)V,\quad B(V)=V\otimes V-\frac 13 |V|^2I,\]
+where $\rho$ and $\mathcal E$ are given by \eqref{eq:rho} and \eqref{eq:E}, then $A_i$ and
+$B_{i,j}$   are orthogonal to $\ker L$ in $L^2(F(1-F) \dv)$.\end{itemize}
+\end{theorem*}
+%  \begin{theorem*}\label{th:com:exa-d}
+% \begin{itemize}
+% \item In the hard sphere case $b(\omega, v-v_\ast) =    \left(\omega\cdot\frac{v-v_\ast}{|v-v_\ast|}\right)|v-v_\ast|$ the linearized collision operator $L$ given by \eqref{eq:L:form} satisfies the Fredholm alternative in $L^2( F(v)(1-F(v))\dv)$. 
+% \item If the collision kernel $b$ satisfies the properties
+
+% \begin{equation}\label {eq:b:cond}
+%  b(\omega, v-v_\ast) = \hat b\left(\omega\cdot\frac{v-v_\ast}{|v-v_\ast|}\right)|v-v_\ast|^\gamma,\quad \hat b\in L^1(
+%  \dom ),\quad \gamma>-3,	
+% \end{equation}
+%  then the linearized collision operator
+%  $L$ satisfies the Fredholm alternative in 
+% 	$L^p( a^F(v)F(v)(1-F(v))\dv)$, where $a^F$ is given by
+% 	\[a^F(v) = \col b (\omega,v-v_\ast )\frac{F_\ast(1-F')(1-F'_\ast )}{1-F} \dv_\ast  \dom.\]
+% \end{itemize}
+
+% \end{theorem*}
+
+% Obviously, the general case with arbitrary $\theta>0$ and $u\in\mrt$ can be reduced to the above case by rescaling the variable $v$. 
+
+%  \begin{theorem*}\label{le:invertform:main-d}
+% For each $i,j=1,2,3$, there exists a unique $A'_i,B'_{ij} \in L^2(F(1-F)\dv)$, such that \[L[A'_i]=A_i,\quad L[B'_{ij}]=B_{ij}\mbox{ and}\quad   A'_i\in(\ker L)^\bot , \quad B'_{ij}\in (\ker L)^\bot .\]
+% Moreover, these functions have the form
+% \[A'(V)= -\alpha_L(\rho,\mathcal E,|V|)A(V),\quad B'(V)= -\beta_L(\rho,\mathcal E,|V|)B(V)\]
+% for some positive functions $\alpha_L$ and $\beta_L$.
+% \end{theorem*}
+
+% \textbf{END OF REWRITE BLOCK}
+
+With the notation $\langle s\rangle_k = \int_\mrt s(v)k(v)\dv$ for all functions $s\in L^1(k(v)\dv)$ and $\langle s\rangle = \int_\mrt s(v) \dv$ for $s\in L^1(\dv)$, we introduce the following constants:
+\[E_0=\langle1\rangle_{F(1-F)},\quad E_2=\langle |v_1|^2\rangle_{F(1-F)},\]\[
+\quad E_4=\langle |v_1|^4\rangle_{F(1-F)},\quad E_{22}=\langle |v_1v_2|^2\rangle_{F(1-F)},\]
+
+\[C_A=  \left\langle   \left(\frac{|v|^2}{2}-K_A\right)^2 v_1^2
+\right\rangle_{F(1-F)(1-2F)},\]
+\[k_\ast=\left\langle \alpha_L(\rho_0,\mathcal E_0,|v|) \left( \frac{|v|^2}{2}-K_A\right)^2v_1^2  
+\right\rangle_{F(1-F)},\]
+\[\mu_\ast=\langle \beta_L(\rho_0,\mathcal E_0,|v|) v_1^2v_2^2
+\rangle_{F(1-F)}.\]
+We also recall  that $K_A=\frac 52\frac{\mathcal E}{\rho\theta}$ and is defined by the condition $A_1\bot V_1$ in $L^2(F(1-F)\dv)$ (see theorem \ref{th:ortho}). In our case $\mu=1$, $\theta=1$, we denote the corresponding density and energy by $\rho_0$, $\mathcal E_0$, so $K_A=\frac 52\frac{\mathcal E_0}{\rho_0}$.
+\begin{theorem}\label{th:INSE}
+ Let $F_\ep(t,x,v)$ be a sequence of non-negative solutions of the scaled
+kinetic equation \eqref{eq:inc} such that, if written in the form \eqref{eq:incsol}, the sequence
+$g_\ep$ converges in the sense of distributions and almost everywhere to
+a function $g$ as $\ep$ goes to zero. In addition, assume that
+moments
+\[\langle g_\ep\rangle_{F(1-F)},\quad \langle
+vg_\ep\rangle_{F(1-F)},\quad \langle v\otimes v g_\ep\rangle_{F(1-F)},\quad\langle v|v|^2
+g_\ep\rangle_{F(1-F)},\]
+
+\[\langle L^{-1}(A(v))\otimes vg_\ep\rangle_{F(1-F)},\quad \langle
+L^{-1}(A(v))Q(g_\ep,g_\ep)\rangle_{F(1-F)},\]
+
+\[\langle L^{-1}(A(v))\otimes vg_\ep\rangle_{F(1-F)},\quad \langle
+L^{-1}(B(v))Q(g_\ep,g_\ep)\rangle_{F(1-F)}\]
+converge in $D'(\mathbb R^+_t\times\mathbb R^3_x)$ to the corresponding moments
+
+\[\langle g\rangle_{F(1-F)},\quad \langle vg\rangle_{F(1-F)},\quad \langle v\otimes v g\rangle_{F(1-F)},\quad \langle
+v|v|^2 g\rangle_{F(1-F)},\]
+
+\[\langle L^{-1}(A(v))\otimes vg\rangle_{F(1-F)},\quad \langle
+L^{-1}(A(v))Q(g,g)\rangle_{F(1-F)},\]
+
+\[\langle L^{-1}(A(v))\otimes vg\rangle_{F(1-F)},\quad \langle
+L^{-1}(B(v))Q(g,g)\rangle_{F(1-F)}\]
+and all formally small in $\ep$ terms vanish. Then the limiting $g$ has
+the form
+\begin{equation}
+ g=\rho+v\cdot u +\theta \left(\frac{|v|^2}{2}-K_g\right), \label{eq:incg}
+\end{equation}
+where the  velocity $u$ is divergence-free, $K_g=K_A -1$ and the density and 
+temperature
+fluctuations $\rho$ and $\theta$ satisfy the Boussinesq relation
+\begin{equation}
+ \nabla_x\cdot u =0,\quad \nabla_x(\rho+\theta)=0.\label{eq:incBouss}
+\end{equation}
+Moreover, the functions $\rho$, $u$ and $\theta$ are weak solutions of the following fluid dynamic
+equations
+
+\begin{itemize}
+ \item $r=1$, $q=1$
+\begin{equation} E_2\partial_t u+ E_{2} (u\cdot \nabla_x) u  
+ +\nabla_x p
+=\mu_\ast\Delta u,  \label{eq:incU11}\end{equation}
+\begin{equation} 
+C_A\partial_t \theta + C_A u\cdot \nabla_x\theta= k_\ast\Delta\theta,
+ \label{eq:incTH11}\end{equation}
+\item $r>1$, $q=1$
+\begin{equation}E_2\partial_t   u+\nabla_x p= \mu_\ast\Delta u,\label{eq:incU21}\end{equation}
+\begin{equation}
+\left( K_AE_0 -\frac{3}{2}  E_2 \right)K_A\partial_t \theta  = k_\ast\Delta\theta, \label{eq:incTH21}\end{equation}
+
+\item $ r=1$, $q>1$ \begin{equation}E_2\partial_t u+ {E_{2}} (u\cdot \nabla_x) u +\nabla_x p= 0,\label{eq:incU12}\end{equation}
+\begin{equation} 
+ \partial_t \theta +  u\cdot \nabla_x\theta=0,\label{eq:incTH12}
+\end{equation}
+\item $r>1$, $q>1$ \begin{equation}
+E_2\partial_t u+\nabla_x p= 0,\label{eq:incU22} \end{equation}
+\begin{equation}
+\partial_t \theta = 0.\label{eq:incTH22}
+ \end{equation} 
+
+\end{itemize}
+ 
+
+\end{theorem}
+\begin{proof}
+We split the technical results required  for this theorem in several propositions. Their proofs can be found in the appendix \ref{sec:integration_and_symmetry_lemmas}.
+\begin{proposition} \label{lemma:4-322} If $s=s(|v|)$ is a measurable function such that 
+\[|v|^4\in L^1(s(|v|)dv),\] then
+\[\left\langle v_1^4-3v_1^2v_2^2\right\rangle_{s}=0.\]
+%This observation is crucial for the theorem %that we will formulate
+\end{proposition}
+
+As a direct corollary of this proposition one can establish that $E_4=3E_{22}$.
+\begin{proposition}\label{pr:tilde}
+Define  
+\[   \tilde E_{22}=\langle |v_1v_2|^2\rangle_{F(1-F)(1-2F)}, \] 
+	then \[\tilde E_{22} =  E_2 .\]
+\end{proposition}
+
+We recall the definition of the following fields which are orthogonal to the nullspace of the operator $L$:
+\[B(v)=v\otimes v -\frac 13 |v|^3I,\quad A(v)=\left(\frac{|v|^2}{2}-K_A\right)v.\] The constant 
+$K_A$ is defined from the orthogonality relation $A(v)\bot_{F(1-F)}v_i$ and is equivalent to
+
+\[\left\langle\frac{|v|^2|v_1|^2}{2}-K_A|v_1|^2\right\rangle_{F(1-F)}=0,\]
+
+\[\frac{E_4+2E_{22}}{2}-K_AE_2=0\]
+or
+\[K_A=\frac{E_4+2E_{22}}{2E_2} \label{test}.\]
+
+\begin{proposition}
+	One has
+  \begin{equation}\label{eq:KA}
+	K_AE_0 -\frac{3}{2}  E_2 >0.
+\end{equation} 
+
+\end{proposition}
+
+
+\begin{proposition}\label{pr:CA}One has 
+	\[C_A=  \left\langle   \left(\frac{|v|^2}{2}-K_A\right)^2 v_1^2
+\right\rangle_{F(1-F)(1-2F)}=\left( K_AE_0 -\frac{3}{2}  E_2 \right)K_A.\]
+\end{proposition}
+
+\begin{proposition}\label{pr:Bortho}
+	Let $s:\mrt\to \mro_+$ be a measurable function such that $s(v)=s(|v|)$. Let $f:\mro_+\to \mro$ be such that $|v|^2f(|v|)\in L^1(s(v)\dv)$. Then
+	\[\int_\mrt B(v)f(|v|)s(v)\dv=0,\]
+	where we recall that $B=v\otimes v-\frac 13 |v|^2I$.
+\end{proposition}
+
+  
+ \textit{Step 1}. 
+ If we insert the form  \eqref{eq:incsol} of the distribution $F$ into \eqref{eq:inc} and use Taylor expansion of the collision operator, we
+obtain
+\begin{equation}
+ \ep g_\ep + v\cdot \nabla_xg_\ep =
+\ep^{-q}L(g_\ep)+\frac 12
+\ep^{r-q}Q(g_\ep,g_\ep)+O(\ep^{2r-q}).\label{eq:inctaylor}
+\end{equation}
+Multiplying both sides  by $\ep^{q}$, letting $\ep$ go to zero, and using the assumptions on the 
+ convergence of moments, we obtain
+\[L(g)=0.\]
+Hence $g$ belongs to the nullspace of $L$ and can be written in the form \eqref{eq:incg}.
+
+\textit{Step 2}. 
+We derive \eqref{eq:incBouss} from the equations for the conservation of mass and momentum associated
+with \eqref{eq:inctaylor}; we arrive at the identity
+\[
+\ep\partial_t\langle g_\ep\rangle_{F(1-F)}+\nabla_x\cdot\langle
+vg_\ep\rangle_{F(1-F)}= 0, \]\[
+\ep\partial_t\langle vg_\ep\rangle_{F(1-F)}+\nabla_x\cdot\langle
+v\otimes vg_\ep\rangle_{F(1-F)}= 0.  
+\]
+Letting $\ep$ go to zero in the above formulas, and passing to the limit in
+the sense of distributions, we conclude that
+\[ \nabla_x\cdot\langle vg \rangle_{F(1-F)}= 0,\quad \nabla_x\cdot\langle
+v\otimes vg \rangle_{F(1-F)}= 0.\]
+The first equality can be put in the form
+\[\nabla_x\cdot\left(\langle v\otimes v \rangle_{F(1-F)}\,u\right)=0\]
+or
+\[0=\nabla_x\cdot E_2Iu=E_2\nabla_x\cdot u\]
+so that
+\[\nabla_x\cdot u=0,\]
+since $E_2>0$. This is the incompressibility condition.
+
+Let us proceed with the second relation, taking $g$ as in \eqref{eq:incg} and studying the
+resulting expression term by term. First,
+\[\nabla_x\cdot\left(\langle v\otimes v
+\rangle_{F(1-F)}\,\rho\right)=E_2\nabla_x  \rho,\]
+and
+\[\langle v\otimes v (v\cdot u)\rangle_{F(1-F)}=0,\]
+since the integrand is odd in $v$.
+ It remains  to study the expression
+
+\[\nabla_x\cdot\left(\left\langle v\otimes v \left(\frac{|v|^2}{2}-K_g\right)
+\right\rangle_{F(1-F)}\, \theta\right)=   \left\langle |v_1|^2
+\left(\frac{|v|^2}{2}-K_g\right) \right\rangle_{F(1-F)}\nabla_x\theta  .\]
+If we take the  definitions of $K_A$ and $K_g$, we can rewrite this expression
+as
+\[\left\langle |v_1|^2 \left(\frac{|v|^2}{2}-K_A\right)
+\right\rangle_{F(1-F)}\nabla_x\theta +E_2\nabla_x  \theta   = E_2\nabla_x\theta
+.\]
+Therefore  
+\[0=\frac{1}{E_2}\nabla_x\cdot\langle v\otimes vg \rangle_{F(1-F)} = 
+\nabla_x(\rho+\theta)\]
+which is precisely the Boussinesq relation \eqref{eq:incBouss}.
+If we assume that $\rho$ and $\theta$ belong to, say, the space $L^2(\mrt)$, then this relation immediately implies that $\rho+\theta
+=0$. The same conclusion would follow in the case where $\rho,\,\theta\in L^2(\mathbb T^3)$ with $\int_{\mathbb T^3}\rho \dx = \int_{\mathbb T^3}\theta \dx=0$.%
+
+\textit{Step 3.}
+The limiting momentum equation is obtained from 
+\[\partial_t\langle
+vg_\ep\rangle_{F(1-F)}+\frac{1}{\ep}\nabla_x\cdot\langle
+v\otimes vg_\ep\rangle_{F(1-F)}= 0.\]
+We separate the flux tensor into its traceless and  scalar components:
+\[\begin{split}\partial_t\langle vg_\ep\rangle_{F(1-F)}
++\frac{1}{\ep}\nabla_x\cdot
+\left\langle\left( v\otimes v-\frac 13
+|v|^2I\right)g_\ep\right\rangle_{F(1-F)}
+\\+\frac{1}{\ep}\nabla_x 
+\left\langle \frac 13 |v|^2   g_\ep\right\rangle_{F(1-F)} =
+0,\end{split}\]
+or equivalently
+\begin{equation}\partial_t\langle
+vg_\ep\rangle_{F(1-F)}+\frac{1}{\ep}\nabla_x\cdot
+\left\langle B(v)g_\ep\right\rangle_{F(1-F)}+ \nabla_x p_\ep= 0,
+\label{eq:incB}
+\end{equation}
+where the pressure is defined as  \[p_\ep = \ep^{-1}
+\left\langle \frac 13 |v|^2 g_\ep\right\rangle_{F(1-F)} .\]
+
+Likewise, we combine the density and energy equations to get the
+limiting temperature equation, as follows. Observe that
+
+\begin{equation}\partial_t\left\langle \left(\frac 12 |v|^2-K_A\right)
+g_\ep\right\rangle_{F(1-F)}+\frac{1}{\ep}\nabla_x\cdot\langle
+A(v)g_\ep\rangle_{F(1-F)}= 0.\label{eq:incA}\end{equation}
+By the convergence assumptions and the limiting form \eqref{eq:incg} of $g$, we first see that
+\[\lim\limits_{\ep\to 0}\partial_t\langle
+vg_\ep\rangle_{F(1-F)}=\partial_t\langle vg
+\rangle_{F(1-F)}=E_2\partial_t u\]
+in the sense of distributions, while
+\[\lim\limits_{\ep\to 0} \partial_t\left\langle \left(\frac 12
+|v|^2-K_A\right)g_\ep\right\rangle_{F(1-F)}\]
+\[=\partial_t\left\langle \left(\frac 12 |v|^2-K_A\right)\left(\rho+(v\cdot
+u)+\theta \left(\frac{|v|^2}{2}-K_g\right)  \right)\right\rangle_{F(1-F)}
+\]
+\[=\partial_t\left\langle \left(\frac 12 |v|^2-K_A\right)\left(\rho- 
+K_g\theta\right)\right\rangle_{F(1-F)}\]
+\[=\left( K_AE_0 -\frac{3}{2}  E_2 \right)\partial_t(K_g\theta-\rho),\]also in the sense of distributions.
+
+Since $\rho+\theta=0$ we can rewrite the expression above as
+\[\partial_t\left\langle \left(\frac 12 |v|^2-K_A\right)
+g\right\rangle_{F(1-F)}=\left( K_AE_0 -\frac{3}{2}  E_2 \right)K_A\partial_t \theta.\]
+The pressure term $p_\ep$ in the right side of \eqref{eq:incB} may fail to have a limit in the sense of distributions as $\ep\to 0$. However, this does not matter since it is eliminated upon integrating the equation
+ against a divergence-free test function.
+
+\textit{Step 4.}
+To complete the proof of theorem \ref{th:INSE}, we need to estimate the limits of the moments
+\[\ep^{-1} 
+\left\langle B(v)g_\ep\right\rangle_{F(1-F)},\quad \ep^{-1} 
+\left\langle A(v)g_\ep\right\rangle_{F(1-F)},\]
+which appear in \eqref{eq:incB} and \eqref{eq:incA} respectively.
+
+Bearing in mind that $L$ is symmetric in the space $L^2(F(1-F)\dv)$, we start with the identities
+\[\left\langle A(v)g_\ep\right\rangle_{F(1-F)}=\left\langle
+L^{-1}(A(v))L(g_\ep)\right\rangle_{F(1-F)},\]
+\[\left\langle B(v)g_\ep\right\rangle_{F(1-F)}=\left\langle
+L^{-1}(B(v))L(g_\ep)\right\rangle_{F(1-F)},\]
+and eliminate $L(g_\ep)$ from \eqref{eq:inctaylor}
+\[\ep g_\ep + v\cdot \nabla_xg_\ep =
+\ep^{-q}L(g_\ep)+\frac 12
+\ep^{r-q}Q(g_\ep,g_\ep)+O(\ep^{2r-q}).\]
+
+Our assumptions on the convergence allow us to evaluate the limiting moments as
+\[\begin{split}
+   \lim\limits_{\ep\to 0}\ep^{-1} 
+\left\langle A(v)g_\ep\right\rangle_{F(1-F)}=\lim\limits_{\ep\to
+0} \ep^{q-1}\nabla_x \cdot\langle  L^{-1}(A(v))\otimes v
+g_\ep\rangle_{F(1-F)}\\
+-\frac 12 \lim\limits_{\ep\to 0} \ep^{r-1} \langle  L^{-1}(A(v)) Q
+(g_\ep,g_\ep)\rangle_{F(1-F)},
+  \end{split}
+\]
+\[\begin{split}
+   \lim\limits_{\ep\to 0}\ep^{-1} 
+\left\langle B(v)g_\ep\right\rangle_{F(1-F)}=\lim\limits_{\ep\to
+0} \ep^{q-1}\nabla_x \cdot\langle L^{-1}(B(v))\otimes
+vg_\ep\rangle_{F(1-F)}\\
+-\frac 12 \lim\limits_{\ep\to 0} \ep^{r-1} \langle  L^{-1}(B(v)) Q
+(g_\ep,g_\ep)\rangle_{F(1-F)}.
+  \end{split}
+\]
+We neglected the terms that are formally $O(\ep^{q})$ and
+$O(\ep^{2r-1})$. For $r>1$ and $q>1$ all the limits on the right side
+vanish by the moment convergence assumptions. For the case $r>q=1$ we need to
+compute the moments
+\[ \nabla_x \cdot\langle  L^{-1}(A(v))\otimes vg \rangle_{F(1-F)} \quad \text{and}\quad
+\nabla_x \cdot\langle  L^{-1}(B(v))\otimes vg%_\ep
+\rangle_{F(1-F)}.\]
+Similarly, for the case $q>r=1$ we need 
+\[ \langle  L^{-1}(A(v)) Q (g ,g )\rangle_{F(1-F)}\quad \text{and}\quad \langle  L^{-1}(B(v)) Q
+(g ,g )\rangle_{F(1-F)}. \]
+For the case $r=q=1$ one needs to know all four moments above.
+
+The limiting form of $g$ and the Boussinesq relation allow us to write
+
+ 
+\[\nabla_x \cdot\langle  L^{-1}(A(v))\otimes vg \rangle_{F(1-F)}= \langle 
+L^{-1}(A(v))  (v\cdot \nabla_x g )\rangle_{F(1-F)}\]
+\[=\left\langle   L^{-1}(A(v)) \left(v\cdot \nabla_x
+\left(\rho+\theta\left(\frac{|v|^2}{2}-K_g\right)\right)\right) 
+\right\rangle_{F(1-F)}\]
+\[= \left\langle   L^{-1}(A(v)) \left( \frac{|v|^2}{2}-K_A\right)  \left(v\cdot
+\nabla_x \theta \right)\right\rangle_{F(1-F)}
+\]
+\[=\left\langle    L^{-1}(A(v)) \otimes A(v)\right\rangle_{F(1-F)}\cdot \nabla_x
+\theta\]
+\[=-\left\langle \alpha_L(\rho_0,\mathcal E_0,|v|) A(v) \otimes     A(v)  
+\right\rangle_{F(1-F)}\cdot \nabla_x \theta\]
+\[=-\left\langle \alpha_L(\rho_0,\mathcal E_0,|v|) \left( \frac{|v|^2}{2}-K_A\right)v_1^2  
+\right\rangle_{F(1-F)}\nabla_x \theta = -k_\ast\nabla_x \theta.\]
+Applying the divergence operator results in the term $\Delta\theta$ in 
+the expressions \eqref{eq:incTH11},\eqref{eq:incTH21}.
+
+In the same spirit, 
+\[\nabla_x \cdot\langle   L^{-1}(B(v))\otimes vg \rangle_{F(1-F)}
+ \]
+\[ =\nabla_x \cdot\langle   L^{-1}(B(v))\otimes v(v\cdot u)  
+\rangle_{F(1-F)}  \]
+\[ = \langle   L^{-1}(B(v))\otimes (v\otimes v) 
+\rangle_{F(1-F)}  :\nabla_x u\]
+\[  \begin{split}=\langle   L^{-1}(B(v))\otimes (v\otimes v-\frac 13 |v|^2I) 
+\rangle_{F(1-F)}  :\nabla_x u\\+   \langle   L^{-1}(B(v))
+ \frac 13 |v|^2 
+\rangle_{F(1-F)}  \nabla_x\cdot u\end{split}\]
+\[ = \langle   L^{-1}(B(v))\otimes B(v)
+\rangle_{F(1-F)}  :\nabla_x u \]\[=-\langle \beta_L(\rho_0,\mathcal E_0,|v|) B(v) \otimes B(v)
+\rangle_{F(1-F)}  :\nabla_x u.\]
+The following lemma explains the presence of  $\Delta u$ in equations
+ \eqref{eq:incU11}, \eqref{eq:incU21}.
+\begin{lemma}
+ \[\nabla_x\cdot\left(\langle \beta_L(\rho_0,\mathcal E_0,|v|) B(v) \otimes B(v)
+\rangle_{F(1-F)}  :\nabla_x u\right)=\mu_\ast\Delta u\]
+\end{lemma}
+\begin{proof}
+We consider the terms of $B(v)\otimes B(v)$ that do not vanish after integration with respect to $\beta_L(\rho_0,\mathcal E_0,|v|)F(v)(1-F(v))\dv$. It is easy to see that
+ such terms can only have the following forms:
+\[\beta_L(\rho_0,\mathcal E_0,|v|)B_{ij}^2(\vec e_i\otimes\vec e_j\otimes\vec e_i\otimes\vec e_j+
+\vec e_i\otimes\vec e_j\otimes\vec e_j\otimes\vec e_i),\quad i\ne j,\]
+\[\beta_L(\rho_0,\mathcal E_0,|v|)B_{ii} B_{jj} \vec e_i\otimes\vec e_i\otimes\vec e_j\otimes\vec e_j. \]
+After taking into account that $\nabla_x\cdot u =0$, we arrive to the divergence of the form
+\[\mu_\ast\Delta u +\sum_i(DD-ED-2\mu_\ast)\frac{\partial^2 u_i}{\partial x_i^2}\vec e_i\]
+with
+\[DD = \left\langle  B_{11}^2
+\right\rangle_{F(1-F)\beta_L(\rho_0,\mathcal E_0,|v|)},\]
+\[ ED = \left\langle  B_{11}B_{22}
+\right\rangle_{F(1-F)\beta_L(\rho_0,\mathcal E_0,|v|)}.\]
+Hence
+\[DD-ED-2\mu_\ast= \left\langle B_{11}(B_{11}-B_{22})-2B_{12}^2
+\right\rangle_{F(1-F)\beta_L(\rho_0,\mathcal E_0,|v|)}\]
+\[=\left\langle B_{11}(v_{1}^2-v_{2 }^2)-2v_{1 }^2v_{2 }^2
+\right\rangle_{F(1-F)\beta_L(\rho_0,\mathcal E_0,|v|)}\]
+\[=\left\langle v_{1 }^2 (v_{1}^2-v_{2 }^2)-2v_{1 }^2v_{2 }^2
+\right\rangle_{F(1-F)\beta_L(\rho_0,\mathcal E_0,|v|)}\]
+\[=\left\langle   v_{1}^4-3v_1^2v_{2 }^2 
+\right\rangle_{F(1-F)\beta_L(\rho_0,\mathcal E_0,|v|)}=0\]
+by Proposition \ref{lemma:4-322}.
+\end{proof}
+\begin{proposition}
+	If $g\in\ker L$, then $Q(g,g)=-L[(1-2F)g^2]$.
+\end{proposition}
+\begin{proof}
+From the expansion \eqref{eq:expansion} it quickly follows that
+\[	\frac {F(1-F)}{2}Q(g,g)= \col b  F'F'_\ast(1-F')(1-F'_\ast)(1-F)(1-F_\ast)g'g'_\ast \dv_\ast\dom  \]
+	\[-\col b FF_\ast F'F'_\ast(1-F')(1-F'_\ast) g'g'_\ast\dv_\ast\dom\]
+ \[-\col bF'F'_\ast F(1-F)(1-F')(1-F_\ast)g'g \dv_\ast\dom\]
+ \[+\col bFF_\ast F'(1-F)(1-F')(1-F'_\ast)  g'g \dv_\ast\dom\]
+\[-\col b F'F'_\ast F_\ast(1-F)(1-F')(1-F_\ast)g'g_\ast\dv_\ast\dom\]
+\[+\col bFF_\ast F'(1-F')(1-F'_\ast)(1-F_\ast)  g'g_\ast\dv_\ast\dom\]
+ \[-\col bF'F'_\ast F(1-F)(1-F_\ast)(1-F'_\ast)g'_\ast g\dv_\ast\dom\]
+ \[+\col bFF_\ast F'_\ast(1-F')(1-F'_\ast)(1-F) g'_\ast g\dv_\ast\dom\]
+ \[-\col bF'F'_\ast F_\ast(1-F)(1-F_\ast)(1-F'_\ast)g'_\ast g_\ast\dv_\ast\dom\]
+ \[+\col bFF_\ast F'_\ast(1-F')(1-F'_\ast)(1-F_\ast) g'_\ast g_\ast\dv_\ast\dom\]
+\[-\col bF F _\ast(1-F')(1-F'_\ast)(1-F)(1-F_\ast)g g _\ast\dv_\ast\dom\]
+\[+\col bFF_\ast F'F'_\ast(1-F )(1-F _\ast) g g _\ast\dv_\ast\dom.\]
+
+By factoring out $\mcn =  F'F'_\ast(1-F )(1-F _\ast)=FF_\ast  (1-F')(1-F'_\ast) $ we obtain a simpler expression for $\frac {F(1-F)}{2}Q(g,g)$:
+\begin{align}\label{eq:Q:1m2f}
+	 	 & \col b  \mcn (  1-F'- F'_\ast )g'g'_\ast \dv_\ast\dom   +\col b\mcn (F'-  F  ) g'g \dv_\ast\dom\notag\\
+ +&\col b\mcn(F'- F_\ast  )  g'g_\ast\dv_\ast\dom +\col b\mcn(F'_\ast-  F  ) g'_\ast g\dv_\ast\dom \notag\\
+   +&\col b\mcn(F'_\ast-  F_\ast  ) g'_\ast g_\ast\dv_\ast\dom  -\col b\mcn (  1-F-F_\ast ) g g _\ast\dv_\ast\dom. 
+\end{align}
+We write the similar expression for  
+\begin{equation}\label{eq:L:1m2f}
+ 	\begin{split}
+ 		 \frac {F(1-F)}{2}L[(1-2F)g^2] = \frac 12\col b \mcn (  (g'_\ast)^2+(g')^2 -  g _\ast^2- g^2)\dv_\ast\dom \\- \col b \mcn(  F'_\ast(g'_\ast)^2+F'(g')^2 -  F _\ast g _\ast^2- Fg^2)\dv_\ast\dom
+ 	\end{split}
+ \end{equation} 
+We represent the sum of the expressions \eqref{eq:Q:1m2f}  and  \eqref{eq:L:1m2f} as the sum of several integrals, namely 
+\[\frac {F(1-F)}{2}Q(g,g)+\frac {F(1-F)}{2}L[(1-2F)g^2]=\sum_{i=1}^5\mathrm I_i,\]
+where
+ \[\mathrm I_1 = \col b \mcn \left(  (g'_\ast)^2+(g')^2 +\frac 12 g'g'_\ast-  g _\ast^2- g^2-\frac 12 g g _\ast\right)\dv_\ast\dom   ,\]
+  \[\mathrm I_2 = \col b \mcn F'_\ast g'_\ast   \left(-g'_\ast-g'  +g +g_\ast\right)\dv_\ast\dom ,  \]
+
+    \[\mathrm I_3 = \col b \mcn F' g'  \left(-g'_\ast-g'  +g +g_\ast\right)\dv_\ast\dom,   \]
+
+      \[\mathrm I_4 = \col b \mcn F_\ast g_\ast   \left(-g'_\ast-g'  +g +g_\ast\right)\dv_\ast\dom ,  \]
+
+        \[\mathrm I_5 = \col b \mcn F g   \left(-g'_\ast-g'  +g +g_\ast\right)\dv_\ast\dom .  \]
+However, we can further simplify 
+ \[\mathrm I_1 = \frac 12 \col b \mcn (  (g'_\ast+g')^2 -(g _\ast+ g)^2)\dv_\ast\dom.   \]
+Since $g\in \ker L$, we obtain that $ g'_\ast+g'  = g _\ast+ g $ a.e. and therefore $\mathrm I_1=0$.
+With the same observation, we deduce that all other integrals $\mathrm I_i$, $i=2,\ldots,5$ are also equal to zero.
+ We can now conclude that 
+ \[\frac {F(1-F)}{2}Q(g,g)+\frac {F(1-F)}{2}L[(1-2F)g^2]=0\]
+ or \[ Q(g,g)=- L[(1-2F)g^2]\]
+ whenever $g\in\ker L$.
+\end{proof}
+ 
+ The above Proposition enables us to simplify the following expressions:
+
+\[\langle  L^{-1}(A(v)) Q (g ,g )\rangle_{F(1-F)}=-\langle  L^{-1}(A(v)) L
+((1-2F)g^2 )\rangle_{F(1-F)}\]
+\[=-\langle    A(v)    g^2 \rangle_{F(1-F)(1-2F)},\]
+and
+\[\langle  L^{-1}(B(v)) Q (g ,g )\rangle_{F(1-F)}=-\langle  L^{-1}(B(v)) L
+((1-2F)g^2 )\rangle_{F(1-F)}\]
+\[=-\langle    B(v)    g^2 \rangle_{F(1-F)(1-2F)}.\]
+Now we can rewrite
+\[-\langle    A(v)    g^2 \rangle_{F(1-F)(1-2F)}=-2 \left\langle    A(v)   
+(v\cdot u)\theta\left(\frac{|v|^2}{2}-K_A\right) \right\rangle_{F(1-F)(1-2F)}\]
+\[=-2 \left\langle   \left(\frac{|v|^2}{2}-K_A\right)^2 v\otimes v
+\right\rangle_{F(1-F)(1-2F)}\theta u=-2C_Au\theta.\]
+Applying the divergence operator to both sides of this equality and bearing in mind that $\nabla_x\cdot u=0$, we obtain the term $u\cdot\nabla_x\theta$ in
+the expressions \eqref{eq:incTH11}, \eqref{eq:incTH12}.
+
+Finally, we evaluate
+\[  -\langle    B(v)    g^2 \rangle_{F(1-F)(1-2F)}\]\[ =-\left\langle    B(v)   
+\left((v\cdot u)^2+\theta^2\left(\frac{|v|^2}{2}-K_A\right)\right)
+\right\rangle_{F(1-F)(1-2F)}.\]
+ 
+Proposition \ref{pr:Bortho} allows us to conclude that the term with
+$\theta$ in the above expression % \eqref{eq:B-end}
+ disappears. We need to  estimate
+\[-\langle    B(v)     (v\cdot u)^2  \rangle_{F(1-F)(1-2F)}.\]
+Applying Lemma  \ref{lemma:4-322} and Proposition \ref{pr:tilde}, this expression can be simplified to
+\[-2 E_{2}B(u).\]
+Applying the divergence operator together with the incompressibility condition $\nabla_x \cdot u=0$ gives the terms $(u\cdot\nabla_x)u$ in
+ \eqref{eq:incU11}, \eqref{eq:incU12}.
+\end{proof}
+
+\textbf{Remark.} As all constants in the expressions (\ref{eq:incU11}--\ref{eq:incTH22}) are positive, the type of equations is exactly the same as in classical case.
+ Moreover, the rescaling of variables  allows us to eliminate several of constant factors in these equations.
+
+\begin{subappendices}
+\renewcommand{\thesection}{\Alph{section}}
+\renewcommand{\thetheorem}{\thesection.\Roman{theorem}}
+\setcounter{theorem}{0}
+\renewcommand{\thelemma}{\thesection.\arabic{lemma}}
+\setcounter{lemma}{0}
+\renewcommand{\theproposition}{\thesection.\arabic{proposition}}
+\setcounter{proposition}{0}
+\section{Integration and symmetry lemmas} % (fold)
+\label{sec:integration_and_symmetry_lemmas}
+
+
+% The following lemma is crucial for the proof of theorem \ref{th:INSE}.
+\begin{proposition}  If $s=s(|v|)$ is a measurable function such that 
+$|v|^4\in L^1(s(|v|)dv)$, then
+\[\left\langle v_1^4-3v_1^2v_2^2\right\rangle_{s}=0.\]
+%This observation is crucial for the theorem %that we will formulate
+\end{proposition}
+\begin{proof}
+We observe that \[\left\langle v_1^4-3v_1^2v_2^2\right\rangle_{s}=\left\langle \frac 12 v_1^4-\frac 12 v_2^4-3v_1^2v_2^2\right\rangle_{s}.\]
+Notice that the function
+\[h:\mrt\to \mro,\quad h(v) = \frac 12 v_1^4-\frac 12 v_2^4-3v_1^2v_2^2\]
+is harmonic and vanishes in zero, therefore its integral on the unit sphere is zero by the mean value property for harmonic functions. Since the function $s$ depens only on $|v|$, we can conclude that
+\[\int_{\mathbb S^2} h(v)s(|v|)\mathrm ds=0,\]
+which implies that
+\[\left\langle v_1^4-3v_1^2v_2^2\right\rangle_{s}=\left\langle h(v)\right\rangle_{s}=0.\]
+\end{proof}
+
+\begin{proposition}%\label{pr:tilde}
+Define  
+\[   \tilde E_{22}=\langle |v_1v_2|^2\rangle_{F(1-F)(1-2F)}, \] 
+	then \[\tilde E_{22} =  E_2 .\]
+\end{proposition}
+\begin{proof}
+	Define also \[\tilde E_4 =\langle |v_1|^4\rangle_{F(1-F)(1-2F)}, \] then by previous proposition
+	\[\tilde E_4=3\tilde E_{22}.\]
+	By the rotational invariance of the distribution $F$, we have
+	\[3 \tilde E_4+6\tilde E_{22}  = 15\tilde E_{22} = \langle |v|^4\rangle_{F(1-F)(1-2F)}.\] 
+Now denote $w=|v|$; we can write $F=\frac{1}{1+\exp(w^2/2-f)}$ and
+\[\frac{\mathrm d}{\dw}(F(1-F)) = -\frac{1}{ w}F(1-F)(1-2F),\]
+which allows us to deduce
+\[\langle |v|^4\rangle_{F(1-F)(1-2F)}  = \int_\mrt |v|^4 F(1-F)(1-2F)\dv  \]
+\[ =-4\pi \int_0^\infty w^5  \frac{\mathrm d}{\dw}(F(1-F)) \dw \]
+\[=4\pi \int_0^\infty 5w^4 F(1-F)\dw = \int_\mrt  5 |v|^2 F(1-F)\dw = {15} E_2. \]
+Therefore we can conclude that $\tilde E_{22}= {E_2}  $.
+\end{proof}
+\begin{proposition}
+	One has 
+  \begin{equation} 
+	K_AE_0 -\frac{3}{2}  E_2 >0.
+\end{equation} 
+
+\end{proposition}
+\begin{proof} 
+We can rewrite $K_A$ as 
+\[K_A=\frac{E_4+2E_{22}}{2E_2} = \frac{\left\langle v_1^4+2v_1^2v_2^2\right\rangle_{F(1-F)}}{2\left\langle v_1^2\right\rangle_{F(1-F)}}\]
+\[\frac{\left\langle |v|^4 \right\rangle_{F(1-F)}}{2\left\langle |v|^2\right\rangle_{F(1-F)}}.\]
+Moreover,
+\[E_2 = \left\langle v_1^2\right\rangle_{F(1-F)} =\frac 13\left\langle |v|^2\right\rangle_{F(1-F)}, \]
+therefore the inequality \eqref{eq:KA} is equivalent to
+\[ \frac{\left\langle |v|^4 \right\rangle_{F(1-F)}}{ \left\langle |v|^2\right\rangle_{F(1-F)}} \left\langle 1 \right\rangle_{F(1-F)}  -  \left\langle |v|^2 \right\rangle_{F(1-F)} >0, \]
+and the last inequality holds by the Cauchy-Schwarz inequality, therefore, the proposition is proven.
+\end{proof}
+
+\begin{proposition} One has
+		\[C_A=  \left\langle   \left(\frac{|v|^2}{2}-K_A\right)^2 v_1^2
+\right\rangle_{F(1-F)(1-2F)}=\left( K_AE_0 -\frac{3}{2}  E_2 \right)K_A.\]
+\end{proposition}
+\begin{proof}
+Denote, as previously, $w=|v|$, so $F=\frac{1}{1+\exp(w^2/2-f)}$ and
+\[\frac{\mathrm d}{\dw}(F(1-F)) = -\frac{1}{ w}F(1-F)(1-2F).\]
+In addition, by rotational symmetry, we have 
+\[C_A=  \frac 13\left\langle   \left(\frac{|v|^2}{2}-K_A\right)^2 |v|^2
+\right\rangle_{F(1-F)(1-2F)}\]
+\[=\frac 13\left\langle   \left(\frac{|v|^6}{4}-K_A|v|^4+K^2_A|v|^2\right)  
+\right\rangle_{F(1-F)(1-2F)}\]
+
+\[=\frac {1}{12}\int_\mrt |v|^6 F(1-F)(1-2F)\dv \]\[- \frac 13 K_A\int_\mrt |v|^4 F(1-F)(1-2F)\dv\]\[+\frac 13K^2_A\int_\mrt |v|^2 F(1-F)(1-2F)\dv \]
+\[=\frac {\pi}{3}\int_0^\infty  w ^8 F(1-F)(1-2F)\dw \]\[- \frac {4\pi}{3} K_A\int_0^\infty  w ^6 F(1-F)(1-2F)\dw\]\[+\frac {4\pi}{3} K^2_A\int_0^\infty  w ^4 F(1-F)(1-2F)\dv \]
+\[=\frac {7\pi}{3}\int_0^\infty  w ^6 F(1-F)\dw \]\[- \frac {20\pi}{3} K_A\int_0^\infty  w ^4 F(1-F) \dw\]\[+  {4\pi}  K^2_A\int_0^\infty  w ^2 F(1-F) \dv \]
+\[=\frac {7}{12}\int_\mrt |v| ^4 F(1-F)\dv - \frac {5}{3} K_A\int_\mrt |v| ^2 F(1-F) \dv\]\[+     K^2_A\int_\mrt  F(1-F) \dv \]
+\[=\frac {7}{12}( E_4+2E_{22}) -  {5}  K_AE_2+     K^2_A E_0,\]
+which can be further simplified with the help of the identity $K_A=\frac{E_4+2E_{22}}{2E_2}$:
+\[=\frac {7}{2}E_2K_A -  {5}  K_AE_2+     K^2_A E_0 =\left(K_A E_0-\frac 32E_2\right). \]
+\end{proof}
+\begin{proposition} 
+	Let $s:\mrt\to \mro_+$ be a measurable function such that $s(v)=s(|v|)$. Let $f:\mro_+\to \mro$ be such that $|v|^2f(|v|)\in L^1(s(v)\dv)$. Then
+	\[\int_\mrt B(v)f(|v|)s(v)\dv=0,\]
+	where $B=v\otimes v-\frac 13 |v|^2I$.
+\end{proposition}
+\begin{proof}
+	Thanks to the symmetry of the problem, it is sufficient to prove this result only for elements $B_{11}(v) = \frac 23v_1^2-\frac 13 v_2^2-\frac 13 v_3^2$ and $B_{12}=v_1v_2$.
+
+	We write
+	\[\int_\mrt B_{11}(v)f(|v|)s(v)\dv= \int_\mrt\left(\frac 23v_1^2-\frac 13 v_2^2-\frac 13 v_3^2\right)f(|v|)s(|v|)\dv\]
+	\[=\frac 23\int_\mrt v_1^2 f(|v|)s(|v|)\dv-\frac 13\int_\mrt    v_2^2 f(|v|)s(|v|)\dv-\frac 13\int_\mrt   v_3^2 f(|v|)s(|v|)\dv=0\]
+	thanks to the rotational symmetry. 
+
+	Moreover,
+	\[\int_\mrt B_{12}(v)f(|v|)s(v)\dv=\int_\mrt  v_1v_2f(|v|)s(|v|)\dv=0\]
+	because the function $v\to v_1v_2f(|v|)s(|v|)$ is odd in $v_1$.
+\end{proof}% section integration_and_symetry_lemmas (end)
+\end{subappendices}
+% \printbibliography[heading=subbibliography]

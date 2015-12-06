@@ -1,0 +1,411 @@
+\section{Kinetic theory} % (fold)
+\label{sec:kinetic_theory}
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+The purpose of kinetic theory is to study systems composed of a large number of particles. For such a system one can use different levels of description.
+
+The microscopic approach studies the trajectories of each individual particle. This method has several drawbacks, most notably the large number of particles.
+ % and the lack of access to individual physical quantities such as mass, average velocity, or temperature
+The macroscopic approach consists in examination of the observable macroscopic quantities of the system, i.e. mass density, fluid velocity field and temperature. Kinetic theory sits at the intermediary level between these two approaches; it can be called the mesoscopic approach. This description is statistical~--- it studies the \enquote{typical} behaviour of  particles. This enables us both to  simplify the examination of particles trajectories and to have access to physical properties of the system. The scope of the kinetic theory also allows us to study the relaxation of dynamical systems to equilibrium and to predict the long time behavior of the system.
+
+In this thesis we consider the mesoscopic description. The studied system consists of a large number of particles and therefore can be seen   as a continuum. The state of the system is described by a density of particles $F(t,x,v)$ at the time $t\ge 0$, position $x\in \mrt$, and velocity $v\in\mrt$.
+
+As we mentioned earlier, by to the mesoscopic description we have access to observable macroscopic quantities such as local density $\rho$, local average velocity $u$, and local local internal energy $\mathcal E$%\footnote{Here we have a vbox badness problem. This problem is mitigated by this remark}
+
+\begin{equation}\label{eq:i:rE}
+\begin{aligned}
+	\rho(t,x) &= \int_{\mbrt} F(t,x,v)\dv,\\ u(t,x)&=\frac{1}{\rho(t,x)}\int_{\mbrt} vF(t,x,v)\dv,\\
+	\mathcal E(t,x) &=\frac{1}{3}\int_{\mbrt} |v-u(t,x)|^2F(t,x,v)\dv.
+\end{aligned}
+\end{equation} 
+
+
+\subsection{Evolution of particle density} % (fold)
+\label{sub:evolution_of_particle_density}
+The goal is to study the evolution of the particle density $F$. By Newton's laws, the absence of external forces and the absence of interaction between particles leads to particles moving along straight lines at constant velocity:
+\[v=\frac{dx}{dt},\qquad \frac{dv}{dt}=0.\]
+Hence the density $F$ is the solution of the free transport equation:
+\[\partial_t F+ v\cdot \nabla_x F=0.\]
+Now, in order to take into account particle interactions, we modify the right-hand side of this equation:
+\[\partial_t F+ v\cdot \nabla_x F=C(F).\]
+We will specify the nature of the operator $C(F)$ for each  model studied here.
+% subsection evolution_of_particle_density (end)
+\subsection{The Boltzmann equation} % (fold)
+\label{ssec:the_boltzmann_equation}
+Among all kinetic equations, the Boltzmann equation used to described rarefied gas dynamics, plays a central role. It is the oldest equation first derived formally by Boltzmann in \cite{Boltzmann1872Weitere} after Maxwell's seminal results in \cite{maxwell1867dynamical}. Moreover, it is one of the few equations which can be rigorously derived from microscopic dynamics. The Boltzmann-Grad \cite{Grad1949On} limit provides a scope allowing us to derive the Boltzmann equation from Newton's laws of motion applied to each particle. The rigorous derivation for this case was established in \cite{Lanford1975Time} and \cite{Gallagher2013From}.
+
+Let us review the assumptions made by Boltzmann:
+\begin{enumerate}
+	\item The particles undergo only \textit{binary collisions}, the process under which two sufficiently close particles change their velocities in a short amount of time. Boltzmann's theory implicitly assumes that the medium is rarefied enough so that there are no collisions involving three or more particles.
+
+	\item The collisions are \textit{localized in time and space}: the scale of time and space of these collisions are negligibly small compared to the described typical length and time scales.
+
+	\item The collisions are \textit{elastic}: we have the conservation of momentum and energy in the collision process. If we denote $v$ and $v_*$ (respectively, $v'$ and $v_*'$) the velocities of two particles after (respectively, before) the collision, then we have
+	\[ 	 v'+v'_\ast=v +v _\ast ,\quad|v'|^2+|v'_\ast|^2=|v|^2 +|v _\ast|^2.  \]
+	We obtain four (in space dimension $3$) equations; the velocities  $v'$ and $v'_*$ can be represented in terms of $v$ and $v_*$ as
+	\[v' = v-\omega (v-v_\ast,\omega),\quad v'_\ast= v_\ast+\omega (v-v_\ast,\omega)\]
+	with $\omega\in \mst$.
+
+	\item The collisions are \textit{micro-reversible}. From the statistical point of view, the probability that the velocities $(v',v_*')$ are changed to $(v,v_*)$ is the same as the probability that the velocities $(v,v_*)$ are changed to  $(v',v_*')$.
+
+	\item The Boltzmann's \enquote{molecular chaos} hypothesis holds: the velocities of colliding particles are uncorrelated, and independent of position.
+	
+\end{enumerate}
+	% \item The particles obey the laws \textit{Fermi-Dirac statistics}. In other words, they satisfy the Pauli exclusion principle and there is a correlation between the velocities before and after the collision. 
+
+\begin{figure}\begin{center}
+\begin{tikzpicture}[scale=0.6]%,cap=round]
+  % Local definitions
+ % \def\costhirty{0.8660256}
+
+  % Colors
+ % \colorlet{anglecolor}{green!50!black}
+ % \colorlet{sincolor}{red}
+ % \colorlet{tancolor}{orange!80!black}
+  %\colorlet{coscolor}{blue}
+
+  % Styles
+ % \tikzstyle{axes}=[]
+  \tikzstyle{important line}=[very thick]
+ % \tikzstyle{information text}=[rounded corners,fill=red!10,inner sep=1ex]
+
+  \draw (0,0) circle (5cm);
+
+\draw[->] (0,0) -- (5,0) node [right,color=black]{$v'$};
+\draw[->] (0,0) -- (-4, 3) node [left, color=black] {$v_*$};
+\draw[->] (0,0) -- (-5,0) node [left,color=black] {$v'_*$};
+\draw[->] (0,0) -- (4,-3) node [right,color=black]{$v$};
+\draw[->,thick] (0,0) -- (1,3) node [right, color=black] {$\omega$};
+
+% \draw[->,color=blue] (0,0)--(0,0) node [above right,color=black] {$\frac{v+v_\ast}{2}$};
+% \draw [dashed](5,0) -- (-5,0);
+
+% \draw [dashed] (4,-3) -- (-4,3);
+\end{tikzpicture}
+  \end{center}\end{figure}
+
+Under these hypotheses Boltzmann showed that collision integral has the form 
+\[C_B(F)=\coll b(v-v_*,\omega)(F'F'_*-FF_*)\dv_*\dom\]
+with the standard notation
+\begin{align*}
+    F=F(t,x,v),\qquad &
+    F_*=F(t,x,v_*),\\
+    F'=F(t,x,v'),\qquad &
+    F'_*=F(t,x,v'_*).
+\end{align*}
+The function $b$ is called the collision kernel; it is a positive function depending only the relative velocity of two particles and the angle between these velocities. We will discuss the nature of this function in the presentation of  the models studied here.
+
+\subsection{Quantum case} % (fold)
+\label{sub:quantum_case}
+Boltzmann's kinetic theory can be applied to model the evolution of quantum particles. In this thesis, we shall exclusively deals with quantum particles following Fermi-Dirac statistics.
+
+Fermi-Dirac statistics was first presented in $1926$  in works by   Fermi and   Dirac (\cite{fermi1926quantelung,dirac1926Quantum}). It adds an additional hypothesis on the behaviour of particles: they obey the Pauli exclusion principle and therefore the velocities before and after the collision are no longer uncorrelated. However, at variance with the classical case, a similarly rigorous derivation of the Boltzmann equation is yet to be established. A phenomenological description implies that for the quantum case and under the Fermi-Dirac statistics the collision integral writes (cf., for example, \cite{Landau1968Course})
+\begin{equation}\label{eq:i:CF}
+	C (F)=\coll b(v-v_*,\omega)(F'F'_*(1-F)(1-F_*)-FF_*(1-F')(1-F'_*))\dv_*\dom.
+\end{equation}
+
+% subsection quantum_case (end)
+
+\subsubsection{Fermi-Dirac distributions} % (fold)
+\label{ssub:fermi_dirac_distributions}
+
+Fermi-Dirac distributions play an essential role in the kinetic theory for the Fermi-Dirac statistics. They are introduced as functions of the form (see \cite{reif2009fundamentals,Landau1968Course})
+\begin{equation}
+	\label{eq:i:fd}
+	F_{f,u,\theta}(t,x,v)=\frac{1}{1+\exp\left(\frac{|v-u(t,x)|^2}{2 \theta(t,x) }
+	-f(t,x)\right)},
+\end{equation}
+where $\theta$ is the temperature, $u$ the bulk velocity, and $\mu=f/\theta$ is the total chemical potential.  
+
+% \subsection{Moments and parameters of Fermi-Dirac distributions} % (fold)
+% \label{sub:moments_and_parameters_of_fermi_dirac_distributions}
+
+While it is useful to adopt the parametrization $(f,u,\theta)$ to study the analytical properties of Fermi-Dirac distributions, in order to study the hydrodynamic limits one needs the macroscopic observable quantities~--- in other words, the moments of the distribution~--- i.e. the quantities $\rho$ and $\mathcal E$ defined in \eqref{eq:i:rE}.
+ % In the Maxwellian case the relation between the parameters of the distribution and its moments is quite evident
+
+One of the key results in chapter \ref{cha:i} is the following theorem (see theorem \ref{th:existence:new}):
+
+\begin{theorem*}
+	There exists a diffeomorphism expressing the parameters $(f,u,\theta)$ of a Fermi-Dirac distribution $F_{f,u,\theta}$ in terms of its moments $\int_{\mrt} F\dv$, $\int_{\mrt} vF\dv$, and $\int_{\mrt} |v|^2F\dv$.
+\end{theorem*}
+
+% This theorem, essentially gives a positive answers in positive on the 
+ One of the major corollaries of this theorem is that we can parametrize Fermi-Dirac distributions by their associated moments.
+% subsubsection fermi_dirac_distributions (end)
+
+\subsubsection{Conservation laws} % (fold)
+\label{ssub:conservation_laws}
+Note the microscopic conservation properties of particle collisions render as  macroscopic quantities: mass, momentum, and energy. One can formally show by changing variables that for each measurable test function $g$ decaying fast enough at infinity, the operator $C$ defined in \eqref{eq:i:CF} satisfies
+	\begin{equation} \label{eq:i:C:change}
+	 	\int_{\mbrt}C(F)g(v)\dv =-\frac{1}{4}\coll \mathcal N (g'_*+g'-g-g_*) \dv\dv_*\dom,
+	 \end{equation}
+with 
+% w
+% for $\{g\}=g'_*+g'-g-g_*$ and
+\[\mathcal N =F'F'_*(1-F)(1-F_*) -F F_*(1-F')(1-F'_*) .\]
+% 
+This allows us, in particular, to conclude
+\[\int_{\mbrt}C(F)g(v)\dv=0\quad \mbox{ for }\quad g(v) = 1,\,v_1,\,v_2,\,v_3,\,|v|^2.\]
+% subsubsection conservation_laws (end)
+
+\subsubsection{Entropy production} % (fold)
+\label{ssub:entropy_production}
+The identity \eqref{eq:i:C:change} with $g=\ln\left(\frac{1-F}{F}\right)$ also leads to the following inequality:
+\[D(F)=  \int_{\mrt} C(F)\ln \left(\frac{1-F}{F}\right)\dv \ge 0.\]
+If we define the entropy functional as
+
+\[H(F) = \int_{\mrt\times \mrt} (F \ln F+ (1-F)\ln (1-F))\dx\dv,\]
+then the above inequality yields the relation
+\[\frac{d}{dt}H(F) = - \int_{\mrt} D(F)\dx\le 0.\]
+Moreover, the functional $D$ allows us to formulate a version of Boltzmann's H-theorem. Specifically, $D(F)=0$ whenever $F$ is a local Fermi-Dirac distribution, i.e. a local thermodynamic equilibrium. 
+
+% subsubsection entropy_production (end)
+
+% subsection the_boltzmann_equation (end)
+\subsection{Global Maxwellian functions} % (fold)
+\label{sub:global_maxwellian_functions}
+	As was mentioned earlier, in the theory of kinetic equations the Boltzmann equations plays an essential role. The collision operator in the classical case writes 
+\[C_B(F)=\coll b(v-v_*,\omega)(F'F'_*-FF_*)\dv_*\dom.\]
+The local thermodynamic equilibria are functions such that $C_B(F)=0$. In this case, they are local Maxwellian distributions, i.e. distribution functions of the form
+\begin{equation}
+	\label{eq:i:maxw}
+	%M_{\rho,u,\theta}(v) =
+	 \frac{\rho(t,x)}{(2\pi \theta(t,x))^{3/2}} \exp\left( -\frac{|v-u(t,x)|^2}{2 \theta(t,x)}\right),
+\end{equation}
+where $\rho$ is the local density, $u$ is the average velocity, and $\theta$ is the local temperature. 
+
+The global Maxwellian distribution functions, in addition to being local Maxwellian distribution functions, satisfy the free transport equation. It is easy to see that the function $e^{-|x-tv|^2}$ is a global Maxwellian function. One can prove that global Maxwellians of finite mass are the functions of the form (see \cite{CDL-GlM})
+
+\[\frac{m}{(2 \pi)^d} \sqrt{\det (Q)}\exp\left(-\frac{1}{2}q(t,x,v)\right),\]
+where
+\[q(t,x,v) = a|x-tv|^2+2b (x-tv)\cdot v+c|v|^2 + 2v\cdot B(x-tv)\times v,\]
+where $a>0$, $c>0$, $b\in\mro$, $B=-B^T\in M_d(\mro)$, and the matrix $Q=(ac-b^2)I+B^2$ is positive definite.
+
+
+% subsection global_maxwellian_functions (end)
+
+% section Kinetic_theory (end)
+
+% \section{Associated mathematical problems} % (fold)
+% \label{sec:associated_mathematical_problems}
+
+
+
+
+% subsection moments_and_parameters_of_fermi_dirac_distributions (end)
+
+
+% section associated_mathematical_problems (end)
+
+\section{General scope of the thesis} % (fold)
+\label{sec:general_scope_of_the_thesis}
+
+The goal of the first three chapters is to study the hydrodynamic limits of the Boltzmann equation for the Fermi-Dirac statistics. We obtain these macroscopic limits when the fluid is dense enough so that particles undergo many collisions per unit of time. As a parameter of the problem we use the Knudsen number $\Kn$. This dimensionless number represents the relation of the mean free path of a particle to the characteristic length to the flow. The case $\Kn\to +\infty$ corresponds to the vacuum; we are interested in the case $\Kn\to 0$, i.e. in the situation when the fluid becomes dense.
+
+The fourth chapter deals with in the Boltzmann equation linearised around a global Maxwellian function. The goal is to study the existence of its solutions, their behaviour for large time, and estimate these solutions. Moreover, we can introduce a scattering operator, \enquote{density evolution modulo free transport}, and  estimate its norm and spectral gap. 
+
+
+In order to simplify the notations, we will denote for a function $s(v)\in L^1 (\mbrt)$
+\[\langle s\rangle = \int_{\mbrt} s(v)\dv.\]
+
+
+% section general_scope_of_the_thesis (end)
+
+\section{The models considered} % (fold)
+\label{sec:studied_models}
+
+\subsection{Euler limit} % (fold)
+\label{sub:euler_limit}
+
+In the first chapter we place ourselves in the most abstract setting. We assume that the collision operator $C(F)$ satisfies the conservation laws:
+\[\langle C(F)\rangle=0, \quad \langle vC(F)\rangle=0, \quad \langle |v|^2C(F)\rangle=0,\]
+ that the entropy production rate is non-negative, i.e.
+\[\left \langle C(F)\ln \left(\frac{1-F}{F}\right)\right\rangle\ge0,\]
+and that the analog of Boltzmann's H-theorem holds:
+in other words, the following assertions are equivalent:
+\begin{itemize}
+	\item $F$ is a Fermi-Dirac distribution,
+	\item $C(F)=0$,
+	\item the entropy production rate is zero $\left \langle C(F)\ln \left(\frac{1-F}{F}\right)\right\rangle=0$.
+\end{itemize}
+
+First, we show that such an operator exists; indeed, the operator defined in \eqref{eq:i:CF} satisfies these conditions.
+
+
+Second, we suppose that the Knudsen number is of order $\ve$.  This yields the rescaled kinetic equation
+\begin{equation}\label{eq:i:resc:1}
+	\partial_t F_\ve+ v\cdot \nabla_x F_\ve=\frac{1}{\ve}C(F_\ve).
+\end{equation}
+
+Under formally consistent assumptions on the convergence of moments, entropy density, and entropy production rate of solutions $F_\ve $ of the scaled kinetic equation \eqref{eq:i:resc:1}, we obtain the following theorem (see theorem \ref{th:CEE} in the main body of this thesis):
+
+\begin{theorem*}
+	The limit $F=\lim_{\ve\to 0}F_\ve$ is a Fermi-Dirac distribution; moreover, there exists a parametrization $\vrho(t,x)$ of $F$ such that $\vrho$ satisfies a hyperbolic Euler-type system of conservation laws.
+\end{theorem*}
+% subsection euler_limit (end)
+
+\subsection{Compressible Navier-Stokes equations} % (fold)
+\label{sub:compressible_navier_stokes_equations}
+
+In the second chapter we pursue the investigations described in chapter \ref{cha:i}. We take the collision operator of the form \eqref{eq:i:CF}. This additional information allows us to obtain the Navier-Stokes equations as a correction of the previously obtained Euler equations via a Chapman-Enskog expansion.
+
+
+We consider the first Fréchet derivative of $C(F)$ at a Fermi-Dirac distribution $F$:
+
+\[L_F[g]=\frac{1}{F(1-F)}DC(F)\circ (F(1-F)g).\]
+This operator is naturally defined as a linear, potentially unbounded operator on the space $L^2(F(1-F)\dv)$. We will assume that this operator is self-adjoint, non-positive, and satisfies the Fredholm alternative. We provide sufficient conditions on the collision kernel $b$ ensuring the aforementioned properties of the operator $L_F$ (see theorems \ref{th:com:exa}, \ref{th:kerL}).
+
+\begin{theorem*}
+	If the collision kernel $b$ has the separate form \[b(v-v_*,\omega) = |v-v_*| \hat b\left(\frac{(v-v_*)\cdot \omega}{|v-v_*|}\right)\]
+	 and satisfies the weak cut-off condition 
+	 \[\hat b (\omega)\in L^1 (\mst) ,\]
+	 % and $\beta\in [0,1]$,
+	  then $L_F$ is self-adjoint, nonpositive, and satisfies the Fredholm alternative in the space $L^2(F(1-F)\dv)$. Moreover its nullspace is spanned by the functions $1$, $v_1$, $v_2$, $v_3$, and $|v|^2$.
+\end{theorem*}
+These properties of the operator $L_F$ together with   the Chapman-Enskog expansion allow us to establish the following result (theorem \ref{th:CSNE} of the main body):
+\begin{theorem*}
+	There exist a Navier-Stokes system with a specific form of viscosity and thermal diffusivity on the variables $(\rho_\ve, u_\ve, \theta_\ve)$ such that if the Fermi-Dirac distribution $F_\ve$ is parametrized by these variables, then, under formally consistent assumptions on the convergence, there exist functions $g_\ve$ and $w_\ve$ such that the function \[H_\ve = F_\ve+ \ve F_\ve(1-F_\ve)(g_\ve +\ve w_\ve)\] is an approximate solution of order two of the scaled kinetic equation
+\begin{equation*}
+	\partial_t F+ v\cdot \nabla_x F=\frac{1}{\ve}C(F).
+\end{equation*}
+
+\end{theorem*}
+
+
+% We show that , the solutions   of a carefully chosen  allows to build an approximate solution of the rescaled kinetic equation
+% subsection compressible_navier_stokes_equations (end)
+
+\subsection{Incompressible Navier-Stokes limit} % (fold)
+\label{sub:incompressible_navier_stokes_limit}
+
+In this chapter, we merge the viscous correction with low Mach number limit. We obtain incompressible Navier-Stokes equations governing an absolute Fermi-Dirac distribution $F$. We assume that the Knudsen number is of order $\ve^q$, the considered time compared to a typical time scale is of order $\ve$, and the distance to the Fermi-Dirac distribution $F$ is of order $\ve^r$. The scaled kinetic equation then becomes
+
+\begin{equation}\label{eq:i:inc}
+	\ve\partial_t F_\ve+ v\cdot \nabla_x F_\ve=\frac{1}{\ve^q}C(F_\ve)
+\end{equation}
+and we seek its solution in the form
+\[
+F_\ve=F+ \ve^r F (1-F ) g_\ve.
+\]
+Note that only the case $r=q=1$ is compatible with the usual incompressible Navier-Stokes equations.% We will parametrize the absolute Fermi-Dirac distribution $F$ both by its explicit parameters $(f,u,\theta)$ and by its implicit hydrodynamic parameters $(\rho,u,\mathcal E)$.
+
+The key result of this chapter is the following theorem (theorem \ref{th:INSE}):
+\begin{theorem*}
+	Under the formally consistent assumptions on the convergence of the function $g_\ve$ and its moments as $\ve\to 0$, the limiting relative number density fluctuation $g=\lim _{\ve\to 0} g_\ve$ has the form
+	\[g(t,x,v)=\rho(t,x)+ u(t,x)\cdot v +\theta(t,x)  \left(\frac{|v|^2}{2}-K_g \right),\]
+	where $K_g$ is an appropriate constant, where the velocity field $u$ is divergence-free
+	\[\nabla_x\cdot u=0,\]
+	and where the density and temperature fluctuations satisfy the Boussinesq relation
+	\[\nabla_x(\rho+\theta)=0.\]
+
+Moreover, following different possible values of $r\ge 1$ and $q\ge 1$, the variables $\rho$, $u$, and $\theta$ are weak solutions of fluid dynamic equations and we can write these equations explicitly. For example, in the case $r=q=1$ these equations are
+
+\begin{equation*} \partial_t u+   (u\cdot \nabla_x) u  
+ +\nabla_x p
+=\frac{\mu_*}{E_2}\Delta u,  \end{equation*}
+\begin{equation*} 
+\partial_t \theta +  u\cdot \nabla_x\theta= \frac{k_*}{C_A}\Delta\theta,
+\end{equation*}
+for positive constants $\mu_*$, $k_*$, $E_2$, and $C_A$ defined in section \ref{section:INSE} of chapter \ref{cha:iii}.
+\end{theorem*}
+
+
+% subsection incompressible_navier_stokes_limit (end)
+\subsection{Solutions of the Boltzmann equation linearised about a~global Maxwellian} % (fold)
+\label{sub:global_solutions_of_the_linearized_boltzmann_equation}
+In chapter \ref{cha:iv} we consider the Boltzmann equation linearised about a global Maxwellian function $M$:
+\begin{equation}
+	\partial_t g(t,x,v)+v\cdot \nabla_x g(t,x,v)=L_t[g](t,x,v),
+	\label{eq:i:linear}
+\end{equation}
+where the operator $L_t$ writes
+\begin{equation}
+	\label{eq:i:Lt}
+	L_t[g](t,x,v) = \col M_* b(v-v_*,\omega)(g'+g'_*-g-g_*)\dv_*\dom.
+\end{equation}
+There are two competing mechanisms in the density evolution for this equation: on the one hand, the dissipation increases entropy and therefore the solution relaxes to a thermodynamic equilibrium state; on the other hand, dispersion rarefies the collisions between particles and hence diminishes the effect of dissipation. The particular choice of the function $M$ allows us to find a balance between these two mechanisms.
+% \subsubsection{Functional spaces} % (fold)
+% \label{ssub:functional_spaces}
+Given that the linearized collision operator $L_t$ is naturally defined on the Hilbert space $\glXt=L^2(M(t,x,v)\dx\dv)$, and taking into account that this operator is non-positive, it is logical to seek solutions of the linearized Boltzmann equation \eqref{eq:i:linear} in the space $\glY = L^{\infty}(\mro,\glXt)$.
+% subsubsection functional_spaces (end)
+
+We provide the sufficient conditions such that the following statements hold:
+% \subsubsection{Key results} % (fold)
+% \label{ssub:key_results}
+\begin{theorem*}
+	The operator $L_t$ is a linear bounded operator on the space $\glXt$ and the integral of its norm is finite:
+	\begin{equation}
+		\label{eq:i:mu}
+		\mu = \int_{\mro} \|L_t\|\dt<+\infty.
+	\end{equation}
+\end{theorem*}
+\noindent See theorem \ref{le:L:cont} in the main body for more details.
+\begin{theorem*}
+	If $\mu<1$, then for all $g^{in}\in \glXo$ there exists a unique mild solution $g(t,x,v)$ of the equation \eqref{eq:i:linear} such that $g(0,x,v)=g^{in}(x,v)$. Moreover, there exist unique functions $\gmi\in\glXo$ and $\gpi\in\glXo$ such that \begin{equation*}
+		\lim_{t\to\pm \infty} \|g(t,x+tv,v)-g^{\pm \infty}(x,v)\|_{\glXo}=0.
+	\end{equation*}
+\end{theorem*}
+
+These results are shown in theorems \ref{th:exists} and \ref{th:limits}. Moreover, we also establish the following result (see theorem~\ref{th:exists:boundary} in the main body):
+
+\begin{theorem*}
+	If $\mu<1$, then 
+
+	\begin{itemize}
+	\item 
+		for all $\gpi\in\glXo$ there exists a unique mild solution $g(t,x,v)\in \glY$ of the equation \eqref{eq:i:linear} such that \[\lim_{t\to+ \infty} \|g(t,x+tv,v)-\gpi(x,v)\|_{\glXo} =0, \]
+		\item 
+		for all $\gmi\in\glXo$ there exists a unique mild solution $g(t,x,v)\in \glY$ of the equation \eqref{eq:i:linear} such that \[\lim_{t\to- \infty} \|g(t,x+tv,v)-\gmi(x,v)\|_{\glXo} =0. \]
+	\end{itemize}
+\end{theorem*}
+The above results allow us to define the scattering operator $\Sc$ acting on $\glXo$ as \enquote{evolution of the density factored by free transport}. More formally, if $\gmi \in \glXo$, then the above theorem give the existence of a function $g\in \glY$ such that $\lim_{t\to - \infty}g=\gmi$ and $g$ is a mild solution of the equation \eqref{eq:i:linear}. Then for this function $g$ we obtain a limit $\gpi$ as $t\to +\infty$ and then put $\Sc [\gmi]=\gpi$. The key property of this scattering operator is the following theorem (see theorem \ref{th:sc:2})
+
+
+
+\begin{theorem*} If $\mu<1$ and if the function $g_{0}\in \glXo$ satisfies the identities
+\[\begin{aligned}
+	\int_{\mrd} g_0 M\dx\dv =0,&\quad\int_{\mrd}v g_0 M\dx\dv =0,\quad\int_{\mrd} xg_0 M\dx\dv =0,\\
+	\int_{\mrd} |v|^2g_0 M\dx\dv =0,&\quad\int_{\mrd} |x|^2g_0 M\dx\dv =0,\quad\int_{\mrd} (x\cdot v)g_0 M\dx\dv =0,\\
+&\int_{\mrd} (x\times v)g_0 M\dx\dv=0,
+\end{aligned}\]
+then
+\[0\le \|g_0\|^2_{\glXo}-\|\Sc[g_0]\|^2_{\glXo}\le \|g_0\|^2_{\mathcal H},\]
+where $\mathcal H = L^2(\nu(v)M(0,x,v)\dx\dv) $ for a known function $\nu$ vanishing at infinity.
+\end{theorem*}
+It is important to notice that under the condition of finite $\mu$ one can not avoid the function weight $\mu$ in the definition of the space $\mathcal H$, because the operator $L_t$ does not have a spectral gap.
+
+
+In \cite{Golse2015Dispersion}, Golse considers the question on comparability of two entities: on the one side, the difference $H(f)-H(\Sc [f])$, where $\Sc$ is the scattering operator for nonlinear Boltzmann equation and $H$ is the associated H-function for this equation, and $H(f)-H(M_f(0))$, where $M_f$ is a global Maxwellian function admitting the same moments as the function $f$. It was shown that
+\[0\le H(f)-H(\Sc[f])\le H(f)-H(M_f(0)).\]
+The question is whether one can obtain an inequality of the form 
+\[c(H(f)-H(M_f(0)))^\alpha\le H(f)-H(\Sc[f]) \]
+for some constants $\alpha>0$ and $c>0$, which is analogous to the Cercignani's conjecture on entropy production in the context of the Boltzmann equation over $\mrd$ in the scattering regime (see, for example, \cite{Villani2008Entropy}).
+
+Our result can be viewed as a negative answer to the same question but for the linearized Boltzmann equation.
+
+On the other hand, this implies that thanks to the particular choice of the global Maxwellian function $M$ the solutions of the equation \eqref{eq:i:linear} are not relaxing to a thermodynamic equilibrium.
+% subsubsection key_results (end)
+
+% subsection global_solutions_of_the_linearized_boltzmann_equation (end)
+% section studied_models (end)
+
+\section{List of the works constituting this thesis} % (fold)
+\label{sec:list_of_the_works_constituting_this_thesis}
+The chapters of this thesis are based on the following works:
+\begin{itemize}
+	\item Chapter \ref{cha:i}: article \cite{Zakrevskiy2015Euler}, published in \textit{Asymptotic Analysis}.
+	\item Chapter \ref{cha:ii}: article \cite{Zakrevskiy2015NavierStokes}, submitted to \textit{Kinetic and Related Models}.
+	\item Chapter \ref{cha:iii}: article \cite{Zakrevskiy2015Incompressible}, submitted to \begin{otherlanguage}{french}
+		\textit{Bulletin des Sciences Mathématiques}
+	\end{otherlanguage}
+	\item Chapter \ref{cha:iv}: article \cite{Zakrevskiy2015Global}, in preparation.
+\end{itemize}
+% section list_of_the_works_constituting_this_thesis (end)
+  
+% \section{Perspective} % (fold)
+% \label{sec:perspective}
+
+% % section perspective (end)
+
+\renewcommand{\theequation}{\thechapter.\thesection.\arabic{equation}}
+
+% \printbibliography[heading=subbibliography]
