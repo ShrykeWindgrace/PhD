@@ -559,7 +559,7 @@ The following theorem describes the main result of this chapter:
 		\begin{equation}\label{eq:key}
 			\begin{aligned}
 					 \|& \gmi ,\glXo\|^2-\|\Sc[\gmi],\glXo\|^2 
-					 \\ \ge C \int_{\mbo}&\left\|g,L^2\left(M(t,x,v)\rho^{1-\frac{\beta}{2d}}(t,x)\theta^{\frac{d}{2}-\frac{3 \beta}{4}}	(t)(1+|v|^2)^{\beta/2}\dx\dv \right)\right\|^2\dt
+					 \\ \ge C \int_{\mbo}&\left\|g,L^2\left(M(t,x,v)\rho^{1-\frac{\beta}{2d}}(t,x)\theta^{\frac{d}{2}+\frac{ \beta}{4}}	(t)(1+|v|^2)^{\beta/2}\dx\dv \right)\right\|^2\dt
 				\end{aligned}
 		\end{equation}	
 		with $\rho(t,x)$, $u(t,x)$ and $\theta(t)$ defined in \eqref{eq:locals}.
@@ -619,47 +619,56 @@ therefore
 If $\beta=0$, then the last inequality immediately gives \eqref{eq:key}; if $\beta<0$, an extra step is required:
 
 \begin{proposition}\label{pr:lower}
-	If $\beta<0$, then there exists an explicit constant $c>0$ such that
+	If $\beta<0$, then there exists an explicit constant $c>0$ such that $\forall x\in\mbrt$ and $\forall t\in \mbo$
 	\[\begin{split}
-		\forall x\in\mbrt,\,\forall t\in \mbo\quad\theta^{3 \beta/2}(t)\exp\left(\frac{-\beta}{2d} \theta(t) x^TQx\right)\left(1+\frac{|v-u|^2}{2 \theta(t)}\right)^{\beta/2}\\\ge c\left(  1+ |v|^2 \right)^{\beta/2}.
+		\quad\theta^{\beta/2}(t)\exp\left(\frac{-\beta}{2d} \theta(t) (x-x_0-tv_0)^TQ(x-x_0-tv_0)\right)\left(1+\frac{|v-u|^2}{2 \theta(t)}\right)^{\beta/2}\\\ge c\left(  1+ |v|^2 \right)^{\beta/2}.
 	\end{split}\]
 \end{proposition}
 \begin{proof}
 	Since $\beta<0$, it is sufficient to prove that
-	\[\sup_{x\in\mbrt,\, t\in \mbo}\theta^{3}(t)\exp\left(-\frac{1}{d} \theta(t) x^TQx\right)\left(1+\frac{|v-u|^2}{2 \theta(t)}\right)\le c (1  +|v|^2)   .\]
+	\[\begin{split}
+		\sup_{x\in\mbrt,\, t\in \mbo}\theta(t)\exp\left(-\frac{1}{d} \theta(t) (x-x_0-tv_0)^TQ(x-x_0-tv_0)\right)\left(1+\frac{|v-u|^2}{2 \theta(t)}\right)\\\le c (1  +|v|^2)   .
+	\end{split}\]
+	Recall the expression \eqref{eq:locals} of $u$:
+	\[u(t,x) = \theta(t)\left((at-b)I-B\right)(x-x_0-tv_0)+v_0.\]
+	By making a change of variables $y= \sqrt{\theta(t)}(x-x_0-tv_0)$ we can reduce our problem to proving that 
+	\[\begin{split}
+		\sup_{y\in\mbrt,\, t\in \mbo}\exp\left(-\frac{1}{d}  y^TQy\right)\left(\theta(t)+\frac{|v-u_1|^2}{2 }\right)\\\le c (1  +|v|^2)
+	\end{split}\]
+	with $u_1 = \sqrt{\theta(t)}\left((at-b)I-B\right)y+v_0$.
 First, we can say that
 \[
-	\sup_{x\in\mbrt,\,t\in \mbo}\theta(t)=\sup_{t}\theta(t)=\sup_{t}\frac{1}{at^2-2bt+c}=\frac{a}{ac-b^2}=l_1>0
+	\sup_{y\in\mbrt,\,t\in \mbo}\theta(t)=\sup_{t\in\mbo}\theta(t)=\sup_{t\in\mbo}\frac{1}{at^2-2bt+c}=\frac{a}{ac-b^2}=l_1>0
 \]
 and that
 \[
-	\sup_{x\in\mbrt,\,t\in \mbo}\exp\left(-\frac{1}{d} \theta (t )x^TQx\right)=1.
+	\sup_{y\in\mbrt,\,t\in \mbo}\exp\left(-\frac{1}{d} y^TQy\right)=1.
 \]
 	Second, we can write an estimate \[
-	\theta(t)+\frac{|v-u|^2}{2}\le \theta(t)+|v|^2+|u|^2,
+	\theta(t)+\frac{|v-u_1|^2}{2}\le \theta(t)+|v|^2+|u_1|^2,
 \]
 which allows us to say that
 \begin{equation}
-	\sup_{x\in\mbrt,\,t\in \mbo}\theta^2(t) \exp\left(-\frac{1}{d} \theta(t) x^TQx\right)(\theta(t)+|v|^2)\le l_1^3+l_1^2|v|^2.
+	\sup_{y\in\mbrt,\,t\in \mbo} \exp\left(-\frac{1}{d}  y^TQy\right)(\theta(t)+|v|^2)\le l_1+ |v|^2.
 %
 	\label{eq:sup:v}
 \end{equation}
-%\[
-%	\]
 On the other hand, 
 \[
-	|u|^2 = |(at-b)x-Bx|^2\le \|(at-b)I-B\|^2|x|^2=\left\|\frac{(at-b)I-B}{\sqrt{at^2-2bt+c}}\right\|^2\frac{|x|^2}{\theta}.
+	\begin{split}
+		|u_1|^2 = \left| \sqrt{\theta(t)}((at-b)I-B)y+v_0\right|^2\le 2 \theta(t)\|(at-b)I-B\|^2|y|^2+2|v_0|^2\\=2\left\|\frac{(at-b)I-B}{\sqrt{at^2-2bt+c}}\right\|^2|y|^2+2|v_0|^2.
+	\end{split}
 \]
 Clearly, $0<\sup_{t \in\mbo}\left\|\frac{(at-b)I-B}{\sqrt{at^2-2bt+c}}\right\|=l_2<+\infty $, hence
 \[
-	|u|^2\le l_2^2\frac{|x|^2}{\theta(t)}.
+	|u_1|^2\le 2l_2^2 |y|^2  +2|v_0|^2.
 \]
 Since $Q$ is a positive definite matrix, we can, by denoting $\lambda_{min}(Q)>0$ the smallest eigenvalue of $Q$, write $x^TQx\ge \lambda_{min}(Q)|x|^2$. Together with the inequality \[\sup_{r\ge0}\big(r\exp(-r)\big)=\frac{1}{e}\] this allows us to estimate
 \[
-	\theta^2(t)\exp\left(-\frac{1}{d} \theta(t) x^TQx\right)|u|^2\le l_2^2\theta(t)|x|^2 \exp\left(-\frac{1}{d} \theta (t)x^TQx\right)
+\exp\left(-\frac{1}{d} \theta(t) y^TQy\right)|u_1|^2\le 2(l_2^2 |y|^2+|v_0|^2) \exp\left(-\frac{1}{d} y^TQy\right)
 \]
 \[
-	\le l_2^2\theta(t)|x|^2 \exp\left(-\frac{\lambda_{min}(Q)}{d} \theta (t)|x|^2\right)\le l_2^2\frac{d}{e\lambda_{min}(Q)}.
+	\le 2|v_0|^2 +2l_2^2|y|^2 \exp\left(-\frac{\lambda_{min}(Q)}{d} |y|^2\right)\le 2|v_0|^2 +2l_2^2\frac{d}{e\lambda_{min}(Q)}.
 \]
 The last inequality together with \eqref{eq:sup:v} and the relation for any constants $c_i>0$
 
@@ -667,10 +676,11 @@ The last inequality together with \eqref{eq:sup:v} and the relation for any cons
 are sufficient conclude the proof.
 \end{proof}
 Now we can rewrite the inequality \eqref{eq:prekey} with the help of definition of $\rho(t,x)$ and Proposition \ref{pr:lower} (we put all multiplicative constants in $C$) :
-\[CM \rho \theta^{\frac{\beta+d}{2}}\left(1+\frac{|v-u|^2}{2 \theta}\right)^{\beta/2}\]\[\begin{split}
-	=CM \theta^{d/2- \beta} \theta^{\frac{d}{2}\left(1-\frac{\beta}{2d}\right)} \theta^{\beta/4}\exp\left(-\left(1-\frac{\beta}{2d}\right)\theta x^TQx\right)\\\times\theta^{3 \beta/2} (t)\exp\left(-\frac{\beta}{2d}\theta x^TQx\right) \left(1+\frac{|v-u|^2}{2 \theta}\right)^{\beta/2}
+\[CM \rho \theta^{\frac{\beta+d}{2}}\left(1+\frac{|v-u|^2}{2 \theta}\right)^{\beta/2}\]
+\[\begin{split}
+	=CM \theta^{d/2} \theta^{\frac{d}{2}\left(1-\frac{\beta}{2d}\right)} \theta^{\beta/4}\exp\left(-\left(1-\frac{\beta}{2d}\right)\theta x^TQx\right)\\\times\theta^{\beta/2} (t)\exp\left(-\frac{\beta}{2d}\theta x^TQx\right) \left(1+\frac{|v-u|^2}{2 \theta}\right)^{\beta/2}
 \end{split}\]
-\[\ge C M \theta^{\frac{2d-3 \beta}{4}}\rho^{1-\frac{\beta}{2d}}(1+|v|^2)^{\beta/2}.\]
+\[\ge C M \theta^{\frac{2d+ \beta}{4}}\rho^{1-\frac{\beta}{2d}}(1+|v|^2)^{\beta/2}.\]
 The above inequality allows us to obtain the relation \eqref{eq:key} and the theorem is proven.
 \end{proof}
 
