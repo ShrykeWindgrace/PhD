@@ -24,25 +24,10 @@ where for $\omega \in\mathbb S^2$ \[v' = v- (v-v_\ast,\omega)\omega,\quad v'_\as
 \[F'=F(t,x,v'), \quad F_\ast=F(t,x,v_\ast),\quad F_\ast'=F(t,x,v_\ast')\]
 and $b=b(|v-v_\ast|,|(\omega,v-v_\ast)|)$ is the collision kernel. 
 
-% \textbf{BEGIN OF REWRITE BLOCK}
-
-
-% We base the connection between kinetic and macroscopic dynamics on the following two properties of the collision operator:
-
-% \begin{enumerate}[(a)]
-% \item \label{item:conserv-d} conservation properties and entropy relations
-% implying that the equilibria are Fermi-Dirac (i.e. of the form
-% $1/(1+\exp(c_1+c_2|v-u|^2)$) distributions;
-% \item \label{item:derivative-d} the derivative of $C(F)$ satisfies the Fredholm alternative with a nullspace related to the conservation properties of $C$.
-% \end{enumerate}
-% We obtain the macroscopic limits when the fluid is dense enough that particles undergo many collisions per unit of time. In order to describe this situation, we will consider the case where the Knudsen number goes to zero; this dimensionless number is the ratio of the mean free path of particles between collisions to some characteristic length of the flow.
-
-% \textbf{END OF REWRITE BLOCK}
-
 This chapter extends the results obtained in chapters \ref{cha:i} and \ref{cha:ii} by establishing the limiting form of the fluid dynamic equations in the incompressible case. This regime requires stronger assumptions than \ref{cha:ii}. Form the other point of view, this work extends the results obtained in \cite{Bardos1991Fluid} for the Fermi-Dirac statistics.
 
-In a compressible fluid one can introduce the Mach number $M\!a$, which is the ratio  of the bulk velocity to the speed of sound, and the Reynolds number $Re$, which is a ratio of inertial forces to the viscous forces and can be written as $Re = \frac{\mathbf vL}{\nu}$, where $\mathbf v$ is the bulk velocity, $L$ is the characteristic linear dimension, and $\nu$ is the dynamic viscosity of the fluid. The Mach and Reynolds numbers are related to the Knudsen number $K\!n$ by the von K\'arm\'an relation (see \cite{karman1923gastheoretische}): \begin{equation}K\!n=\frac{M\!a}{Re}.\end{equation}
-Clearly, in order to obtain a fluid dynamic limit with finite Reynolds number as $Kn$ tends to zero, the Mach number must vanish. This fact was already observed in \cite{Sone1969As}. The only such hydrodynamic limits are, therefore,  incompressible limits. The derivation of the incompressible Navier-Stokes equations is done in section \ref{section:INSE} (see theorem \ref{th:INSE}). We assume only  a formally consistent convergence for the fluid dynamical moments.% and entropy of the solutions of the kinetic equation \eqref{eq:scaled}.
+In a compressible fluid one can introduce the Mach number $M\!a$, which is the ratio  of the bulk velocity to the speed of sound, and the Reynolds number $Re$, which is a ratio of inertial forces to the viscous forces and can be written as $Re = \frac{\mathbf vL}{\nu}$, where $\mathbf v$ is the bulk velocity, $L$ is the characteristic linear dimension, and $\nu$ is the dynamic viscosity of the fluid. The Mach and Reynolds numbers are related to the Knudsen number $\Kn$ by the von K\'arm\'an relation (see \cite{karman1923gastheoretische}): \begin{equation}\Kn=\frac{M\!a}{Re}.\end{equation}
+Clearly, in order to obtain a fluid dynamic limit with finite Reynolds number as $\Kn$ tends to zero, the Mach number must vanish. This fact was already observed in \cite{Sone1969As}. The only such hydrodynamic limits are, therefore,  incompressible limits. The derivation of the incompressible Navier-Stokes equations is done in section \ref{section:INSE} (see theorem \ref{th:INSE}). We assume only  a formally consistent convergence for the fluid dynamical moments.% and entropy of the solutions of the kinetic equation \eqref{eq:scaled}.
 
 
 %-------------------------------section "Incompressible case"
@@ -159,11 +144,6 @@ and\[\{\phi\}=\phi'_\ast+\phi'-\phi_\ast-\phi.\]
 Note that $FF_\ast(1-F')(1-F'_\ast)=F'F'_\ast(1-F)(1-F_\ast)$ if and only if $F$ is a Fermi-Dirac distribution.
 
 We also recall the following result, established in chapter \ref{cha:ii}:
-% \textbf{BEGIN OF REWRITE BLOCK}
-
-% We will suppose that the operator $L$ is self-adjoint and satisfies the Fredholm alternative.
-
-% The following properties  were established in chapter \ref{cha:ii}:
 \begin{theorem*}  \begin{itemize}
 \item 
   The linearised collision operator $L$ defined in \eqref{eq:L:form} self-ad\-joint, non-positive, and its nullspace is $\ker L = \mbox{span}\{1,v_1,v_2,v_3,|v|^2\}$. 
@@ -172,33 +152,6 @@ Denoting \[V=\frac{v-u}{\sqrt\theta}, \quad A(V)=\left(\frac{|V|^2}{2}-\frac52  
 where $\rho$ and $\mathcal E$ are given by \eqref{eq:rho} and \eqref{eq:E}, then $A_i$ and
 $B_{i,j}$   are orthogonal to $\ker L$ in $L^2(F(1-F) \dv)$.\end{itemize}
 \end{theorem*}
-%  \begin{theorem*}\label{th:com:exa-d}
-% \begin{itemize}
-% \item In the hard sphere case $b(\omega, v-v_\ast) =    \left(\omega\cdot\frac{v-v_\ast}{|v-v_\ast|}\right)|v-v_\ast|$ the linearized collision operator $L$ given by \eqref{eq:L:form} satisfies the Fredholm alternative in $L^2( F(v)(1-F(v))\dv)$. 
-% \item If the collision kernel $b$ satisfies the properties
-
-% \begin{equation}\label {eq:b:cond}
-%  b(\omega, v-v_\ast) = \hat b\left(\omega\cdot\frac{v-v_\ast}{|v-v_\ast|}\right)|v-v_\ast|^\gamma,\quad \hat b\in L^1(
-%  \dom ),\quad \gamma>-3,	
-% \end{equation}
-%  then the linearized collision operator
-%  $L$ satisfies the Fredholm alternative in 
-% 	$L^p( a^F(v)F(v)(1-F(v))\dv)$, where $a^F$ is given by
-% 	\[a^F(v) = \col b (\omega,v-v_\ast )\frac{F_\ast(1-F')(1-F'_\ast )}{1-F} \dv_\ast  \dom.\]
-% \end{itemize}
-
-% \end{theorem*}
-
-% Obviously, the general case with arbitrary $\theta>0$ and $u\in\mrt$ can be reduced to the above case by rescaling the variable $v$. 
-
-%  \begin{theorem*}\label{le:invertform:main-d}
-% For each $i,j=1,2,3$, there exists a unique $A'_i,B'_{ij} \in L^2(F(1-F)\dv)$, such that \[L[A'_i]=A_i,\quad L[B'_{ij}]=B_{ij}\mbox{ and}\quad   A'_i\in(\ker L)^\bot , \quad B'_{ij}\in (\ker L)^\bot .\]
-% Moreover, these functions have the form
-% \[A'(V)= -\alpha_L(\rho,\mathcal E,|V|)A(V),\quad B'(V)= -\beta_L(\rho,\mathcal E,|V|)B(V)\]
-% for some positive functions $\alpha_L$ and $\beta_L$.
-% \end{theorem*}
-
-% \textbf{END OF REWRITE BLOCK}
 
 With the notation $\langle s\rangle_k = \int_\mrt s(v)k(v)\dv$ for all functions $s\in L^1(k(v)\dv)$ and $\langle s\rangle = \int_\mrt s(v) \dv$ for $s\in L^1(\dv)$, we introduce the following constants:
 \[E_0=\langle1\rangle_{F(1-F)},\quad E_2=\langle |v_1|^2\rangle_{F(1-F)},\]\[
