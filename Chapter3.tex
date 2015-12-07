@@ -160,9 +160,9 @@ With the notation $\langle s\rangle_k = \int_\mrt s(v)k(v)\dv$ for all functions
 \[C_A=  \left\langle   \left(\frac{|v|^2}{2}-K_A\right)^2 v_1^2
 \right\rangle_{F(1-F)(1-2F)},\]
 \[k_\ast=\left\langle \alpha_L(\rho_0,\mathcal E_0,|v|) \left( \frac{|v|^2}{2}-K_A\right)^2v_1^2  
-\right\rangle_{F(1-F)},\]
+\right\rangle_{F(1-F)},\quad k =\frac{k_*}{C_A},\]
 \[\mu_\ast=\langle \beta_L(\rho_0,\mathcal E_0,|v|) v_1^2v_2^2
-\rangle_{F(1-F)}.\]
+\rangle_{F(1-F)},\quad \mu=\frac{\mu_*}{E_2}.\]
 We also recall  that $K_A=\frac 52\frac{\mathcal E}{\rho\theta}$ and is defined by the condition $A_1\bot V_1$ in $L^2(F(1-F)\dv)$ (see theorem \ref{th:ortho}). In our case $\mu=1$, $\theta=1$, we denote the corresponding density and energy by $\rho_0$, $\mathcal E_0$, so $K_A=\frac 52\frac{\mathcal E_0}{\rho_0}$.
 \begin{theorem}\label{th:INSE}
  Let $F_\ep(t,x,v)$ be a sequence of non-negative solutions of the scaled
@@ -205,23 +205,23 @@ equations
 
 \begin{itemize}
  \item $r=1$, $q=1$
-\begin{equation} E_2\partial_t u+ E_{2} (u\cdot \nabla_x) u  
+\begin{equation}  \partial_t u+   (u\cdot \nabla_x) u  
  +\nabla_x p
-=\mu_\ast\Delta u,  \label{eq:incU11}\end{equation}
+=\mu \Delta u,  \label{eq:incU11}\end{equation}
 \begin{equation} 
-C_A\partial_t \theta + C_A u\cdot \nabla_x\theta= k_\ast\Delta\theta,
+ \partial_t \theta +   u\cdot \nabla_x\theta= k \Delta\theta,
  \label{eq:incTH11}\end{equation}
 \item $r>1$, $q=1$
-\begin{equation}E_2\partial_t   u+\nabla_x p= \mu_\ast\Delta u,\label{eq:incU21}\end{equation}
+\begin{equation} \partial_t   u+\nabla_x p=  \Delta u,\label{eq:incU21}\end{equation}
 \begin{equation}
-\left( K_AE_0 -\frac{3}{2}  E_2 \right)K_A\partial_t \theta  = k_\ast\Delta\theta, \label{eq:incTH21}\end{equation}
+\partial_t \theta  = k \Delta\theta, \label{eq:incTH21}\end{equation}
 
-\item $ r=1$, $q>1$ \begin{equation}E_2\partial_t u+ {E_{2}} (u\cdot \nabla_x) u +\nabla_x p= 0,\label{eq:incU12}\end{equation}
+\item $ r=1$, $q>1$ \begin{equation} \partial_t u+   (u\cdot \nabla_x) u +\nabla_x p= 0,\label{eq:incU12}\end{equation}
 \begin{equation} 
  \partial_t \theta +  u\cdot \nabla_x\theta=0,\label{eq:incTH12}
 \end{equation}
 \item $r>1$, $q>1$ \begin{equation}
-E_2\partial_t u+\nabla_x p= 0,\label{eq:incU22} \end{equation}
+ \partial_t u+\nabla_x p= 0,\label{eq:incU22} \end{equation}
 \begin{equation}
 \partial_t \theta = 0.\label{eq:incTH22}
  \end{equation} 
@@ -574,11 +574,13 @@ $\theta$ in the above expression % \eqref{eq:B-end}
 Applying Lemma  \ref{lemma:4-322} and Proposition \ref{pr:tilde}, this expression can be simplified to
 \[-2 E_{2}B(u).\]
 Applying the divergence operator together with the incompressibility condition $\nabla_x \cdot u=0$ gives the terms $(u\cdot\nabla_x)u$ in
- \eqref{eq:incU11}, \eqref{eq:incU12}.
+ \eqref{eq:incU11} and \eqref{eq:incU12}.
+
+ Finally, we divide the equation on $u$ by $E_2$, the equation on $\theta$ by $C_A$ and incorporate these divisors in the pressure term and in the coefficients $k$ and $\mu$ to obtain the final equations of this theorem.
 \end{proof}
 
-\textbf{Remark.} As all constants in the expressions (\ref{eq:incU11}--\ref{eq:incTH22}) are positive, the type of equations is exactly the same as in classical case.
- Moreover, the rescaling of variables  allows us to eliminate several of constant factors in these equations.
+% \textbf{Remark.} As all constants in the expressions (\ref{eq:incU11}--\ref{eq:incTH22}) are positive, the type of equations is exactly the same as in classical case.
+%  Moreover, the rescaling of variables  allows us to eliminate several of constant factors in these equations.
 
 \begin{subappendices}
 \renewcommand{\thesection}{\Alph{section}}
