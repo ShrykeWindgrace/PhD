@@ -442,6 +442,7 @@
 	},
 	"file_history":
 	[
+		"/C/Users/Timofey/Dropbox/Paris 12/2015-2016/Algebra/LaTeX/CC5/fifth.tex",
 		"/C/Users/Timofey/Dropbox/LaTeX/Work/TH/preamble.tex",
 		"/C/Users/Timofey/Dropbox/LaTeX/Work/TH/Chapter3.tex",
 		"/C/Users/Timofey/Dropbox/LaTeX/Work/TH/Chapter1.tex",
@@ -568,8 +569,7 @@
 		"/C/Users/Timofey/AppData/Roaming/Sublime Text 3/Packages/User/LaTeXing.sublime-settings",
 		"/C/Users/Timofey/AppData/Roaming/Sublime Text 3/Packages/LaTeXing/LaTeXing.sublime-settings",
 		"/C/Users/TZ/Dropbox/LaTeX/Fun/mathbb.tex",
-		"/C/Users/TZ/Dropbox/LaTeX/Work/Autumn/Autumn.sublime-project",
-		"/C/Users/TZ/Dropbox/LaTeX/Work/Autumn/autumn.tex"
+		"/C/Users/TZ/Dropbox/LaTeX/Work/Autumn/Autumn.sublime-project"
 	],
 	"find":
 	{
@@ -909,8 +909,8 @@
 						"selection":
 						[
 							[
-								476,
-								476
+								472,
+								472
 							]
 						],
 						"settings":
@@ -1005,7 +1005,6 @@
 						],
 						"settings":
 						{
-							"WordCountShouldRun": true,
 							"WordCountSyntax": "latex",
 							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage"
 						},
