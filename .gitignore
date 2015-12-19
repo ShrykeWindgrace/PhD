@@ -137,3 +137,5 @@ test*.*
 Thesis*.pdf
 lower.tex
 Titlepage.sublime*
+
+summaryFORM*.txt

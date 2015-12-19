@@ -212,6 +212,23 @@
 			}
 		},
 		{
+			"file": "Summary.tex",
+			"settings":
+			{
+				"buffer_size": 4321,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "summaryFORM-EN",
+			"settings":
+			{
+				"buffer_size": 3534,
+				"line_ending": "Windows",
+				"name": "This thesis concentrates on two principal question"
+			}
+		},
+		{
 			"file": "Chapter4.tex",
 			"settings":
 			{
@@ -746,7 +763,7 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -768,6 +785,7 @@
 						],
 						"settings":
 						{
+							"WordCountShouldRun": true,
 							"WordCountSyntax": "latex",
 							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage"
 						},
@@ -775,7 +793,7 @@
 						"translation.y": 2654.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -804,7 +822,7 @@
 						"translation.y": 391.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
@@ -833,7 +851,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
@@ -862,7 +880,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
@@ -893,7 +911,7 @@
 						"translation.y": 3886.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
@@ -924,11 +942,72 @@
 						"translation.y": 510.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
 					"buffer": 6,
+					"file": "Summary.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4321,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								4321
+							]
+						],
+						"settings":
+						{
+							"WordCountShouldRun": true,
+							"WordCountSyntax": "latex",
+							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "summaryFORM-EN",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3534,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1487,
+								1487
+							]
+						],
+						"settings":
+						{
+							"WordCountShouldRun": true,
+							"WordCountSyntax": "plain text",
+							"auto_name": "This thesis concentrates on two principal question",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1691.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
 					"file": "Chapter4.tex",
 					"semi_transient": false,
 					"settings":
@@ -954,11 +1033,11 @@
 						"translation.y": 12521.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 9,
 					"file": "Introduction.tex",
 					"semi_transient": false,
 					"settings":
@@ -983,11 +1062,11 @@
 						"translation.y": 26126.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 10,
 					"file": "Chapter3.tex",
 					"semi_transient": false,
 					"settings":
@@ -1012,7 +1091,7 @@
 						"translation.y": 59161.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 4,
 					"type": "text"
 				}
 			]
