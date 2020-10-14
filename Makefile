@@ -16,3 +16,6 @@ build: #
 
 
 buildCI: setup packages build
+
+install:
+	cp Main.pdf ${out}
